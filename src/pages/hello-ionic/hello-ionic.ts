@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'page-hello-ionic',
@@ -79,7 +78,7 @@ export class HelloIonicPage {
 				sessionStorage.setItem("lastName", this.lastName);				
 				sessionStorage.setItem("isLogin", "true");
 				
-				this.productProvider.setLoginCredential(this.username, this.password);
+				//this.productProvider.setLoginCredential(this.username, this.password);
 				
 				let toast = this.toastCtrl.create(
 				{
