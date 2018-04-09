@@ -5,11 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>My Profile</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -24,24 +25,48 @@
 	</div>
 	
 	<ion-card>
-		<ion-card-header>
-			Profile Details
-		</ion-card-header>
-		
 		<ion-item>
 			<b>Name:</b>
-			{{customer.fullName}}
+			Kay Tan
+			<!--{{customer.fullName}}-->
 		</ion-item>
 		
 		<ion-item>
 			<b>Date of Birth:</b>
-			<ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="customerDob"></ion-datetime>
+			December 31, 1990
+			<!--{{customer.dateOfBirth}}-->
+		</ion-item>
+		
+		<ion-item>
+			<b>Email:</b>
+			user@gmail.com
+			<!--{{customer.email}}-->
+		</ion-item>
+		
+		<ion-item>
+			<b>Gender:</b>
+			Female
+			<!--{{customer.gender}}-->
+		</ion-item>
+		
+		<ion-item>
+			<b>Mobile:</b>
+			88888888
+			<!--{{customer.mobile}}-->
 		</ion-item>
 
 		<ion-list>
 			<button ion-item>
 			<ion-icon name="happy" item-start></ion-icon>
 				Edit My Profile
+			</button>
+			<button ion-item>
+			<ion-icon name="pin" item-start></ion-icon>
+				View My Address Book
+			</button>
+			<button ion-item>
+			<ion-icon name="pricetags" item-start></ion-icon>
+				View My Orders
 			</button>
 		</ion-list>
 	</ion-card>

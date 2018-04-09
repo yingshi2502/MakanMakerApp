@@ -1,5 +1,16 @@
 import { Component } from '@angular/core';
+import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
+
 import { NavController, NavParams } from 'ionic-angular';
+
+import { CustomerProvider } from '../../providers/customer/customer';
+
+import { Customer } from '../../entities/customer'
+// import { Address } from '../../entities/address'
+// import { Order } from '../../entities/order'
+
 
 /**
  * Generated class for the MyProfilePage page.
@@ -25,7 +36,7 @@ export class MyProfilePage {
 				public actionSheetCtrl: ActionSheetController,
 				public alertCtrl: AlertController,
 				public toastCtrl: ToastController,
-				public productProvider: ProductProvider) {
+				public customerProvider: CustomerProvider) {
 	}
 
 	ionViewDidLoad() {
@@ -34,7 +45,7 @@ export class MyProfilePage {
   
 	ionViewWillEnter()
 	{
-		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
+/* 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customer = response.customerEntity;
 				this.customerDob = this.customer.dateOfBirth;
@@ -44,6 +55,10 @@ export class MyProfilePage {
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 			}
 		);
+ */		
+		error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+		}
 	}
 
 }

@@ -11,7 +11,7 @@ export class Customer
 	email: string;
 	fullName: string;
 	gender: string;
-	mobile: number;
+	mobile: string;
 	orderHistory: [Order];
 	// transactions: [Transaction];
 	// wishlist: [MealKit];

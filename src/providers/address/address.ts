@@ -1,40 +1,42 @@
-import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Platform } from 'ionic-angular';
 
-import { Customer } from '../../entities/customer'
+import { Address } from '../../entities/address'
 
 /*
-  Generated class for the CustomerProvider provider.
+  Generated class for the AddressProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
-export class CustomerProvider {
-	
+export class AddressProvider {
+
 	ipAddress = '192.168.137.1';
 	portNo = '8080';
 	// double check if customer is with capital letter or not
-	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/';
+	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/address';
 	
-	baseUrl = "/api/Customer";
+	baseUrl = "/api/Address";
 	
 	username = "";
 	password = "";
 	loginCredential = "";
-
+	
+	
 	constructor(public platform: Platform,
 				private httpClient: HttpClient) {
-		console.log('Hello CustomerProvider Provider');
+		console.log('Hello AddressProvider Provider');
 	}
 	
 	setLoginCredential(username: string, password: string)
@@ -43,9 +45,9 @@ export class CustomerProvider {
 		this.password = password;
 		this.loginCredential = "?username=" + username + "&password=" + password;
 	}
-	
-	// add login credentials later
-	getCustomerByCustomerId(customerId: number): Observable<any> 
+  
+  // add login credentials later
+	/* getAddressByAddressId(addressId: number): Observable<any>
 	{
 		let path: string = '';
 		
@@ -58,12 +60,12 @@ export class CustomerProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "/Customer/" + customerId).pipe
+		return this.httpClient.get<any>(path + "/retrieveById/" + addressId).pipe
 		(
 			catchError(this.handleError)
 		);
 	}
-	
+  
 	private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 
@@ -77,4 +79,6 @@ export class CustomerProvider {
 		
 		return new ErrorObservable(error);
 	}
+	*/
+
 }
