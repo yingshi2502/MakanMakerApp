@@ -4,8 +4,12 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
+<<<<<<< HEAD
 import { PaymentPage } from '../pages/payment/payment';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
+=======
+import { MyProfilePage } from '../pages/my-profile/my-profile';
+>>>>>>> 99cbc7ea43a78e8abb1fc582f8f0effef3fbc957
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +37,11 @@ export class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
+<<<<<<< HEAD
 	  { title: 'My Shopping Cart', component: ShoppingCartPage }
+=======
+	  { title: 'My Profile', component: MyProfilePage }
+>>>>>>> 99cbc7ea43a78e8abb1fc582f8f0effef3fbc957
     ];
   }
 
