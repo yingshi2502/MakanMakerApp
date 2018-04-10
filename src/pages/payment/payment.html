@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Payment</ion-title>
   </ion-navbar>
 
@@ -14,5 +17,10 @@
 
 
 <ion-content padding>
-
+	<form class="list">
+		<ion-radio>Credit Card</ion-radio>
+		<ion-radio>Net banking</ion-radio>
+		<ion-radio>COD</ion-radio>
+	</form>
+	<button class="button button-calm button-block ">PAY</button>
 </ion-content>
