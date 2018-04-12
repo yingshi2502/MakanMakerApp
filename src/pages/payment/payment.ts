@@ -13,12 +13,26 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'payment.html',
 })
 export class PaymentPage {
-
+ paymentMethods = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+	this.paymentMethods = [
+	{ 'name': 'PayPal',
+	  'icon': 'pricetag'
+	},
+	{'name': 'Credit Card',
+	  'icon': 'card'
+	},
+	{'name': 'Cash on Delivery',
+	  'icon': 'cash'
+	}
+	]
+	}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
+  }
+  openNavDetailsPage(paymentMethod) {
+    this.nav.push(PaymentDetailsPage, { paymentMethod: paymentMethod });
   }
 
 }

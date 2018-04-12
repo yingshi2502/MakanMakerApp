@@ -11,8 +11,8 @@ import { ListPage } from '../pages/list/list';
 import { PaymentPage } from '../pages/payment/payment';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
-import { PaySelectAddressPage } from '../pages/pay-select-address/pay-select-address';
-import { PaySelectSchedulePage } from '../pages/pay-select-schedule/pay-select-schedule';
+import { SelectAddressPage } from '../pages/select-address/select-address';
+import { SelectSchedulePage } from '../pages/select-schedule/select-schedule';
 import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-kits';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,13 +29,10 @@ import { AddressProvider } from '../providers/address/address';
 	PaymentPage,
 	ShoppingCartPage,
 	MyProfilePage,
-<<<<<<< HEAD
-	PaySelectAddressPage,
-	PaySelectSchedulePage
-=======
+	SelectAddressPage,
+	SelectSchedulePage,
 	ViewAllMealKitsPage
 
->>>>>>> a674a3ed8c3118d201436b10e8557c2f8a0fb522
   ],
   imports: [
     BrowserModule,
@@ -49,18 +46,15 @@ import { AddressProvider } from '../providers/address/address';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-<<<<<<< HEAD
 	ShoppingCartPage,
 	PaymentPage,
 	MyProfilePage,
-	PaySelectAddressPage,
-	PaySelectSchedulePage
-=======
+	SelectAddressPage,
+	SelectSchedulePage,
 	PaymentPage,
 	ShoppingCartPage,
 	MyProfilePage,
 	ViewAllMealKitsPage
->>>>>>> a674a3ed8c3118d201436b10e8557c2f8a0fb522
   ],
   providers: [
     StatusBar,

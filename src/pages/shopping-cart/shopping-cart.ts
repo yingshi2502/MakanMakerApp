@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { PaySelectAddressPage } from '../pages/pay-select-address/pay-select-address';
+import { SelectAddressPage } from '../select-address/select-address';
 
 /**
  * Generated class for the ShoppingCartPage page.
@@ -35,7 +35,7 @@ export class ShoppingCartPage {
 	}
   
   pay(event){
-	  this.navCtrl.push(PaySelectAddressPage, {fromPage: 'ShoppingCartPage'});
+	  this.navCtrl.push(SelectAddressPage, {fromPage: 'ShoppingCartPage'});
   }
 
 }

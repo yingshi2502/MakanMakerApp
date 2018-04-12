@@ -7,8 +7,8 @@ import { ListPage } from '../pages/list/list';
 import { PaymentPage } from '../pages/payment/payment';
 import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
-//import { PaySelectAddressPage } from '../pages/pay-select-address/pay-select-address';
-//import { PaySelectSchedulePage } from '../pages/pay-select-schedule/pay-select-schedule';
+import { SelectAddressPage } from '../pages/select-address/select-address';
+import { SelectSchedulePage } from '../pages/select-schedule/select-schedule';
 
 import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-kits';
 
@@ -38,14 +38,9 @@ export class MyApp {
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
-<<<<<<< HEAD
-	  { title: 'My Profile', component: MyProfilePage }
-=======
-	  { title: 'My Shopping Cart', component: ShoppingCartPage },
 	  { title: 'My Profile', component: MyProfilePage },
 	  { title: 'View All MealKits', component: ViewAllMealKitsPage }
-	  
->>>>>>> a674a3ed8c3118d201436b10e8557c2f8a0fb522
+
     ];
   }
 

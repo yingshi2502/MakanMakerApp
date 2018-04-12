@@ -17,10 +17,14 @@
 
 
 <ion-content padding>
-	<form class="list">
-		<ion-radio>Credit Card</ion-radio>
-		<ion-radio>Net banking</ion-radio>
-		<ion-radio>COD</ion-radio>
-	</form>
+	<!--<ion-item>
+	<item-label>Order Summary</item-label>
+	</ion-item>-->
+	<ion-list>
+    <button ion-item *ngFor="let paymentMethod of paymentMethods" (click)="openNavDetailsPage(paymentMethod)" icon-start>
+      <ion-icon [name]="paymentMethod.icon" item-start></ion-icon>
+	  {{ paymentMethod.name }}
+	</button>
+	 </ion-list>
 	<button class="button button-calm button-block ">PAY</button>
 </ion-content>

@@ -20,6 +20,8 @@
 	<!---<ion-list>-->
 		<ion-item>	
 			<ion-label>Meal Kit 1</ion-label>
+			<ion-label>Price: $10</ion-label>
+			<!---(tap)="GoToRecipeDetails(item);" tappable-->
 			<!---<ion-checkbox color="dark" checked="true"></ion-checkbox>-->
 			<ion-thumbnail item-start>
 				<img float:right width="50%" src="../../assets/imgs/mealKit1.jpg"/>
@@ -34,7 +36,44 @@
 			<button (click)="delete()"  item-right>
 			<ion-icon name="trash"></ion-icon>
 			</button>
-			
+		</ion-item>
+		<ion-item>	
+			<ion-label>Meal Kit 2</ion-label>
+			<ion-label>Price: $12</ion-label>
+			<!---(tap)="GoToRecipeDetails(item);" tappable-->
+			<!---<ion-checkbox color="dark" checked="true"></ion-checkbox>-->
+			<ion-thumbnail item-start>
+				<img float:right width="50%" src="../../assets/imgs/mealKit2.jpg"/>
+			</ion-thumbnail>
+			<button (click)="decrement()" item-right>
+			<ion-icon name="remove-circle" ></ion-icon>
+			</button>
+			<ion-label item-right>{{quantity}}</ion-label>
+			<button (click)="increment()" item-right>
+			<ion-icon name="add-circle"></ion-icon>
+			</button>
+			<button (click)="delete()"  item-right>
+			<ion-icon name="trash"></ion-icon>
+			</button>
+		</ion-item>
+		<ion-item>	
+			<ion-label>Meal Kit 3</ion-label>
+			<ion-label>Price: $15</ion-label>
+			<!---(tap)="GoToRecipeDetails(item);" tappable-->
+			<!---<ion-checkbox color="dark" checked="true"></ion-checkbox>-->
+			<ion-thumbnail item-start>
+				<img float:right width="50%" src="../../assets/imgs/mealKit3.jpg"/>
+			</ion-thumbnail>
+			<button (click)="decrement()" item-right>
+			<ion-icon name="remove-circle" ></ion-icon>
+			</button>
+			<ion-label item-right>{{quantity}}</ion-label>
+			<button (click)="increment()" item-right>
+			<ion-icon name="add-circle"></ion-icon>
+			</button>
+			<button (click)="delete()"  item-right>
+			<ion-icon name="trash"></ion-icon>
+			</button>
 		</ion-item>
 	<!---</ion-list>-->
 	<button ion-button round (click)="pay($event)">Pay now</button>
