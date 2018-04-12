@@ -11,6 +11,8 @@ import { Customer } from '../../entities/customer'
 // import { Address } from '../../entities/address'
 // import { Order } from '../../entities/order'
 
+import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
+
 
 /**
  * Generated class for the MyProfilePage page.
@@ -60,5 +62,8 @@ export class MyProfilePage {
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 		}
 	}
+	shoppingCart(event){
+	  this.navCtrl.push(ShoppingCartPage, {fromPage: 'MyProfilePage'});
+  }
 
 }

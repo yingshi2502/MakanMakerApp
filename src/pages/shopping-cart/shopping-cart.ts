@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { PaymentPage } from '../payment/payment';
+import { PaySelectAddressPage } from '../pages/pay-select-address/pay-select-address';
 
 /**
  * Generated class for the ShoppingCartPage page.
@@ -14,7 +14,7 @@ import { PaymentPage } from '../payment/payment';
   templateUrl: 'shopping-cart.html',
 })
 export class ShoppingCartPage {
-	private currentNumber = 0;
+	private quantity = 1;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -23,15 +23,19 @@ export class ShoppingCartPage {
   }
   
 	public increment () {
-	  this.currentNumber++;
+	  this.quantity++;
 	}
 
 	public decrement () {
-	  this.currentNumber--;
+	  this.quantity--;
+	}
+	
+	public delete (){
+		console.log('deleted');
 	}
   
   pay(event){
-	  this.navCtrl.push(PaymentPage, {fromPage: 'ShoppingCartPage'});
+	  this.navCtrl.push(PaySelectAddressPage, {fromPage: 'ShoppingCartPage'});
   }
 
 }

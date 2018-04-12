@@ -20,14 +20,20 @@
 	<!---<ion-list>-->
 		<ion-item>	
 			<ion-label>Meal Kit 1</ion-label>
-			<ion-checkbox color="dark" checked="true"></ion-checkbox>
+			<!---<ion-checkbox color="dark" checked="true"></ion-checkbox>-->
 			<ion-thumbnail item-start>
 				<img float:right width="50%" src="../../assets/imgs/mealKit1.jpg"/>
 			</ion-thumbnail>
-			<ion-icon name="remove-circle" (click)="decrement()" item-right></ion-icon>
-			<p>{{currentNumber}}</p>
-			<ion-icon name="add-circle" (click)="increment()" item-right></ion-icon>
-			<ion-icon name="trash" item-right></ion-icon>
+			<button (click)="decrement()" item-right>
+			<ion-icon name="remove-circle" ></ion-icon>
+			</button>
+			<ion-label item-right>{{quantity}}</ion-label>
+			<button (click)="increment()" item-right>
+			<ion-icon name="add-circle"></ion-icon>
+			</button>
+			<button (click)="delete()"  item-right>
+			<ion-icon name="trash"></ion-icon>
+			</button>
 			
 		</ion-item>
 	<!---</ion-list>-->
