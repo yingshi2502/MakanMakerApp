@@ -32,7 +32,7 @@ export class PaymentPage {
     console.log('ionViewDidLoad PaymentPage');
   }
   openNavDetailsPage(paymentMethod) {
-    this.nav.push(PaymentDetailsPage, { paymentMethod: paymentMethod });
+    //this.nav.push(PaymentDetailsPage, { paymentMethod: paymentMethod });
   }
 
 }

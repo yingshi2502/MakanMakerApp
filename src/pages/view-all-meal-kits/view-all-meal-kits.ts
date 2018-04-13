@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the ViewAllMealKitsPage page.
@@ -17,8 +18,11 @@ export class ViewAllMealKitsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewAllMealKitsPage');
   }
 
 }
+
+

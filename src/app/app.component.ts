@@ -11,6 +11,9 @@ import { SelectAddressPage } from '../pages/select-address/select-address';
 import { SelectSchedulePage } from '../pages/select-schedule/select-schedule';
 
 import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-kits';
+import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal-kit-details';
+import { CategoriesPage } from '../pages/categories/categories';
+import { WishListPage } from '../pages/wish-list/wish-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -39,7 +42,10 @@ export class MyApp {
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
 	  { title: 'My Profile', component: MyProfilePage },
-	  { title: 'View All MealKits', component: ViewAllMealKitsPage }
+	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
+	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'Wish List', component: WishListPage },
+	  { title: 'View MealKit Details - FOR REFERENCE', component: ViewMealKitDetailsPage }
 
     ];
   }

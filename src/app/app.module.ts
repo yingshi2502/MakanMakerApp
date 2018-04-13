@@ -14,6 +14,9 @@ import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { SelectAddressPage } from '../pages/select-address/select-address';
 import { SelectSchedulePage } from '../pages/select-schedule/select-schedule';
 import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-kits';
+import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal-kit-details';
+import { CategoriesPage } from '../pages/categories/categories';
+import { WishListPage } from '../pages/wish-list/wish-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,7 +34,10 @@ import { AddressProvider } from '../providers/address/address';
 	MyProfilePage,
 	SelectAddressPage,
 	SelectSchedulePage,
-	ViewAllMealKitsPage
+	ViewAllMealKitsPage,
+	ViewMealKitDetailsPage,
+	CategoriesPage,
+	WishListPage
 
   ],
   imports: [
@@ -54,7 +60,10 @@ import { AddressProvider } from '../providers/address/address';
 	PaymentPage,
 	ShoppingCartPage,
 	MyProfilePage,
-	ViewAllMealKitsPage
+	ViewAllMealKitsPage,
+	ViewMealKitDetailsPage,
+	CategoriesPage,
+	WishListPage
   ],
   providers: [
     StatusBar,

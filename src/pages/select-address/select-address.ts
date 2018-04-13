@@ -25,9 +25,9 @@ export class SelectAddressPage {
 	];
 
   addressSelected(address: string) {
-	var isChecked = e.currentTarget.checked;
+	//var isChecked = e.currentTarget.checked;
     console.log("Selected Address", address);
-	console.log(this.checked);//it is working !!!
+	//console.log(this.checked);//it is working !!!
   }
 
   ionViewDidLoad() {
