@@ -84,10 +84,10 @@ export class ProfileDetailsPage {
 	
 	clear()
 	{
-		errorMessage = "";
-		infoMessage = "";
+		this.errorMessage = "";
+		this.infoMessage = "";
 	
-		submitted = false;
+		this.submitted = false;
 	}
 	
 	saveProfile(editCustomerForm: NgForm) 

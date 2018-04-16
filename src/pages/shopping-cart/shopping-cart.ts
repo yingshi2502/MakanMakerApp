@@ -67,6 +67,7 @@ export class ShoppingCartPage {
   
   pay(event){
 	  this.navCtrl.push(SelectAddressPage, {fromPage: 'ShoppingCartPage'});
+	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working
   }
 
 }

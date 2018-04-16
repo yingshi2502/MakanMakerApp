@@ -16,6 +16,8 @@ import { Address } from '../../entities/address'
 })
 export class SelectAddressPage {
 	addresses=[];
+	//public log;
+	selectedAddress;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 	  this.addresses=[
 	  {
@@ -33,20 +35,24 @@ export class SelectAddressPage {
 		  streetAddress:"1 UTown",
 		  postalCode:"122231"
 	  }
-	  ]
+	  ];
+	  this.selectedAddress=this.addresses[0];
   }
 	
 
-  addressSelected(address: string) {
-	//var isChecked = e.currentTarget.checked;
-    console.log("Selected Address", address);
-	//console.log(this.checked);//it is working !!!
+  select(index) {
+    this.selectedAddress=this.addresses[index];
+	console.log("selected postalCode"+this.selectedAddress.postalCode);
   }
+  
+  /*select(address){
+	  this.log="selected"+address.streetAddress;
+  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectAddressPage');
   }
 	selectPayment(event){
-	  this.navCtrl.push(PaymentPage, {fromPage: 'SelectSchedulePage'});
+	  this.navCtrl.push(PaymentPage, {fromPage: 'SelectPaymentPage'});
   }
 }
