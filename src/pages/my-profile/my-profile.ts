@@ -12,6 +12,7 @@ import { Customer } from '../../entities/customer'
 // import { Order } from '../../entities/order'
 
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
+import { ProfileDetailsPage } from '../profile-details/profile-details';
 
 
 /**
@@ -43,27 +44,35 @@ export class MyProfilePage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad MyProfilePage');
+		this.customerId = 1;
 	}
   
 	ionViewWillEnter()
 	{
-/* 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
+
+		this.customerId = 1;
+/*
+ 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customer = response.customerEntity;
 				this.customerDob = this.customer.dateOfBirth;
 				this.infoMessage = "Customer profile loaded successfully";								
 			},
 			error => {				
-				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am here";
 			}
-		);
- */		
+		);		
 		error => {				
-				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am there";
 		}
+*/
 	}
+	
 	shoppingCart(event){
 	  this.navCtrl.push(ShoppingCartPage, {fromPage: 'MyProfilePage'});
-  }
-
+	}
+	editProfile(event) {
+		this.navCtrl.push(ProfileDetailsPage, {fromPage: 'MyProfilePage'});
+/*		this.navCtrl.push(ProfileDetailsPage, {'customerToUpdateId': this.customer.customerId}); */
+	}
 }

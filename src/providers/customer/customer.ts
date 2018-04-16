@@ -23,7 +23,6 @@ export class CustomerProvider {
 	
 	ipAddress = '192.168.137.1';
 	portNo = '8080';
-	// double check if customer is with capital letter or not
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/';
 	
 	baseUrl = "/api/Customer";
@@ -58,9 +57,9 @@ export class CustomerProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "/Customer/" + customerId).pipe
+		return this.httpClient.get<any>(path + "customer/" + customerId).pipe
 		(
-			catchError(this.handleError)
+			catchError(this.handleError) 
 		);
 	}
 	
