@@ -21,10 +21,30 @@
 	<item-label>Order Summary</item-label>
 	</ion-item>-->
 	<ion-list>
-    <button ion-item *ngFor="let paymentMethod of paymentMethods" (click)="openNavDetailsPage(paymentMethod)" icon-start>
+    <button ion-item *ngFor="let paymentMethod of paymentMethods; let i=index" (click)="onButtonClick(i)" icon-start>
       <ion-icon [name]="paymentMethod.icon" item-start></ion-icon>
 	  {{ paymentMethod.name }}
 	</button>
+	<form *ngIf="ppButtonsClicked">
+		<ion-item>
+			<ion-label>Paypal</ion-label>
+			<ion-label>You will be redirected to Paypal to complete payment</ion-label>
+		</ion-item>
+		<button ion-button (click)="doAlert()">Confirm</button>
+	</form>
+	<ion-input *ngIf="ccbuttonsClicked" type="text" value="">Credit card</ion-input>
+	<form *ngIf="ccButtonsClicked">
+		<ion-item>
+			<ion-label>Credit Card</ion-label>
+		</ion-item>
+		<button ion-button (click)="doAlert()">Confirm</button>
+	</form>
+	<form *ngIf="codButtonsClicked">
+		<ion-item>
+			<ion-label>Cash on Delivery</ion-label>
+		</ion-item>
+		<button ion-button (click)="doAlert()">Confirm</button>
+	</form>
 	 </ion-list>
 	<button ion-button round (click)="selectSchedule($event)">Select Delivery Schedule</button>
 </ion-content>

@@ -61,7 +61,7 @@ export class ShoppingCartPage {
 	}*/
 	
 	public delete (index){
-		//let index = $scope.mealKits.indexOf(mealKit);
+		
 		this.mealKits.splice(index, 1);
 	}
   
