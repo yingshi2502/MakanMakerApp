@@ -1,0 +1,79 @@
+<!--
+  Generated template for the ProfileDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Edit My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<!--	<div *ngIf="customerToUpdate != null"> -->
+	<div>
+		<form #editCustomerForm="ngForm" (ngSubmit)="saveProfile(editCustomerForm)" >
+
+			<div *ngIf="errorMessage" class="errorText">
+				{{errorMessage}}
+			</div>
+		
+			<div *ngIf="infoMessage" class="infoText">
+				{{infoMessage}}
+			</div>
+			<ion-list>
+				<ion-item>
+					<ion-label>Username</ion-label>
+					<ion-input type="text" placeholder="Kay Tan" id="username" name="username" required="true"></ion-input>
+					<!--<ion-input type="text" placeholder="{{customerToUpdate.username}}" id="username" name="username" [(ngModel)]="customerToUpdate.username" required="true" #username="ngModel"></ion-input>-->
+				</ion-item>
+			
+				<ion-item>
+					<ion-label>Date of Birth</ion-label>
+					<ion-input type="text" placeholder="December 31, 1990" id="dob" name="dob"  required="true"></ion-input>
+					<!--<ion-input type="text" placeholder="{{customerToUpdate.dateOfBirth}}" id="dob" name="dob" [(ngModel)]="customerToUpdate.dateOfBirth" required="true" #dob="ngModel"></ion-input>-->
+					<!--{{customer.dateOfBirth}}-->
+				</ion-item>
+			
+				<ion-item>
+					<ion-label>Email:</ion-label>
+					<ion-input type="text" placeholder="user@gmail.com" id="email" name="email"  required="true"></ion-input>
+				</ion-item>
+			
+				<ion-list radio-group>
+					<ion-list-header>
+						Gender
+					</ion-list-header>
+
+					<ion-item>
+						<ion-label>Female</ion-label>
+						<ion-radio checked="true" value="female"></ion-radio>
+					</ion-item>
+					<ion-item>
+						<ion-label>Male</ion-label>
+						<ion-radio value="male"></ion-radio>
+					</ion-item>
+				</ion-list>
+		
+				<ion-item>
+					<ion-label>Number:</ion-label>
+					<ion-input type="text" placeholder="88888888"></ion-input>
+					<!--<ion-input type="text" placeholder="{{customerToUpdate.mobile}}" id="dob" name="dob" [(ngModel)]="customerToUpdate.dateOfBirth" required="true" #dob="ngModel"></ion-input>-->
+					<!--{{customer.dateOfBirth}}-->
+					<!--{{customer.email}}-->
+				</ion-item>
+			</ion-list>
+
+			<ion-item>
+				<button type="submit" ion-button block>
+					Submit Changes
+				</button>
+			</ion-item>
+		</form>
+	</div>
+</ion-content>

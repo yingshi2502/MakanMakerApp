@@ -17,6 +17,7 @@ import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-k
 import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal-kit-details';
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
+import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,7 +38,8 @@ import { AddressProvider } from '../providers/address/address';
 	ViewAllMealKitsPage,
 	ViewMealKitDetailsPage,
 	CategoriesPage,
-	WishListPage
+	WishListPage,
+	ProfileDetailsPage
 
   ],
   imports: [
@@ -63,7 +65,8 @@ import { AddressProvider } from '../providers/address/address';
 	ViewAllMealKitsPage,
 	ViewMealKitDetailsPage,
 	CategoriesPage,
-	WishListPage
+	WishListPage,
+	ProfileDetailsPage
   ],
   providers: [
     StatusBar,
