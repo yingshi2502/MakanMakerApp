@@ -1,18 +1,22 @@
-import { Address } from './address'
-import { Order } from './order'
+//import { Address } from './address'
+//import { Order } from './order'
+//import { MealKit } from './mealKit'
+//import { Transaction } from './transaction'
+//import { ShoppingCart } from './shoppingCart'
 
 export class Customer
 {
 	customerId: number;
 	username: string;
-	password: string;
-	dateOfBirth: Date;
-	addresses: [Address];
-	email: string;
 	fullName: string;
-	gender: string;
 	mobile: string;
-	orderHistory: [Order];
-	// transactions: [Transaction];
-	// wishlist: [MealKit];
+	email: string;
+	password: string;
+	//orderHistory: Order[];
+	//addresses: Address[];
+	//wishlist: MealKit[];
+	dateOfBirth: Date;
+	gender: number;//0:male, 1:female
+	// transactions: Transaction[];
+	//shoppingCart: ShoppingCart;
 }

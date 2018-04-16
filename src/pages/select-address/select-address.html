@@ -16,7 +16,12 @@
 <ion-content padding>
 <form (submit)="addressSelected">
 	<ion-list radio-group>
-	    <ion-item>
+		<ion-item *ngFor="let address of addresses; let i = index" icon-start>
+			<ion-label>{{address.streetAddress}}</ion-label>
+			<ion-label>{{address.postalCode}}</ion-label>
+			<ion-radio ></ion-radio>
+		</ion-item>
+	    <!--<ion-item>
 			<ion-label>Siglap</ion-label>
 			<ion-radio checked></ion-radio>
 		  </ion-item>
@@ -27,8 +32,8 @@
 		  <ion-item>
 			<ion-label>UTown</ion-label>
 			<ion-radio ></ion-radio>
-		  </ion-item>
+		  </ion-item>-->
 	</ion-list>
 </form>
-	<button ion-button round (click)="selectSchedule($event)">Select Delivery Schedule</button>
+	<button ion-button round (click)="selectPayment($event)">Select Payment Method</button>
 </ion-content>

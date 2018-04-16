@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SelectSchedulePage } from '../select-schedule/select-schedule';
 
 /**
  * Generated class for the PaymentPage page.
@@ -31,8 +32,8 @@ export class PaymentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
   }
-  openNavDetailsPage(paymentMethod) {
-    //this.nav.push(PaymentDetailsPage, { paymentMethod: paymentMethod });
+  selectSchedule(event){
+	  this.navCtrl.push(SelectSchedulePage, {fromPage: 'SelectAddressPage'});
   }
 
 }

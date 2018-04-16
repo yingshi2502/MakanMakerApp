@@ -1,15 +1,19 @@
-import { Order } from './order'
+//import { Customer } from './customer'
+//import { Order } from './order'
 
 export class Address
 {
 	addressId: number;
-	floorUnit: string;
-	fullName: string;
-	isDefaultBilling: boolean;
-	isDefaultShipping: boolean;
-	isDeleted: boolean;
-	orders: [Order]
-	phoneNumber: string;
 	postalCode: string;
 	streetAddress: string;
+	floorUnit: string;
+	isDefaultBilling: boolean;
+	isDefaultShipping: boolean;
+	phoneNumber: string;
+	fullName: string;
+	isDeleted: boolean;
+	//customer: Customer;
+	shippingFee: number;
+	//orders: Order[];
+
 }
