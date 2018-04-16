@@ -90,7 +90,7 @@ export class ProfileDetailsPage {
 		this.submitted = false;
 	}
 	
-	saveProfile(editCustomerForm: NgForm) 
+/*	saveProfile(editCustomerForm: NgForm) 
 	{
 		this.submitted = true;
 		
@@ -105,11 +105,11 @@ export class ProfileDetailsPage {
 					this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 				}
 			);
-*/
+
 		}
 		else
 		{			
 		}
-	}
+	}*/
 
 }

@@ -23,6 +23,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CustomerProvider } from '../providers/customer/customer';
 import { AddressProvider } from '../providers/address/address';
+import { MealKitProvider } from '../providers/meal-kit/meal-kit';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { AddressProvider } from '../providers/address/address';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CustomerProvider,
-    AddressProvider
+    AddressProvider,
+    MealKitProvider
   ]
 })
 export class AppModule {}
