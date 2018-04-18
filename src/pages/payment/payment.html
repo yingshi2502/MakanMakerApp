@@ -20,6 +20,9 @@
 	<!--<ion-item>
 	<item-label>Order Summary</item-label>
 	</ion-item>-->
+	<ion-item>
+		<ion-label>Price: ${{totalPrice}}</ion-label>
+	</ion-item>
 	<ion-list text-wrap>
     <button ion-item *ngFor="let paymentMethod of paymentMethods; let i=index" (click)="onButtonClick(i)" icon-start>
       <ion-icon [name]="paymentMethod.icon" item-start></ion-icon>
@@ -59,5 +62,5 @@
 		<button ion-button (click)="doAlert()">Confirm</button>
 	</form>
 	 </ion-list>
-	<button ion-button round (click)="selectSchedule($event)">Select Delivery Schedule</button>
+	<button ion-button round (click)="selectSchedule($event)" [disabled]="!isEnabled">Select Delivery Schedule</button>
 </ion-content>

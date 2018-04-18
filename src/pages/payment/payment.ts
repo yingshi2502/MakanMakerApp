@@ -22,6 +22,8 @@ export class PaymentPage {
  public ccButtonsClicked: boolean = false;
  public codButtonsClicked: boolean = false;
  mealKits=[];
+ totalPrice=0;
+ isEnabled=false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 	  this.mealKits = navParams.get('param1');
 	this.paymentMethods = [
@@ -35,6 +37,9 @@ export class PaymentPage {
 	  'icon': 'cash'
 	}
 	]
+	for (let mealKit of this.mealKits){
+			this.totalPrice+=mealKit.price*mealKit.quantity;
+		}
 	}
 
   ionViewDidLoad() {
@@ -74,6 +79,7 @@ export class PaymentPage {
 		  title: 'Your order has been confirmed.',
 		  buttons: ['Ok']
 		});
+		this.isEnabled=true;
 		
 		alert.present();
 	  }

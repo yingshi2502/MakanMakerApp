@@ -15,11 +15,11 @@
 
 <ion-content padding>
 <ion-list text-wrap>
-	<ion-item *ngFor="let mealKit of mealKits; let i = index" icon-start>	
-		<ion-label>{{mealKit.name}}</ion-label>
-		<ion-label>Qty:{{mealKit.quantity}}</ion-label>
-		<ion-label>Start Date</ion-label>
-        <ion-datetime displayFormat="hh A DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>
+	<ion-item *ngFor="let order of orders; let i = index" icon-start>	
+		<ion-label>{{order.mealKit.name}}</ion-label>
+		<ion-label>Qty:{{order.mealKit.quantity}}</ion-label>
+		<ion-label>Delivery Date</ion-label>
+        <ion-datetime displayFormat="hh A DD MMM YYYY" [(ngModel)]="order.deliveryDate"></ion-datetime>
 	</ion-item>
 	<!--<ion-item>	
 		<ion-label>Meal Kit 1</ion-label>
@@ -29,6 +29,6 @@
 	</ion-item>-->
 </ion-list>
 <button ion-button (click)="doAlert()">Confirm</button>
-<button ion-button round (click)="goToProfile($event)">Go to my Profile</button>
+<button ion-button round (click)="goToProfile($event)" [disabled]="!isEnabled">Go to my Profile</button>
 	
 </ion-content>
