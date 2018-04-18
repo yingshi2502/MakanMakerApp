@@ -21,7 +21,9 @@ export class PaymentPage {
  public ppButtonsClicked: boolean = false;
  public ccButtonsClicked: boolean = false;
  public codButtonsClicked: boolean = false;
+ mealKits=[];
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+	  this.mealKits = navParams.get('param1');
 	this.paymentMethods = [
 	{ 'name': 'PayPal',
 	  'icon': 'pricetag'
@@ -37,9 +39,10 @@ export class PaymentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
+	console.log("mealkits size"+Object.keys(this.mealKits).length);
   }
   selectSchedule(event){
-	  this.navCtrl.push(SelectSchedulePage, {fromPage: 'SelectAddressPage'});
+	  this.navCtrl.push(SelectSchedulePage, {param1:this.mealKits});
   }
   
   public onButtonClick(index) {
@@ -68,7 +71,7 @@ export class PaymentPage {
 	
 	doAlert() {
 		let alert = this.alertCtrl.create({
-		  title: 'Your order has been paid. Enjoy the comfort of MakanMaker at home!',
+		  title: 'Your order has been confirmed.',
 		  buttons: ['Ok']
 		});
 		
