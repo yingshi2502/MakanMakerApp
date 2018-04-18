@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import {ViewAllMealKitsPage} from '../view-all-meal-kits/view-all-meal-kits';
 /**
  * Generated class for the CategoriesPage page.
  *
@@ -13,6 +13,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'categories.html',
 })
 export class CategoriesPage {
+	viewAllMealKits = ViewAllMealKitsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
