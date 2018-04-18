@@ -15,7 +15,7 @@
 
 <ion-content padding>
 <form (ngSubmit)="logForm(form)">
-	<ion-list radio-group>
+	<ion-list radio-group text-wrap>
 		<ion-item *ngFor="let address of addresses; let i = index" icon-start>
 			<ion-label>{{address.streetAddress}}</ion-label>
 			<ion-label>{{address.postalCode}}</ion-label>

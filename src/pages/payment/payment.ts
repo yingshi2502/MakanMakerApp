@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SelectSchedulePage } from '../select-schedule/select-schedule';
 import { AlertController } from 'ionic-angular';
+import { SelectAddressPage } from '../select-address/select-address';
+import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 
 /**
  * Generated class for the PaymentPage page.
@@ -42,9 +44,24 @@ export class PaymentPage {
   
   public onButtonClick(index) {
         switch(index){
-			case 0: this.ppButtonsClicked=!this.ppButtonsClicked; break;
-			case 1: this.ccButtonsClicked=!this.ccButtonsClicked; break;
-			case 2: this.codButtonsClicked=!this.codButtonsClicked; break;
+			case 0: {
+				this.ppButtonsClicked=!this.ppButtonsClicked; 
+				this.ccButtonsClicked = false;
+				this.codButtonsClicked = false;
+				break;
+				}
+			case 1: {
+				this.ccButtonsClicked=!this.ccButtonsClicked; 
+				this.ppButtonsClicked = false;
+				this.codButtonsClicked = false;
+				break;
+				}
+			case 2: {
+				this.codButtonsClicked=!this.codButtonsClicked; 
+				this.ccButtonsClicked = false;
+				this.ppButtonsClicked = false;
+				break;
+				}
 			default: break;
 		}
     }
@@ -54,7 +71,7 @@ export class PaymentPage {
 		  title: 'Your order has been paid. Enjoy the comfort of MakanMaker at home!',
 		  buttons: ['Ok']
 		});
-
+		
 		alert.present();
 	  }
 

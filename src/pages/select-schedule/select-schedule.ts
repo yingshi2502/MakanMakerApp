@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PaymentPage } from '../payment/payment';
+import { SelectAddressPage } from '../select-addrress/select-addrress';
+import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 
 /**
  * Generated class for the SelectSchedulePage page.

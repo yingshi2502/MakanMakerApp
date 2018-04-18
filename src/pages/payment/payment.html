@@ -20,13 +20,13 @@
 	<!--<ion-item>
 	<item-label>Order Summary</item-label>
 	</ion-item>-->
-	<ion-list>
+	<ion-list text-wrap>
     <button ion-item *ngFor="let paymentMethod of paymentMethods; let i=index" (click)="onButtonClick(i)" icon-start>
       <ion-icon [name]="paymentMethod.icon" item-start></ion-icon>
 	  {{ paymentMethod.name }}
 	</button>
 	<form *ngIf="ppButtonsClicked">
-		<ion-item>
+		<ion-item text-wrap>
 			<ion-label>Paypal</ion-label>
 			<ion-label>You will be redirected to Paypal to complete payment</ion-label>
 		</ion-item>
@@ -34,8 +34,21 @@
 	</form>
 	<ion-input *ngIf="ccbuttonsClicked" type="text" value="">Credit card</ion-input>
 	<form *ngIf="ccButtonsClicked">
+		<ion-item id="ccnumber" name="ccnumber" type="text" required="true">
+			<ion-label floating>Card Number</ion-label>
+			<ion-input type="text"></ion-input>
+		</ion-item>
 		<ion-item>
-			<ion-label>Credit Card</ion-label>
+			<ion-label floating>Card Holder Name</ion-label>
+			<ion-input type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>Card Expiration Date</ion-label>
+			<ion-input type="text"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>CVV</ion-label>
+			<ion-input type="text"></ion-input>
 		</ion-item>
 		<button ion-button (click)="doAlert()">Confirm</button>
 	</form>
