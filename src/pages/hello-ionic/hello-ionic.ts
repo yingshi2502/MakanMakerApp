@@ -20,7 +20,6 @@ export class HelloIonicPage {
 	
 	customer: Customer;
 	customerId: number;
-	
 	fullName: string;
 	
 	username: string;
