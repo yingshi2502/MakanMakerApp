@@ -16,6 +16,7 @@ import { MealKit } from '../../entities/mealkit'
 export class MealKitProvider {
 
  	ipAddress = '192.168.137.1';
+	// ipAddress = '100.110.30.81';
 	portNo = '8080';
 	// double check if mealkit is with capital letter or not
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/mealkit';
