@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { MealKitProvider } from '../../providers/meal-kit/meal-kit';
+
+import { MealKit } from '../../entities/mealkit';
 /**
  * Generated class for the ViewMealKitDetailsPage page.
  *
@@ -13,13 +16,51 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'view-meal-kit-details.html',
 })
 export class ViewMealKitDetailsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+	errorMessage: string;
+	infoMessage: string;
+	mealKitToViewId: number;
+	mealKitToView: MealKit;
+	
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
+				public mealKitProvider: MealKitProvider)
+  {
+	  	this.mealKitToView = null;
+		this.mealKitToViewId = 1;
+		//this.mealKitToViewId = navParams.get('mealKitToViewId');	
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewMealKitDetailsPage');
+		
+    this.mealKitProvider.retrieveMealKit(this.mealKitToViewId).subscribe(
+	response => {
+				this.mealKitToView = response.mealkit;
+				this.infoMessage = "Mealkit loaded successfully";								
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+			
+		);	
   }
+  
+  
+  ionViewWillEnter()
+	{
+		this.mealKitProvider.retrieveMealKit(this.mealKitToViewId).subscribe(
+			response => {
+				this.mealKitToView = response.mealkit;
+				this.infoMessage = "Mealkit loaded successfully";								
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);
+	}
+  
+  
+  
+  
 
   doAlert() {
     let alert = this.alertCtrl.create({

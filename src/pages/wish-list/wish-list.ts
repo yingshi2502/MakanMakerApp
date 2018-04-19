@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import {ViewMealKitDetailsPage} from '../view-meal-kit-details/view-meal-kit-details';
+
 
 /**
  * Generated class for the WishListPage page.
@@ -13,12 +16,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'wish-list.html',
 })
 export class WishListPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+viewMealKitDetails = ViewMealKitDetailsPage;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WishListPage');
   }
 
+    doAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Added to Cart!',
+      subTitle: 'Item has been added to Cart successfully!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }  
+  
 }

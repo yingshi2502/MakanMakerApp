@@ -14,8 +14,8 @@ import { MealKit } from '../../entities/mealkit'
 */
 @Injectable()
 export class MealKitProvider {
-
- 	ipAddress = '192.168.137.1';
+    ipAddress = '172.25.105.45';
+ 	//ipAddress = '192.168.137.1';
 	// ipAddress = '100.110.30.81';
 	portNo = '8080';
 	// double check if mealkit is with capital letter or not
@@ -52,6 +52,8 @@ export class MealKitProvider {
 		{
 			path = this.fullBaseUrl;
 		}
+		
+		console.error('********* HERE: ' + path);
 	
 		return this.httpClient.get<any>(path + "/retrieveAllMealKits").pipe
 		(
@@ -71,7 +73,7 @@ export class MealKitProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "/retrieveMealKitById/" + id).pipe
+		return this.httpClient.get<any>(path + "/retrieveMealKitById?mealKitId=" + id).pipe
 		(
 			catchError(this.handleError)
 		);

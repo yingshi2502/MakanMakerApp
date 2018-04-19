@@ -45,7 +45,7 @@ export class MyApp {
 	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
 	  { title: 'Categories', component: CategoriesPage },
 	  { title: 'Wish List', component: WishListPage },
-	  { title: 'View MealKit Details - FOR REFERENCE', component: ViewMealKitDetailsPage }
+	  
 
     ];
   }
