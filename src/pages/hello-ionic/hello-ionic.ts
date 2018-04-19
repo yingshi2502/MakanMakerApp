@@ -22,6 +22,7 @@ export class HelloIonicPage {
 	customerId: number;
 	
 	fullName: string;
+	
 	username: string;
 	password: string;
 	errorMessage: string;
@@ -75,15 +76,15 @@ export class HelloIonicPage {
 					this.customer = response.customer;
 					this.infoMessage = "Customer login successfully";
 			
-					sessionStorage.setItem("customerId", this.customer.customerId);
+					//sessionStorage.setItem("customerId", this.customer.customerId);
 					sessionStorage.setItem("fullName", this.customer.fullName);
 					sessionStorage.setItem("isLogin", "true");
+					this.customerId = this.customer.customerId;
 					this.fullName = this.customer.fullName;
 					this.isLogin = true;
 			
 					let toast = this.toastCtrl.create(
 					{
-						message: 'Welcome back ' + sessionStorage.getItem("fullName"),
 						message: 'Welcome back ' + this.fullName,
 						cssClass: 'toast',
 						duration: 3000

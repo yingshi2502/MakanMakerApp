@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
 
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -32,28 +33,27 @@ export class ProfileDetailsPage {
 	
 	submitted: boolean;
 	
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
+	constructor(public navCtrl: NavController, 
+				public navParams: NavParams,
+				public customerProvider: CustomerProvider) {
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad UpdateProductPage');
 		
-		this.customerToUpdate = null;
 /*		this.customerId = navParams.get('customerToUpdateId'); */
-		
+		this.customerId = 1;
 		this.submitted = false;
 
-		/*
-		this.customerProvider.getCustomerByCustomerId(this.customerToUpdateId).subscribe(
+		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
-				this.customerToUpdate = response.Customer;
+				this.customerToUpdate = response.customer;
 				this.infoMessage = "Customer loaded successfully";								
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 			}
 		);
-		*/
 	}
   
 	ionViewWillEnter()
@@ -64,22 +64,18 @@ export class ProfileDetailsPage {
 /*		this.customerId = navParams.get('customerToUpdateId'); */
 		
 		this.submitted = false;
-/*
+
 		this.customerId = 1;
  		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
-				this.customer = response.customerEntity;
-				this.customerDob = this.customer.dateOfBirth;
+				this.customerToUpdate = response.customer;
 				this.infoMessage = "Customer profile loaded successfully";								
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am here";
 			}
-		);		
-		error => {				
-				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am there";
-		}
-*/
+		);
+
 	}
 	
 	clear()
@@ -90,26 +86,26 @@ export class ProfileDetailsPage {
 		this.submitted = false;
 	}
 	
-/*	saveProfile(editCustomerForm: NgForm) 
+	saveProfile(editCustomerForm: NgForm) 
 	{
 		this.submitted = true;
 		
 		if (editCustomerForm.valid) 
 		{		
 			this.infoMessage = "Customer updated successfully";
-/*			this.productProvider.updateProduct(this.productToUpdate).subscribe(
+			/*			this.productProvider.updateProduct(this.productToUpdate).subscribe(
 				response => {					
 					this.infoMessage = "Customer updated successfully";
 				},
 				error => {
 					this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 				}
-			);
+			);*/
 
 		}
 		else
 		{			
 		}
-	}*/
+	}
 
 }

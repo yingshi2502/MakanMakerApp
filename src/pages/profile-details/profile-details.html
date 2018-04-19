@@ -15,7 +15,7 @@
 
 
 <ion-content padding>
-<!--	<div *ngIf="customerToUpdate != null"> -->
+<div *ngIf="customerToUpdate != null">
 	<div>
 		<form #editCustomerForm="ngForm" (ngSubmit)="saveProfile(editCustomerForm)" >
 
@@ -26,23 +26,20 @@
 			<div *ngIf="infoMessage" class="infoText">
 				{{infoMessage}}
 			</div>
-			<ion-list>
+			<ion-list *ngIf="customerToUpdate != null">
 				<ion-item>
 					<ion-label>Username</ion-label>
-					<ion-input type="text" placeholder="Kay Tan" id="username" name="username" required="true"></ion-input>
-					<!--<ion-input type="text" placeholder="{{customerToUpdate.username}}" id="username" name="username" [(ngModel)]="customerToUpdate.username" required="true" #username="ngModel"></ion-input>-->
+					<ion-input type="text" id="username" name="username" [(ngModel)]="customerToUpdate.userName" required="true" #username="ngModel"></ion-input>
 				</ion-item>
-			
+				<!-- issue showing date on the user's side -->
 				<ion-item>
 					<ion-label>Date of Birth</ion-label>
-					<ion-input type="text" placeholder="December 31, 1990" id="dob" name="dob"  required="true"></ion-input>
-					<!--<ion-input type="text" placeholder="{{customerToUpdate.dateOfBirth}}" id="dob" name="dob" [(ngModel)]="customerToUpdate.dateOfBirth" required="true" #dob="ngModel"></ion-input>-->
-					<!--{{customer.dateOfBirth}}-->
+					<ion-datetime id="dob" name="dob" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" placeholder="{{customerToUpdate.dateOfBirth}}" [(ngModel)]="customerToUpdate.dateOfBirth" required="true" #dob="ngModel" max="2018-04-19"></ion-datetime>
 				</ion-item>
 			
 				<ion-item>
 					<ion-label>Email:</ion-label>
-					<ion-input type="text" placeholder="user@gmail.com" id="email" name="email"  required="true"></ion-input>
+					<ion-input type="text" id="email" name="email"  [(ngModel)]="customerToUpdate.email" required="true" #email="ngModel"></ion-input>
 				</ion-item>
 			
 				<ion-list radio-group>
@@ -62,10 +59,7 @@
 		
 				<ion-item>
 					<ion-label>Number:</ion-label>
-					<ion-input type="text" placeholder="88888888"></ion-input>
-					<!--<ion-input type="text" placeholder="{{customerToUpdate.mobile}}" id="dob" name="dob" [(ngModel)]="customerToUpdate.dateOfBirth" required="true" #dob="ngModel"></ion-input>-->
-					<!--{{customer.dateOfBirth}}-->
-					<!--{{customer.email}}-->
+					<ion-input type="text" id="mobile" name="mobile" [(ngModel)]="customerToUpdate.mobile" required="true" #mobile="ngModel"></ion-input>
 				</ion-item>
 			</ion-list>
 
@@ -76,4 +70,5 @@
 			</ion-item>
 		</form>
 	</div>
+</div>
 </ion-content>

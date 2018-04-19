@@ -58,7 +58,7 @@ export class CustomerProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		return this.httpClient.get<any>(path + "customer/" + customerId).pipe
+		return this.httpClient.get<any>(path + "/" + customerId).pipe
 		(
 			catchError(this.handleError) 
 		);
