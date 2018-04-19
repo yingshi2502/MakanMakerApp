@@ -5,19 +5,10 @@
   "integrations": {
     "cordova": {}
   },
-<<<<<<< HEAD
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "http://localhost:8080/MakanMaker-rest/webresources"
-	}
-   ]
-=======
   "proxies":[
     {
 		"path": "/api",
 		"proxyUrl": "http://localhost:8080/MakanMaker-rest/webresources"
 	}
   ]
->>>>>>> master
 }
