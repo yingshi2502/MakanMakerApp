@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle *ngIf="isLogin">
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>MakanMaker</ion-title>
@@ -60,7 +60,11 @@
 					<ion-input type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
 				</ion-item>
 				
+<<<<<<< HEAD
 				<ion-item>		
+=======
+				<ion-item>					
+>>>>>>> master
 					<button type="submit" ion-button block>
 						Login
 					</button>

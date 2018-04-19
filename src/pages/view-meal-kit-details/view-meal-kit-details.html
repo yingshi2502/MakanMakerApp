@@ -10,7 +10,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Mealkit Details</ion-title>
+    <ion-title>Meal Kit Details</ion-title>
 	
   </ion-navbar>
 
@@ -22,15 +22,15 @@
  <ion-card>
 	<img src="assets/imgs/mealKit1.jpg"/>
 
-<ion-list>
+<ion-list *ngIf="mealKitToView != null">
 	 <ion-item>
-		<ion-label>Nasi Lemak</ion-label>
+		<ion-label>{{mealKitToView.name}}</ion-label>
 	  </ion-item>
 	  
 		<ion-list>
 		    <ion-row no-padding>
 			  <ion-col>
-					<ion-badge item-end>20 Minutes</ion-badge>
+					<ion-badge item-end>{{mealKitToView.time}}</ion-badge>
 			  </ion-col>
 			  <ion-col text-center>
 					<ion-badge item-end>Very Hard</ion-badge>

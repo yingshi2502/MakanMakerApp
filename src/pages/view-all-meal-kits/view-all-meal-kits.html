@@ -10,24 +10,25 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>View All Mealkits</ion-title>
+    <ion-title>View All Meal Kits</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content class="cards-bg">
 
-  <ion-card>
+  <ion-card  *ngFor="let mealKit of mealKits">
 
-    <img src="assets/imgs/mealKit1.jpg"/>
+<!--   <img src="assets/imgs/mealKit1.jpg"/> -->
+	<img src="assets/images/mealKit2.jpg">
 
     <ion-card-content>
       <ion-card-title>
-        Nasi Lemak
+        {{mealKit.name}}
       </ion-card-title>
       <p>
-        The best Nasi Lemak in town.
+	  
+        {{mealKit.description}}
       </p>
     </ion-card-content>
 
@@ -39,7 +40,7 @@
         </button>
       </ion-col>
       <ion-col text-center>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails" icon-start>
+        <button ion-button clear small color="blue" (click)="viewMealKitDetails($event, mealKit)" icon-start>
           <ion-icon name='glasses'></ion-icon>
           View Details
         </button>
@@ -54,183 +55,9 @@
 
   </ion-card>
   
-  <ion-card>
 
-    <img src="assets/imgs/mealKit2.jpg"/>
+ 
 
-    <ion-card-content>
-      <ion-card-title>
-        Bobo Chaha
-      </ion-card-title>
-      <p>
-        Cooling for a hot day.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="blue" (click)="doWishListAlert()" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Add to Wishlist
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails"  icon-start>
-          <ion-icon name='glasses'></ion-icon>
-          View Details
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="blue" (click)="doAlert()" icon-start>
-          <ion-icon name='cart'></ion-icon>
-          Add to Cart
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-  
-  <ion-card>
-
-    <img src="assets/imgs/mealKit3.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Chicken Chop
-      </ion-card-title>
-      <p>
-        For meat lovers all day everyday.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="blue" (click)="doWishListAlert()" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Add to Wishlist
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails" icon-start>
-          <ion-icon name='glasses'></ion-icon>
-          View Details
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="blue" (click)="doAlert()" icon-start>
-          <ion-icon name='cart'></ion-icon>
-          Add to Cart
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-  <ion-card>
-
-    <img src="assets/imgs/mealKit4.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Fish & Chips
-      </ion-card-title>
-      <p>
-        For fish lovers all day everyday.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="blue" (click)="doWishListAlert()" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Add to Wishlist
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails" icon-start>
-          <ion-icon name='glasses'></ion-icon>
-          View Details
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="blue" (click)="doAlert()" icon-start>
-          <ion-icon name='cart'></ion-icon>
-          Add to Cart
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-  <ion-card>
-
-    <img src="assets/imgs/mealKit5.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Mee Goreng
-      </ion-card-title>
-      <p>
-        Fried Noodles Stir Fried with Beef.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="blue"  (click)="doWishListAlert()" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Add to Wishlist
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails" icon-start>
-          <ion-icon name='glasses'></ion-icon>
-          View Details
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="blue" (click)="doAlert()" icon-start>
-          <ion-icon name='cart'></ion-icon>
-          Add to Cart
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-
-   <ion-card>
-
-    <img src="assets/imgs/mealKit6.jpg"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Rojak
-      </ion-card-title>
-      <p>
-        For the all in one fans.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="blue" (click)="doWishListAlert()" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Add to Wishlist
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails" icon-start>
-          <ion-icon name='glasses'></ion-icon>
-          View Details
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="blue" (click)="doAlert()" icon-start>
-          <ion-icon name='cart'></ion-icon>
-          Add to Cart
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
 
 
 
