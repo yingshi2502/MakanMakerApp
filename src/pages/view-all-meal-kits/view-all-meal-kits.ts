@@ -26,7 +26,7 @@ export class ViewAllMealKitsPage {
 
   
   ionViewDidLoad() {
-	/*console.log('ionViewDidEnter ViewAllMealKitsPage');
+	/*console.log('ionViewDidLoad ViewAllMealKitsPage');
 		this.mealKitProvider.retrieveAllMealKits().subscribe(
 			response => {
 				this.mealKits = response.mealKits
