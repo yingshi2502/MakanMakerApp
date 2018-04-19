@@ -84,6 +84,7 @@ export class HelloIonicPage {
 					let toast = this.toastCtrl.create(
 					{
 						message: 'Welcome back ' + sessionStorage.getItem("fullName"),
+						message: 'Welcome back ' + this.fullName,
 						cssClass: 'toast',
 						duration: 3000
 					});
