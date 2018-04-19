@@ -19,6 +19,7 @@ export class ShoppingCartPage {
 	
 	quantities=[];
 	mealKits=[];
+	totalPrice=0;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 	  this.quantities=[1,4,2];
@@ -64,10 +65,16 @@ export class ShoppingCartPage {
 		
 		this.mealKits.splice(index, 1);
 	}
+	
+	
   
-  pay(event){
-	  this.navCtrl.push(SelectAddressPage, {fromPage: 'ShoppingCartPage'});
+  pay(totalPrice){
 	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working
-  }
+	  //calculatePrice();
+	  for (let mealKit of this.mealKits){
+			this.totalPrice+=mealKit.price*mealKit.quantity;
+		}
+	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.mealKits});
+	    }
 
 }

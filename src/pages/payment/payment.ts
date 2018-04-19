@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SelectSchedulePage } from '../select-schedule/select-schedule';
 import { AlertController } from 'ionic-angular';
+import { SelectAddressPage } from '../select-address/select-address';
+import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 
 /**
  * Generated class for the PaymentPage page.
@@ -19,7 +21,11 @@ export class PaymentPage {
  public ppButtonsClicked: boolean = false;
  public ccButtonsClicked: boolean = false;
  public codButtonsClicked: boolean = false;
+ mealKits=[];
+ totalPrice=0;
+ isEnabled=false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+	  this.mealKits = navParams.get('param1');
 	this.paymentMethods = [
 	{ 'name': 'PayPal',
 	  'icon': 'pricetag'
@@ -31,30 +37,50 @@ export class PaymentPage {
 	  'icon': 'cash'
 	}
 	]
+	for (let mealKit of this.mealKits){
+			this.totalPrice+=mealKit.price*mealKit.quantity;
+		}
 	}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
+	console.log("mealkits size"+Object.keys(this.mealKits).length);
   }
   selectSchedule(event){
-	  this.navCtrl.push(SelectSchedulePage, {fromPage: 'SelectAddressPage'});
+	  this.navCtrl.push(SelectSchedulePage, {param1:this.mealKits});
   }
   
   public onButtonClick(index) {
         switch(index){
-			case 0: this.ppButtonsClicked=!this.ppButtonsClicked; break;
-			case 1: this.ccButtonsClicked=!this.ccButtonsClicked; break;
-			case 2: this.codButtonsClicked=!this.codButtonsClicked; break;
+			case 0: {
+				this.ppButtonsClicked=!this.ppButtonsClicked; 
+				this.ccButtonsClicked = false;
+				this.codButtonsClicked = false;
+				break;
+				}
+			case 1: {
+				this.ccButtonsClicked=!this.ccButtonsClicked; 
+				this.ppButtonsClicked = false;
+				this.codButtonsClicked = false;
+				break;
+				}
+			case 2: {
+				this.codButtonsClicked=!this.codButtonsClicked; 
+				this.ccButtonsClicked = false;
+				this.ppButtonsClicked = false;
+				break;
+				}
 			default: break;
 		}
     }
 	
 	doAlert() {
 		let alert = this.alertCtrl.create({
-		  title: 'Your order has been paid. Enjoy the comfort of MakanMaker at home!',
+		  title: 'Your order has been confirmed.',
 		  buttons: ['Ok']
 		});
-
+		this.isEnabled=true;
+		
 		alert.present();
 	  }
 
