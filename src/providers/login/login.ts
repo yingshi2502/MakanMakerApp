@@ -6,35 +6,38 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Platform } from 'ionic-angular';
 
 import { Customer } from '../../entities/customer'
-
 /*
-  Generated class for the CustomerProvider provider.
+  Generated class for the MealKitProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
 
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
-export class CustomerProvider {
+export class LoginProvider {
+
+
 	
-	ipAddress = '192.168.137.1';
+ 	ipAddress = '192.168.137.1';
 	// ipAddress = '100.110.30.81';
 	portNo = '8080';
-	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/customer';
+	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/login';
 	
-	baseUrl = "/api/customer";
+	baseUrl = "/api/login";
 	
 	username = "";
 	password = "";
 	loginCredential = "";
-
+	
+	
 	constructor(public platform: Platform,
 				private httpClient: HttpClient) {
-		console.log('Hello CustomerProvider Provider');
+		console.log('Hello LoginProvider Provider');
 	}
 	
 	setLoginCredential(username: string, password: string)
@@ -44,8 +47,7 @@ export class CustomerProvider {
 		this.loginCredential = "?username=" + username + "&password=" + password;
 	}
 	
-	// add login credentials later
-	getCustomerByCustomerId(customerId: number): Observable<any> 
+	login(username: string, password: string):Observable<any>
 	{
 		let path: string = '';
 		
@@ -57,11 +59,11 @@ export class CustomerProvider {
 		{
 			path = this.fullBaseUrl;
 		}
-		
-		return this.httpClient.get<any>(path + "customer/" + customerId).pipe
+	
+		return this.httpClient.get<any>(path + this.loginCredential).pipe
 		(
-			catchError(this.handleError) 
-		);
+			catchError(this.handleError)
+		);	
 	}
 	
 	private handleError(error: HttpErrorResponse)
@@ -76,5 +78,5 @@ export class CustomerProvider {
 		}
 		
 		return new ErrorObservable(error);
-	}
+	}		
 }

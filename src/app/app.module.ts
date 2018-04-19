@@ -24,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CustomerProvider } from '../providers/customer/customer';
 import { AddressProvider } from '../providers/address/address';
 import { MealKitProvider } from '../providers/meal-kit/meal-kit';
+import { LoginProvider } from '../providers/login/login';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { MealKitProvider } from '../providers/meal-kit/meal-kit';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CustomerProvider,
     AddressProvider,
-    MealKitProvider
+    MealKitProvider,
+    LoginProvider
   ]
 })
 export class AppModule {}
