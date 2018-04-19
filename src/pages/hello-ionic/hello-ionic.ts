@@ -57,6 +57,8 @@ export class HelloIonicPage {
 	{
 		this.username = "";
 		this.password = "";
+		this.errorMessage = "";
+		this.infoMessage = "";
 	}
 	
 	
@@ -66,50 +68,22 @@ export class HelloIonicPage {
 		
 		if (loginForm.valid) 
 		{
-
-			/*
-			if((this.username == "manager" || this.username == "cashier1" || this.username == "cashier2") &&
-				(this.password == "password"))
-			{				
-				if(this.username == "manager")
-				{
-					this.fullName = "Manager";			
-				}
-				else if(this.username == "cashier1")
-				{
-					this.fullName = "Cashier1";
-				}
-				else if(this.username == "cashier2")
-				{
-					this.fullName = "Cashier2";
-				}
-				
-				this.isLogin = true;
-				
-				sessionStorage.setItem("firstName", this.firstName);
-				sessionStorage.setItem("lastName", this.lastName);				
-				sessionStorage.setItem("isLogin", "true");
-				
-			*/
+			this.loginProvider.setLoginCredential(this.username, this.password);
 			
 			this.loginProvider.login(this.username, this.password).subscribe(
 				response => {
 					this.customer = response.customer;
-					this.customerId = response.customer.customerId;
-					this.fullName = response.customer.fullName; 
-					this.isLogin = true;
-					this.infoMessage = "Customer " + response.customer.customerId + " login successfully";
-					
-					this.loginProvider.setLoginCredential(this.username, this.password);
-					this.addressProvider.setLoginCredential(this.username, this.password);
-					this.customerProvider.setLoginCredential(this.username, this.password);
+					this.infoMessage = "Customer login successfully";
 			
-					sessionStorage.setItem("fullName", this.fullName);
+					sessionStorage.setItem("customerId", this.customer.customerId);
+					sessionStorage.setItem("fullName", this.customer.fullName);
 					sessionStorage.setItem("isLogin", "true");
+					this.fullName = this.customer.fullName;
+					this.isLogin = true;
 			
 					let toast = this.toastCtrl.create(
 					{
-						message: 'Welcome back ' + this.customer.fullName,
+						message: 'Welcome back ' + sessionStorage.getItem("fullName"),
 						cssClass: 'toast',
 						duration: 3000
 					});
@@ -132,7 +106,7 @@ export class HelloIonicPage {
 		else
 		{
 						
-		}
+		} 
 	}
 }
 

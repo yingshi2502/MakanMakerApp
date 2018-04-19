@@ -7,7 +7,7 @@
 export class Customer
 {
 	customerId: number;
-	username: string;
+	userName: string;
 	fullName: string;
 	mobile: string;
 	email: string;
