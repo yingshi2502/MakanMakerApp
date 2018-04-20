@@ -20,6 +20,7 @@ export class HelloIonicPage {
 	
 	customer: Customer;
 	customerId: number;
+	customerIdInString: string;
 	fullName: string;
 	
 	username: string;
@@ -75,7 +76,7 @@ export class HelloIonicPage {
 					this.customer = response.customer;
 					this.infoMessage = "Customer login successfully";
 			
-					sessionStorage.setItem("customerId", this.customer.customerId);
+					sessionStorage.setItem("customerId", (this.customer.customerId).toString());
 					sessionStorage.setItem("fullName", this.customer.fullName);
 					sessionStorage.setItem("isLogin", "true");
 					this.customerId = this.customer.customerId;

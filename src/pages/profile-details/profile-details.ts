@@ -43,6 +43,8 @@ export class ProfileDetailsPage {
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ProfileDetailsPage');
 		
+		this.customerToUpdate = null;		
+
 		this.submitted = false;
 
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
@@ -60,12 +62,9 @@ export class ProfileDetailsPage {
 	{
 		console.log('ionViewDidEnter ProfileDetailsPage');
 
-		this.customerToUpdate = null;
-/*		this.customerId = navParams.get('customerToUpdateId'); */
-		
+		this.customerToUpdate = null;		
 		this.submitted = false;
 
-		this.customerId = 1;
  		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customerToUpdate = response.customer;
@@ -78,12 +77,11 @@ export class ProfileDetailsPage {
 
 	}
 	
-	clear()
+	ionViewDidLeave()
 	{
-		this.errorMessage = "";
-		this.infoMessage = "";
-	
-		this.submitted = false;
+		console.log('ionViewDidLeave ProfileDetailsPage');
+		
+		this.customerProvider.setDetailsToUpdate(null, null, -1, null, null);
 	}
 	
 	saveProfile(editCustomerForm: NgForm) 
@@ -94,6 +92,8 @@ export class ProfileDetailsPage {
 
 		if (editCustomerForm.valid) 
 		{		
+			// replace the hardcoded date with "this.customerToUpdate.dateOfBirth"
+			this.customerProvider.setDetailsToUpdate(this.customerToUpdate.fullName, this.customerToUpdate.email,this.customerToUpdate.gender, "07/31/1997", this.customerToUpdate.mobile);
 			this.customerProvider.updateCustomer(this.customerToUpdate).subscribe(
 				response => {					
 					this.infoMessage = "Customer updated successfully";

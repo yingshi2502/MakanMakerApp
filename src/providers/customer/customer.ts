@@ -30,11 +30,31 @@ export class CustomerProvider {
 	
 	username = "";
 	password = "";
+	
+	updatedFullName = "";
+	updatedEmail = "";
+	updatedGender = -1;
+	updatedDateOfBirth = "";
+	updatedMobile = "";
+	
 	loginCredential = "";
+	updatedParam = "";
 
 	constructor(public platform: Platform,
 				private httpClient: HttpClient) {
 		console.log('Hello CustomerProvider Provider');
+	}
+	
+	setDetailsToUpdate(fullName: string, email: string, gender: number, dateOfBirth: string, mobile: string) 
+	{
+		this.updatedFullName = fullName;
+		this.updatedEmail = email;
+		this.updatedGender = gender;
+		this.updatedDateOfBirth = dateOfBirth;
+		this.updatedMobile = mobile;
+		this.updatedParam = "&fullName=" + fullName + "&email=" + email + "&gender=" + gender + "&dateOfBirth=" + dateOfBirth + "&mobile=" + mobile;
+		console.log('setDetailsToUpdate() CustomerProvider');
+
 	}
 	
 	setLoginCredential(username: string, password: string)
@@ -42,7 +62,7 @@ export class CustomerProvider {
 		this.username = username;
 		this.password = password;
 		this.loginCredential = "?username=" + username + "&password=" + password;
-		console.log('setLoginCredential(username, password) CustomerProvider');
+		console.log('setLoginCredential(username, password) CustomerProvider with username: ' + username + ' and password:' + password);
 	}
 	
 	// add login credentials later
@@ -80,15 +100,9 @@ export class CustomerProvider {
 			path = this.fullBaseUrl;
 		}
 		
-		let updateCustomerReq = {
-			"username": this.username,
-			"password": this.password,
-			"customerEntity": customerToUpdate
-		};
-		
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
 		
-		return this.httpClient.post<any>(path, updateCustomerReq, httpOptions).pipe
+		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
 		(
 			catchError(this.handleError)
 		);

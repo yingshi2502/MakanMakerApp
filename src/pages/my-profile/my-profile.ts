@@ -30,9 +30,14 @@ export class MyProfilePage {
 
 	errorMessage: string;
 	infoMessage: string;
+	
 	customerId: number;
 	customer: Customer;
-	customerDob: Date;
+	fullName: string;
+	dateOfBirth: Date;
+	email: string;
+	gender: string;
+	mobile: string;
 	
 	constructor(public navCtrl: NavController, 
 				public navParams: NavParams,
@@ -40,38 +45,46 @@ export class MyProfilePage {
 				public alertCtrl: AlertController,
 				public toastCtrl: ToastController,
 				public customerProvider: CustomerProvider) {
+		let customerIdInString: string = sessionStorage.getItem("customerId");
+		this.customerId = Number(customerIdInString);
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad MyProfilePage');
-		this.customerId = sessionStorage.getItem("customerId");
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
-				this.customer = response.customerEntity;
+				this.customer = response.customer;
+				console.log('ionViewWillEnter response MyProfilePage', this.customer.fullName);
+				this.fullName = this.customer.fullName;
+				this.dateOfBirth = this.customer.dateOfBirth;
+				this.email = this.customer.email;
+				this.mobile = this.customer.mobile;
 				console.log('ionViewWillEnter response MyProfilePage');
-				this.customerId = 1;
-				this.infoMessage = "Customer profile loaded successfully";								
+				this.infoMessage = "Upon Load, Customer profile loaded successfully: " + response.message + ", result is: "+ response.result;								
 			},
 			error => {				
-				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am here";
+				this.errorMessage = "Upon Load, HTTP " + error.status + ": " + error.error.message + " I am here";
 			}
 		);
 	}
   
 	ionViewWillEnter()
 	{
+		console.log('ionViewDidLoad MyProfilePage');
 
-		this.customerId = sessionStorage.getItem("customerId");
-
- 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
+		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
-				this.customer = response.customerEntity;
+				this.customer = response.customer;
 				console.log('ionViewWillEnter response MyProfilePage');
-				this.customerId = 1;
-				this.infoMessage = "Customer profile loaded successfully";								
+				this.fullName = this.customer.fullName;
+				this.dateOfBirth = this.customer.dateOfBirth;
+				this.email = this.customer.email;
+				this.mobile = this.customer.mobile;
+				console.log('ionViewWillEnter response MyProfilePage');
+				this.infoMessage = "Upon Enter, Customer profile loaded successfully: " + response.message + ", result is: "+ response.result;								
 			},
 			error => {				
-				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am here";
+				this.errorMessage = "Upon Enter, HTTP " + error.status + ": " + error.error.message + " I am here";
 			}
 		);
 	}

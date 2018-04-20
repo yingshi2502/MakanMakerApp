@@ -24,36 +24,27 @@
 		{{infoMessage}}
 	</div>
 	
-	<ion-card>
+	<ion-card *ngIf="customer != null">
 		<ion-item>
-			<b>Name:</b>
-			Kay Tan
-			<!--{{customer.fullName}}-->
+			<b>Full Name:</b> {{(customer)?.fullName}}
 		</ion-item>
 		
 		<ion-item>
-			<b>Date of Birth:</b>
-			December 31, 1990
-			<!--{{customer.dateOfBirth}}-->
+			<b>Date of Birth:</b> {{(customer.dateOfBirth)?.toLocaleString()}}
 		</ion-item>
 		
 		<ion-item>
-			<b>Email:</b>
-			user@gmail.com
-			<!--{{customer.email}}-->
+			<b>Email:</b> {{(customer)?.email}}
 		</ion-item>
 		
 		<ion-item>
-			<b>Gender:</b>
-			Female
-			<!--{{customer.gender}}-->
+			<b>Gender:</b><div *ngIf="(customer)?.gender == 0"> Male</div> <div *ngIf="(customer)?.gender == 1"> Female</div>
 		</ion-item>
 		
 		<ion-item>
-			<b>Mobile:</b>
-			88888888
-			<!--{{customer.mobile}}-->
+			<b>Mobile:</b> {{(customer)?.mobile}}
 		</ion-item>
+		
 
 		<ion-list>
 			<button ion-item (click)="editProfile($event)">

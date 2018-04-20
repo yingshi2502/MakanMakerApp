@@ -16,7 +16,7 @@ export class Customer
 	//addresses: Address[];
 	//wishlist: MealKit[];
 	dateOfBirth: Date;
-	gender: number;//0:male, 1:female
+	gender: number; //0:male, 1:female
 	// transactions: Transaction[];
 	//shoppingCart: ShoppingCart;
 }
