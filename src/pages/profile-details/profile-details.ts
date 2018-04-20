@@ -3,6 +3,7 @@ import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
+import { DatePipe } from '@angular/common'
 
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -30,12 +31,14 @@ export class ProfileDetailsPage {
 	infoMessage: string;
 	customerId: number;
 	customerToUpdate: Customer;
+	customerDobString: string;
 	
 	submitted: boolean;
 	
 	constructor(public navCtrl: NavController, 
 				public navParams: NavParams,
-				public customerProvider: CustomerProvider) {
+				public customerProvider: CustomerProvider,
+				public datePipe: DatePipe) {
 		this.customerId = navParams.get('customerToUpdateId');
 
 	}
@@ -50,6 +53,8 @@ export class ProfileDetailsPage {
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customerToUpdate = response.customer;
+				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'dd/MM/yyyy');
+				console.log('ionViewDidLoad customerProvider mtd customerDobstring is: ' + this.customerDobString + 'ProfileDetailsPage');
 				this.infoMessage = "Customer loaded successfully";								
 			},
 			error => {				
@@ -68,6 +73,8 @@ export class ProfileDetailsPage {
  		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customerToUpdate = response.customer;
+				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'dd/MM/yyyy');
+				console.log('ionViewDidEnter customerProvider mtd customerDobstring is: ' + this.customerDobString + 'ProfileDetailsPage');
 				this.infoMessage = "Customer profile loaded successfully";								
 			},
 			error => {				
@@ -93,7 +100,7 @@ export class ProfileDetailsPage {
 		if (editCustomerForm.valid) 
 		{		
 			// replace the hardcoded date with "this.customerToUpdate.dateOfBirth"
-			this.customerProvider.setDetailsToUpdate(this.customerToUpdate.fullName, this.customerToUpdate.email,this.customerToUpdate.gender, "07/31/1997", this.customerToUpdate.mobile);
+			this.customerProvider.setDetailsToUpdate(this.customerToUpdate.fullName, this.customerToUpdate.email,this.customerToUpdate.gender, this.customerDobString, this.customerToUpdate.mobile);
 			this.customerProvider.updateCustomer(this.customerToUpdate).subscribe(
 				response => {					
 					this.infoMessage = "Customer updated successfully";

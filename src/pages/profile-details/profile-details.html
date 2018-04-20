@@ -32,11 +32,10 @@
 					<ion-input type="text" id="fullName" name="fullName" [(ngModel)]="customerToUpdate.fullName" required="true" #fullName="ngModel"></ion-input>
 				</ion-item>
 				
-				<!-- issue showing date on the user's side
 				<ion-item>
 					<ion-label>Date of Birth</ion-label>
-					<ion-datetime id="dob" name="dob" pickerFormat="DD/MM/YYYY"  [(ngModel)]="customerToUpdate.dateOfBirth" required="true" #dob="ngModel" max="2018-04-19"></ion-datetime>
-				</ion-item>-->
+					<ion-datetime id="dob" name="dob" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"  placeholder="{{this.customerDobString}}" [(ngModel)]="customerDobString" required="true" #dob="ngModel" max="2018-04-19"></ion-datetime>
+				</ion-item>
 			
 				<ion-item>
 					<ion-label>Email:</ion-label>

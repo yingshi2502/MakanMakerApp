@@ -26,23 +26,23 @@
 	
 	<ion-card *ngIf="customer != null">
 		<ion-item>
-			<b>Full Name:</b> {{(customer)?.fullName}}
+			<ion-label><b>Full Name:</b> {{(customer)?.fullName}}</ion-label> 
 		</ion-item>
 		
 		<ion-item>
-			<b>Date of Birth:</b> {{(customer.dateOfBirth)?.toLocaleString()}}
+			<ion-label><b>Date of Birth:</b> {{(customer)?.dateOfBirth | date : 'dd/MM/yyyy'}}</ion-label> 
 		</ion-item>
 		
 		<ion-item>
-			<b>Email:</b> {{(customer)?.email}}
+			<ion-label><b>Email:</b> {{(customer)?.email}}</ion-label>
 		</ion-item>
 		
 		<ion-item>
-			<b>Gender:</b><div *ngIf="(customer)?.gender == 0"> Male</div> <div *ngIf="(customer)?.gender == 1"> Female</div>
+			<ion-label><b>Gender:</b><div #female *ngIf="(customer)?.gender == 1;else male"> Female</div><div #male *ngIf="(customer)?.gender == 0; else female"> Male</div></ion-label> 
 		</ion-item>
 		
 		<ion-item>
-			<b>Mobile:</b> {{(customer)?.mobile}}
+			<ion-label><b>Mobile:</b> {{(customer)?.mobile}}</ion-label>
 		</ion-item>
 		
 
