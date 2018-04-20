@@ -36,13 +36,13 @@ export class ProfileDetailsPage {
 	constructor(public navCtrl: NavController, 
 				public navParams: NavParams,
 				public customerProvider: CustomerProvider) {
+		this.customerId = navParams.get('customerToUpdateId');
+
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad UpdateProductPage');
+		console.log('ionViewDidLoad ProfileDetailsPage');
 		
-/*		this.customerId = navParams.get('customerToUpdateId'); */
-		this.customerId = 1;
 		this.submitted = false;
 
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
@@ -88,24 +88,24 @@ export class ProfileDetailsPage {
 	
 	saveProfile(editCustomerForm: NgForm) 
 	{
+		console.log('saveProfile ProfileDetailsPage');
+
 		this.submitted = true;
-		
+
 		if (editCustomerForm.valid) 
 		{		
-			this.infoMessage = "Customer updated successfully";
-			/*			this.productProvider.updateProduct(this.productToUpdate).subscribe(
+			this.customerProvider.updateCustomer(this.customerToUpdate).subscribe(
 				response => {					
 					this.infoMessage = "Customer updated successfully";
 				},
 				error => {
-					this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+					this.errorMessage = "HTTP " + error.status + ": " + error.error.message + error.message;
 				}
-			);*/
+			);
 
 		}
 		else
 		{			
 		}
 	}
-
 }

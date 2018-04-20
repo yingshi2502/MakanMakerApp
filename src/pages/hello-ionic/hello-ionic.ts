@@ -75,12 +75,13 @@ export class HelloIonicPage {
 					this.customer = response.customer;
 					this.infoMessage = "Customer login successfully";
 			
-					//sessionStorage.setItem("customerId", this.customer.customerId);
+					sessionStorage.setItem("customerId", this.customer.customerId);
 					sessionStorage.setItem("fullName", this.customer.fullName);
 					sessionStorage.setItem("isLogin", "true");
 					this.customerId = this.customer.customerId;
 					this.fullName = this.customer.fullName;
 					this.isLogin = true;
+					this.customerProvider.setLoginCredential(this.username, this.password);
 			
 					let toast = this.toastCtrl.create(
 					{

@@ -46,6 +46,8 @@ export class AddressProvider {
 		this.password = password;
 		this.loginCredential = "?username=" + username + "&password=" + password;
 	}
+	
+	
   
   // add login credentials later
 	/* getAddressByAddressId(addressId: number): Observable<any>

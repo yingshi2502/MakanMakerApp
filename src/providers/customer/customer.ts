@@ -42,6 +42,7 @@ export class CustomerProvider {
 		this.username = username;
 		this.password = password;
 		this.loginCredential = "?username=" + username + "&password=" + password;
+		console.log('setLoginCredential(username, password) CustomerProvider');
 	}
 	
 	// add login credentials later
@@ -64,6 +65,35 @@ export class CustomerProvider {
 		);
 	}
 	
+	// add login credentials later
+	updateCustomer(customerToUpdate: Customer): Observable<any>
+	{
+		console.log('updateCustomer(customerToUpdate) customerProvider');
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		let updateCustomerReq = {
+			"username": this.username,
+			"password": this.password,
+			"customerEntity": customerToUpdate
+		};
+		
+		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
+		
+		return this.httpClient.post<any>(path, updateCustomerReq, httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+	
 	private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 
@@ -78,3 +108,4 @@ export class CustomerProvider {
 		return new ErrorObservable(error);
 	}
 }
+
