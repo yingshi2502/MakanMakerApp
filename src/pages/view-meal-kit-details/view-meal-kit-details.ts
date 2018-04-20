@@ -25,8 +25,8 @@ export class ViewMealKitDetailsPage {
 				public mealKitProvider: MealKitProvider)
   {
 	  	this.mealKitToView = null;
-		this.mealKitToViewId = 1;
-		//this.mealKitToViewId = navParams.get('mealKitToViewId');	
+		//this.mealKitToViewId = 1;
+		this.mealKitToViewId = navParams.get('mealKitToViewId');	
   }
 
   ionViewDidLoad() {
@@ -34,7 +34,7 @@ export class ViewMealKitDetailsPage {
 		
     this.mealKitProvider.retrieveMealKit(this.mealKitToViewId).subscribe(
 	response => {
-				this.mealKitToView = response.mealkit;
+				this.mealKitToView = response.mealKit;
 				this.infoMessage = "Mealkit loaded successfully";								
 			},
 			error => {				
@@ -49,7 +49,7 @@ export class ViewMealKitDetailsPage {
 	{
 		this.mealKitProvider.retrieveMealKit(this.mealKitToViewId).subscribe(
 			response => {
-				this.mealKitToView = response.mealkit;
+				this.mealKitToView = response.mealKit;
 				this.infoMessage = "Mealkit loaded successfully";								
 			},
 			error => {				
