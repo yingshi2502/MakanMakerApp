@@ -20,7 +20,6 @@ import { Customer } from '../../entities/customer'
   templateUrl: 'wish-list.html',
 })
 export class WishListPage {
-	viewMealKitDetails = ViewMealKitDetailsPage;
 	errorMessage: string;
 	mealKits: MealKit[];
 	customerId: string;

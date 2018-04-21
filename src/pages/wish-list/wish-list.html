@@ -33,13 +33,13 @@
         {{mealKit.name}}
       </ion-card-title>
       <p>
-        For the all in one fans.
+        {{mealKit.description}}
       </p>
     </ion-card-content>
 
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="blue" [navPush]="viewMealKitDetails"  icon-start>
+        <button ion-button clear small color="blue"  (click)="viewMealKitDetails($event, mealKit)"  icon-start>
           <ion-icon name='glasses'></ion-icon>
           View Details
         </button>
