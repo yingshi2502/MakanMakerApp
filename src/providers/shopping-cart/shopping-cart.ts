@@ -10,6 +10,10 @@ import { Platform } from 'ionic-angular';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
+};
+
 @Injectable()
 export class ShoppingCartProvider {
     ipAddress = '172.25.105.45';
@@ -65,7 +69,7 @@ export class ShoppingCartProvider {
 		}
 		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
 		let newPath: string = '/add?customerId='+customerId+'&qty=' + qty + '&mealKitId=' + mealKitId;
-		return this.httpClient.post<any>(path+newPath).pipe
+		return this.httpClient.post<any>(path+newPath,httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

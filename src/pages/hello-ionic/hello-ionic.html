@@ -67,12 +67,15 @@
 					<button ion-button block (click)="clear()">
 						Clear
 					</button>
+					
 				</ion-item>
 
 			</ion-list>
 			
 		</form>
-		
+		<button (click)="toSignUp($event)">
+			Sign Up
+		</button>
 	</div>
 	
 	<div *ngIf="isLogin">

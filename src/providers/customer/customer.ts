@@ -15,6 +15,10 @@ import { Customer } from '../../entities/customer'
 */
 
 const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
+};
+
+const httpOptions2 = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
@@ -27,7 +31,9 @@ export class CustomerProvider {
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/customer';
 	
 	baseUrl = "/api/customer";
-	
+	signUpFullUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/signup';
+	signUpBasUrl = "/api/signup";
+
 	username = "";
 	password = "";
 	
@@ -99,13 +105,37 @@ export class CustomerProvider {
 		{
 			path = this.fullBaseUrl;
 		}
-		
+		console.log('***path'+ path+' '+this.updatedParam)
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
-		
-		return this.httpClient.post<any>(path + this.updatedParam).pipe
+		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
+	}
+
+	signup(newCustomer: Customer):Observable<any>
+	{
+		console.log('sign up customer : customerProvider '+newCustomer.dateOfBirth);
+		let path: string='';
+
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.signUpBasUrl;
+		}
+		else
+		{
+			path = this.signUpFullUrl;
+		}
+
+		let signUpRequest = {
+			"customer":newCustomer
+		}
+
+		return this.httpClient.post<any>(path+'/object',signUpRequest,httpOptions2).pipe
+		(
+			catchError(this.handleError)
+		);
+
 	}
 	
 	private handleError(error: HttpErrorResponse)
