@@ -14,15 +14,23 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class EditAddressPage {
 
+	customerId: number;
+	addressId: number;
+	address: Address;
+
 	constructor(public navCtrl: NavController, public navParams: NavParams) {
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad EditAddressPage');
+		this.customerId = parseInt(sessionStorage.getItem("customerId"));
+		this.address = null;
 	}
 
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter EditAddressPage');
+		this.customerId = parseInt(sessionStorage.getItem("customerId"));
+		this.address = null;
 	}
 
 }

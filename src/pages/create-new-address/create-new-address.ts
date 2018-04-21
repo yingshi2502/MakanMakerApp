@@ -37,13 +37,13 @@ export class CreateNewAddressPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidEnter CreateNewAddressPage');
-		this.customerId = sessionStorage.getItem("customerId");
+		this.customerId = parseInt(sessionStorage.getItem("customerId"));
 		this.address = new Address();
 	}
   
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter CreateNewAddressPage');
-		this.customerId = sessionStorage.getItem("customerId");
+		this.customerId = parseInt(sessionStorage.getItem("customerId"));
 		this.address = new Address();
 	}
 

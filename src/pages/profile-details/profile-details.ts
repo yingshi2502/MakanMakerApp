@@ -53,7 +53,7 @@ export class ProfileDetailsPage {
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customerToUpdate = response.customer;
-				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'dd/MM/yyyy');
+				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'yyyy-MM-dd');
 				console.log('ionViewDidLoad customerProvider mtd customerDobstring is: ' + this.customerDobString + 'ProfileDetailsPage');
 				this.infoMessage = "Customer loaded successfully";								
 			},

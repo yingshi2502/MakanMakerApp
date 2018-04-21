@@ -39,7 +39,7 @@ export class MyAddressBookPage {
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad MyAddressBookPage');
-		this.customerId = sessionStorage.getItem("customerId");
+		this.customerId = parseInt(sessionStorage.getItem("customerId"));
 		this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
 			response => {
 				this.addresses = response.addresses;
@@ -55,7 +55,7 @@ export class MyAddressBookPage {
   
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter MyAddressBookPage');
-		this.customerId = sessionStorage.getItem("customerId");
+		this.customerId = parseInt(sessionStorage.getItem("customerId"));
 		this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
 			response => {
 				this.addresses = response.addresses;
