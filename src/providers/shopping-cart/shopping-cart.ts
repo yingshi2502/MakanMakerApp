@@ -71,9 +71,47 @@ export class ShoppingCartProvider {
 		);
 	}	
 	
+	addWishList(customerId: string, mealKitId: string): Observable<any>
+	{
+		
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else 
+		{
+			path = this.fullBaseUrl;
+		}
+		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
+		let newPath: string = '/addWishList?customerId='+customerId + '&mealKitId=' + mealKitId;
+		return this.httpClient.post<any>(path+newPath).pipe
+		(
+			catchError(this.handleError)
+		);
+	}		
 	
-	
-	
+	deleteWishList(customerId: string, mealKitId: string): Observable<any>
+	{
+		
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
+		let newPath: string = '/addWishList?customerId='+customerId + '&mealKitId=' + mealKitId;
+		return this.httpClient.delete<any>(path+newPath).pipe
+		(
+			catchError(this.handleError)
+		);
+	}		
 	
 	
   
