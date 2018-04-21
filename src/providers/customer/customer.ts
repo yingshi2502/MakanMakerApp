@@ -102,10 +102,10 @@ export class CustomerProvider {
 		
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
 		
-		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
+		/* this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
 		(
 			catchError(this.handleError)
-		);
+		);*/
 	}
 	
 	private handleError(error: HttpErrorResponse)
