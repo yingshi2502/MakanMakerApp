@@ -34,3 +34,8 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 /nbproject/private/
+src/providers/customer/customer.ts
+src/providers/customer/customer.ts
+src/providers/customer/customer.ts
+src/pages/wish-list/wish-list.html
+*.ts
