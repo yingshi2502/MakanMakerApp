@@ -32,7 +32,7 @@ export class CheckoutProvider {
 	
 	baseUrl = "/api/shoppingCart";
 	
-	/*createOrder(customerId: string, deliveryDate: string, mealKitId: string, specialRequest: string, qty: string, addressId: string): Observable<any>{
+	createOrder(customerId: string, deliveryDate: string, mealKitId: string, specialRequest: string, qty: string, addressId: string): Observable<any>{
 		let path: string = '';
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
@@ -48,7 +48,7 @@ export class CheckoutProvider {
 		(
 			catchError(this.handleError)
 		);	
-	}*/
+	}
 	
 	private handleError(error: HttpErrorResponse)
 	{

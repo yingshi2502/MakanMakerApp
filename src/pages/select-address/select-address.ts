@@ -49,7 +49,7 @@ export class SelectAddressPage {
 
   select(index) {
     this.selectedAddress=this.addresses[index];
-	console.log("selected postalCode"+this.selectedAddress.postalCode);
+	console.log("postalCode"+this.selectedAddress.postalCode);
   }
   
 

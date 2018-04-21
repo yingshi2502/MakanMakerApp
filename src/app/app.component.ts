@@ -26,7 +26,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = CategoriesPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -39,11 +39,13 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
-	  { title: 'My Profile', component: MyProfilePage },
-	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
+      //{ title: 'Hello Ionic', component: HelloIonicPage },
+      //{ title: 'My First List', component: ListPage },
+	  
+	  { title: 'Browse All MealKits', component: ViewAllMealKitsPage },
 	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Shopping Cart', component: ShoppingCartPage },
 	  { title: 'Wish List', component: WishListPage },
 	  
 
