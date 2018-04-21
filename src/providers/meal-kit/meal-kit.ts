@@ -14,7 +14,7 @@ import { MealKit } from '../../entities/mealkit'
 */
 @Injectable()
 export class MealKitProvider {
-    ipAddress = '172.25.105.45';
+    ipAddress = '172.31.26.42';
  	//ipAddress = '192.168.137.1';
 	// ipAddress = '100.110.30.81';
 	portNo = '8080';
@@ -55,7 +55,7 @@ export class MealKitProvider {
 		
 		console.error('********* HERE: ' + path);
 	
-		return this.httpClient.get<any>(path + "/retrieveAllMealKits").pipe
+		return this.httpClient.get<any>(path + "/retrieveAvailableMealKits").pipe
 		(
 			catchError(this.handleError)
 		);	

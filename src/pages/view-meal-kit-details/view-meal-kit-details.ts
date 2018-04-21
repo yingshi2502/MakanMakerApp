@@ -69,9 +69,6 @@ export class ViewMealKitDetailsPage {
 		);
 	}
   
-  
-  
-  
 
   doAlert() {
     let alert = this.alertCtrl.create({

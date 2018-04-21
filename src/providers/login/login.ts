@@ -22,7 +22,6 @@ const httpOptions = {
 export class LoginProvider {
 
 
-	
  	ipAddress = '192.168.137.1';
 	// ipAddress = '100.110.30.81';
 	portNo = '8080';
@@ -59,6 +58,7 @@ export class LoginProvider {
 		{
 			path = this.fullBaseUrl;
 		}
+		console.log('****'+path);
 	
 		return this.httpClient.get<any>(path + this.loginCredential).pipe
 		(
