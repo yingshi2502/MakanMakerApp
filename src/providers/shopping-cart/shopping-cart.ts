@@ -90,7 +90,7 @@ export class ShoppingCartProvider {
 		}
 		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
 		let newPath: string = '/addWishList?customerId='+customerId + '&mealKitId=' + mealKitId;
-		return this.httpClient.post<any>(path+newPath).pipe
+		return this.httpClient.post<any>(path+newPath,httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

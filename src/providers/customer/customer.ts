@@ -18,9 +18,7 @@ const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
 };
 
-const httpOptions2 = {
-	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
 
 @Injectable()
 export class CustomerProvider {
@@ -44,6 +42,7 @@ export class CustomerProvider {
 	updatedMobile = "";
 	
 	loginCredential = "";
+	signUpInfo = "";
 	updatedParam = "";
 
 	constructor(public platform: Platform,
@@ -107,16 +106,21 @@ export class CustomerProvider {
 		}
 		console.log('***path'+ path+' '+this.updatedParam)
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
-<<<<<<< HEAD
 		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
-=======
-		
-		/* this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
-		return this.httpClient.post<any>(path + this.updatedParam).pipe
->>>>>>> 73be496fba87043a93848934c069cffa74fc6b30
+
 		(
 			catchError(this.handleError)
-		);*/
+		);
+	}
+	//@QueryParam("username") String username, @QueryParam("password") String password, 
+//@QueryParam("fullName") String fullName, @QueryParam("mobile") String mobile,
+// @QueryParam("email") String email, @QueryParam("dob") String dob, @QueryParam("gener") String gender
+  	setSignUpInformation(customer: Customer, dob:String)
+	{
+
+		this.signUpInfo = "?username=" + customer.userName + "&password=" + customer.password
+		+"&fullName="+customer.fullName+"&mobile="+customer.mobile+"&email="+customer.email+"&dob="+dob+
+		"&gener="+customer.gender;
 	}
 
 	signup(newCustomer: Customer):Observable<any>
@@ -137,13 +141,38 @@ export class CustomerProvider {
 			"customer":newCustomer
 		}
 
-		return this.httpClient.post<any>(path+'/object',signUpRequest,httpOptions2).pipe
+		return this.httpClient.post<any>(path+'/object',signUpRequest,httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
 
 	}
-	
+
+
+	signup2(newCustomer: Customer,dob: String): Observable<any>
+	{
+		console.log('sign up customer 2 STUPID: customerProvider '+newCustomer.dateOfBirth+" "+newCustomer.gender);
+		let path: string='';
+		this.setSignUpInformation(newCustomer,dob);
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.signUpBasUrl;
+		}
+		else
+		{
+			path = this.signUpFullUrl;
+		}
+
+		return this.httpClient.get<any>(path+this.signUpInfo).pipe
+		(
+			catchError(this.handleError)
+		);
+
+	}
+
+
+
+
 	private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 
@@ -155,6 +184,7 @@ export class CustomerProvider {
 			console.error(" A HTTP error has occurred: " + `HTTP ${error.status}: ${error.error.message}`);
 		}
 		
+
 		return new ErrorObservable(error);
 	}
 }

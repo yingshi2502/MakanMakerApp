@@ -50,7 +50,7 @@
 				
 				<ion-item>
 					<ion-label>Date of Birth</ion-label>
-					<ion-datetime id="dob" name="dob" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"  placeholder="{{this.customerDobString}}" [(ngModel)]="customerDobString" required="true" #dob="ngModel" max="2018-04-19"></ion-datetime>
+					<ion-datetime id="dob" name="dob" displayFormat="YYYY-MM-DD" pickerFormat="DD/MM/YYYY"  placeholder="{{this.customerDobString}}" [(ngModel)]="customerDobString" required="true" #dob="ngModel" max="2018-04-19"></ion-datetime>
 				</ion-item>
 			
 				<ion-item>
@@ -65,11 +65,11 @@
 
 					<ion-item>
 						<ion-label>Female</ion-label>
-						<ion-radio value="0"></ion-radio>
+						<ion-radio value="0" (ionSelect)="selectGender(0)"></ion-radio>
 					</ion-item>
 					<ion-item>
 						<ion-label>Male</ion-label>
-						<ion-radio value="1"></ion-radio>
+						<ion-radio value="1" (ionSelect)="selectGender(1)"></ion-radio>
 					</ion-item>
 				</ion-list>
 		
