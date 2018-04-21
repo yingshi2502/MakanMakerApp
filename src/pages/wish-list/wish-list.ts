@@ -81,6 +81,31 @@ export class WishListPage {
 
 	  }	
 
+	 doRemove(mealKit) {
+		this.mealKitIdInString = '' + mealKit.mealKitId.toString();  
+		this.shoppingCartProvider.deleteWishList(this.customerId, this.mealKitIdInString, "1").subscribe(
+			response => {						
+				this.infoMessage = "Added to shopping cart successfully";
+				this.errorMessage = null;
+			},
+			error => {				
+				this.infoMessage = null;
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);	
+		
+		let alert = this.alertCtrl.create({ 
+		  title: 'Removed from Wishlist!',
+		  subTitle: 'Item has been removed from Wishlist successfully!',
+		  buttons: ['OK']
+		}); 
+		alert.present();		
+
+	  }		  
+	  
+	  
+	  
+	  
   	viewMealKitDetails(event, mealKit) 
 	{
 		this.navCtrl.push(ViewMealKitDetailsPage, {'mealKitToViewId': mealKit.mealKitId});
