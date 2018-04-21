@@ -110,7 +110,7 @@ export class ShoppingCartProvider {
 			path = this.fullBaseUrl;
 		}
 		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
-		let newPath: string = '/addWishList?customerId='+customerId + '&mealKitId=' + mealKitId;
+		let newPath: string = '/deleteWishList?customerId='+customerId + '&mealKitId=' + mealKitId;
 		return this.httpClient.delete<any>(path+newPath).pipe
 		(
 			catchError(this.handleError)
