@@ -9,6 +9,7 @@ import { LoginProvider } from '../../providers/login/login';
 import { AddressProvider } from '../../providers/address/address';
 import { CustomerProvider } from '../../providers/customer/customer';
 import { MealKitProvider } from '../../providers/meal-kit/meal-kit';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-hello-ionic',
@@ -110,6 +111,12 @@ export class HelloIonicPage {
 		{
 						
 		} 
+	}
+
+
+	toSignUp(event)
+	{
+		this.navCtrl.push(SignupPage, {fromPage: 'HelloIonicPage'})
 	}
 }
 

@@ -18,15 +18,19 @@ import { AlertController } from 'ionic-angular';
 })
 export class SelectSchedulePage {
 	mealKits = [];
-	orders=[];
+	cartWrappers=[];
 	//deliveryDate;
 	isEnabled=false;
+	selectedAddress;
+	errorMessage: string;
+	infoMessage: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 	  this.mealKits = navParams.get('param1');
+	  this.selectedAddress = navParams.get('param2');
 	  for (let mealKit of this.mealKits){
-		  let order = {mealKit, deliveryDate: '2018-05-19'};
-		  this.orders.push(order);
+		  let cartWrapper = {mealKit, deliveryDate: new Date().toISOString(), specialRequest:""};
+		  this.cartWrappers.push(cartWrapper);
 	  }
   }
   /*public event = {
@@ -37,7 +41,10 @@ export class SelectSchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectSchedulePage');
-	console.log("orders size"+Object.keys(this.orders).length);
+	console.log("selected postalCode"+this.selectedAddress.postalCode);
+	console.log("mealkits size"+Object.keys(this.mealKits).length);
+	console.log("cart wrapper size"+Object.keys(this.cartWrappers).length);
+
   }
 	
 	doAlert() {
@@ -46,6 +53,8 @@ export class SelectSchedulePage {
 		  buttons: ['Ok']
 		});
 		this.isEnabled=true;
+		
+		console.log("specialRequest"+this.cartWrappers[0].specialRequest);
 		
 		alert.present();
 	  }

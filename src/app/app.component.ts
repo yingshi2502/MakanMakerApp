@@ -15,7 +15,7 @@ import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-k
 import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal-kit-details';
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
-
+import { SignupPage } from '../pages/signup/signup';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -27,7 +27,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = CategoriesPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -40,6 +40,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+<<<<<<< HEAD
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
 	  { title: 'My Profile', component: MyProfilePage },
@@ -47,6 +48,17 @@ export class MyApp {
 	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
 	  { title: 'Categories', component: CategoriesPage },
 	  { title: 'Wish List', component: WishListPage }
+=======
+      //{ title: 'Hello Ionic', component: HelloIonicPage },
+      //{ title: 'My First List', component: ListPage },
+	  
+	  { title: 'Browse All MealKits', component: ViewAllMealKitsPage },
+	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Shopping Cart', component: ShoppingCartPage },
+	  { title: 'Wish List', component: WishListPage },
+	  
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
 
     ];
   }

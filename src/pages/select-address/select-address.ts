@@ -17,7 +17,6 @@ import { Address } from '../../entities/address'
 })
 export class SelectAddressPage {
 	addresses=[];
-	//public log;
 	selectedAddress;
 	totalPrice;
 	mealKits=[];
@@ -50,18 +49,15 @@ export class SelectAddressPage {
 
   select(index) {
     this.selectedAddress=this.addresses[index];
-	console.log("selected postalCode"+this.selectedAddress.postalCode);
+	console.log("postalCode"+this.selectedAddress.postalCode);
   }
   
-  /*select(address){
-	  this.log="selected"+address.streetAddress;
-  }*/
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectAddressPage');
 	console.log("mealkits size"+Object.keys(this.mealKits).length);
   }
 	selectPayment(event){
-	  this.navCtrl.push(PaymentPage, {param1: this.mealKits});
+	  this.navCtrl.push(PaymentPage, {param1: this.mealKits, param2: this.selectedAddress});
   }
 }

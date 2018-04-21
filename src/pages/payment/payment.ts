@@ -24,8 +24,11 @@ export class PaymentPage {
  mealKits=[];
  totalPrice=0;
  isEnabled=false;
+ selectedAddress: Object = {};
+ //selectedPayment;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 	  this.mealKits = navParams.get('param1');
+	  this.selectedAddress = navParams.get('param2');
 	this.paymentMethods = [
 	{ 'name': 'PayPal',
 	  'icon': 'pricetag'
@@ -44,10 +47,12 @@ export class PaymentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
+	console.log("selected postalCode"+this.selectedAddress.postalCode);
 	console.log("mealkits size"+Object.keys(this.mealKits).length);
+	
   }
   selectSchedule(event){
-	  this.navCtrl.push(SelectSchedulePage, {param1:this.mealKits});
+	  this.navCtrl.push(SelectSchedulePage, {param1:this.mealKits, param2: this.selectedAddress});
   }
   
   public onButtonClick(index) {

@@ -19,9 +19,13 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
 import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
 import { EditAddressPage } from '../pages/edit-address/edit-address';
+=======
+import { SignupPage } from '../pages/signup/signup';
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +34,8 @@ import { AddressProvider } from '../providers/address/address';
 import { MealKitProvider } from '../providers/meal-kit/meal-kit';
 import { LoginProvider } from '../providers/login/login';
 import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
+import { CheckoutProvider } from '../providers/checkout/checkout';
+import { WishListProvider } from '../providers/wish-list/wish-list';
 
 @NgModule({
   declarations: [
@@ -47,9 +53,13 @@ import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage
+=======
+  SignupPage
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
 
   ],
   imports: [
@@ -77,9 +87,13 @@ import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage
+=======
+  SignupPage
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
   ],
   providers: [
     StatusBar,
@@ -90,7 +104,9 @@ import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
     AddressProvider,
     MealKitProvider,
     LoginProvider,
-    ShoppingCartProvider
+    ShoppingCartProvider,
+    CheckoutProvider,
+    WishListProvider
   ]
 })
 export class AppModule {}
