@@ -20,7 +20,13 @@
   <ion-card  *ngFor="let mealKit of mealKits">
 
 <!--   <img src="assets/imgs/mealKit1.jpg"/> -->
-	<img src="{{mealKit.imagePath}}">
+	<div *ngIf = "(mealKit.imagePath)?.charAt(0) == '.'">		
+		<img src = "assets/imgs/{{(mealKit.imagePath)?.substring(9)}}"/>
+	</div>
+	
+	<div *ngIf = "(mealKit.imagePath)?.charAt(0) != '.'">		
+		<img src = "(mealKit.imagePath)"/>
+	</div>	
 
     <ion-card-content>
       <ion-card-title>

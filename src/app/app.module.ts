@@ -26,6 +26,7 @@ import { CustomerProvider } from '../providers/customer/customer';
 import { AddressProvider } from '../providers/address/address';
 import { MealKitProvider } from '../providers/meal-kit/meal-kit';
 import { LoginProvider } from '../providers/login/login';
+import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { LoginProvider } from '../providers/login/login';
     CustomerProvider,
     AddressProvider,
     MealKitProvider,
-    LoginProvider
+    LoginProvider,
+    ShoppingCartProvider
   ]
 })
 export class AppModule {}

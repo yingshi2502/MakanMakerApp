@@ -32,7 +32,13 @@
 		
 
 	 <ion-list *ngIf="mealKitToView != null">
-	 <img src="{{mealKitToView.imagePath}}"/>
+		<div *ngIf = "(mealKitToView.imagePath)?.charAt(0) == '.'">		
+			<img src = "assets/imgs/{{(mealKitToView.imagePath)?.substring(9)}}"/>
+		</div>
+		
+		<div *ngIf = "(mealKitToView.imagePath)?.charAt(0) != '.'">		
+			<img src = "(mealKitToView.imagePath)"/>
+		</div>	
 		 <ion-item>
 			<ion-label>{{mealKitToView.name}}</ion-label>
 		  </ion-item>

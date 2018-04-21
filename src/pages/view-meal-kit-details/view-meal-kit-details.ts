@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { MealKitProvider } from '../../providers/meal-kit/meal-kit';
+import { CustomerProvider } from '../../providers/customer/customer';
 
+import { Customer } from '../../entities/customer'
 import { MealKit } from '../../entities/mealkit';
 /**
  * Generated class for the ViewMealKitDetailsPage page.
@@ -22,11 +24,13 @@ export class ViewMealKitDetailsPage {
 	mealKitToView: MealKit;
 	
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-				public mealKitProvider: MealKitProvider)
+				public mealKitProvider: MealKitProvider, public customerProvider: CustomerProvider)
   {
 	  	this.mealKitToView = null;
 		//this.mealKitToViewId = 1;
 		this.mealKitToViewId = navParams.get('mealKitToViewId');	
+		let customerIdInString: string = sessionStorage.getItem("customerId");
+		this.customerId = Number(customerIdInString);
   }
 
   ionViewDidLoad() {
