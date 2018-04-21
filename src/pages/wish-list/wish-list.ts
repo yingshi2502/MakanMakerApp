@@ -21,8 +21,9 @@ import { Customer } from '../../entities/customer'
 })
 export class WishListPage {
 	//viewMealKitDetails = ViewMealKitDetailsPage;
+	infoMessage: string;
 	errorMessage: string;
-	mealKits: MealKit[];
+	mealKits: MealKit[]; 
 	customerId: string;
 	customer: Customer;
 	mealKitIdInString: string='';
