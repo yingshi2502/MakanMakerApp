@@ -19,6 +19,9 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -43,7 +46,10 @@ import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
 	ViewMealKitDetailsPage,
 	CategoriesPage,
 	WishListPage,
-	ProfileDetailsPage
+	ProfileDetailsPage,
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage
 
   ],
   imports: [
@@ -70,7 +76,10 @@ import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
 	ViewMealKitDetailsPage,
 	CategoriesPage,
 	WishListPage,
-	ProfileDetailsPage
+	ProfileDetailsPage,
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage
   ],
   providers: [
     StatusBar,

@@ -7,8 +7,8 @@ export class Address
 	postalCode: string;
 	streetAddress: string;
 	floorUnit: string;
-	isDefaultBilling: boolean;
 	isDefaultShipping: boolean;
+	isDefaultBilling: boolean;
 	phoneNumber: string;
 	fullName: string;
 	isDeleted: boolean;
