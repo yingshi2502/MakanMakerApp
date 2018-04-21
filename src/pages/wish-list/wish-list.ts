@@ -24,8 +24,8 @@ export class WishListPage {
 	mealKits: MealKit[];
 	customerId: string;
 	customer: Customer;
-	
-	
+	mealKitIdInString: string='';
+	customerIdString: string;
 	
 	constructor(public navCtrl: NavController, 
 			public navParams: NavParams, 
@@ -33,7 +33,7 @@ export class WishListPage {
 			public customerProvider: CustomerProvider,
 			public shoppingCartProvider: ShoppingCartProvider,
 			public mealKitProvider: MealKitProvider) {
-				
+			
 			let customerIdInString: string = sessionStorage.getItem("customerId");
 			this.customerId = customerIdInString; 
 
@@ -56,15 +56,28 @@ export class WishListPage {
 		);
 	}
   
-
-    doAlert() {
+  
+	 doAlert(mealKit) {
+		this.mealKitIdInString = '' + mealKit.mealKitId.toString();  
+		this.shoppingCartProvider.addItem(this.customerId, this.mealKitIdInString, "1").subscribe(
+			response => {						
+				this.infoMessage = "Added to shopping cart successfully";
+				this.errorMessage = null;
+			},
+			error => {				
+				this.infoMessage = null;
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);	
+		
 		let alert = this.alertCtrl.create({
 		  title: 'Added to Cart!',
 		  subTitle: 'Item has been added to Cart successfully!',
 		  buttons: ['OK']
 		});
-		alert.present();
-    }
+		alert.present();		
+
+	  }	
 
   	viewMealKitDetails(event, mealKit) 
 	{
