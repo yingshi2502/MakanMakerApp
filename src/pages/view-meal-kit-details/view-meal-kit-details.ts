@@ -22,6 +22,13 @@ export class ViewMealKitDetailsPage {
 	infoMessage: string;
 	mealKitToViewId: number;
 	mealKitToView: MealKit;
+	customerId: number;
+	customer: Customer;
+	fullName: string;
+	dateOfBirth: Date;
+	email: string;
+	gender: string;
+	mobile: string;
 	
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
 				public mealKitProvider: MealKitProvider, public customerProvider: CustomerProvider)

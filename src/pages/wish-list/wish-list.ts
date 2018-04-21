@@ -4,6 +4,7 @@ import { AlertController } from 'ionic-angular';
 import {ViewMealKitDetailsPage} from '../view-meal-kit-details/view-meal-kit-details';
 import { CustomerProvider } from '../../providers/customer/customer';
 import { ShoppingCartProvider } from '../../providers/shopping-cart/shopping-cart';
+import { MealKitProvider } from '../../providers/meal-kit/meal-kit';
 import { MealKit } from '../../entities/mealkit';
 import { Customer } from '../../entities/customer'
 
@@ -22,16 +23,20 @@ export class WishListPage {
 	viewMealKitDetails = ViewMealKitDetailsPage;
 	errorMessage: string;
 	mealKits: MealKit[];
-	customerId: number;
+	customerId: string;
 	customer: Customer;
+	
+	
 	
 	constructor(public navCtrl: NavController, 
 			public navParams: NavParams, 
 			public alertCtrl: AlertController,
-			public customerProvider: CustomerProvider) {
+			public customerProvider: CustomerProvider,
+			public shoppingCartProvider: ShoppingCartProvider,
+			public mealKitProvider: MealKitProvider) {
 				
 				let customerIdInString: string = sessionStorage.getItem("customerId");
-				this.customerId = Number(customerIdInString); 
+				this.customerId = customerIdInString; 
 
 	}
 
@@ -42,7 +47,7 @@ export class WishListPage {
   
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter ViewAllMealKitsPage');
-		this.mealKitProvider.retrieveWishListByCustomerId(customerIdInString).subscribe(
+		this.shoppingCartProvider.retrieveWishListByCustomerId(this.customerId).subscribe(
 			response => {
 				this.mealKits = response.mealKits
 			},
@@ -60,6 +65,11 @@ export class WishListPage {
 		  buttons: ['OK']
 		});
 		alert.present();
-    }  
+    }
+
+  	viewMealKitDetails(event, mealKit) 
+	{
+		this.navCtrl.push(ViewMealKitDetailsPage, {'mealKitToViewId': mealKit.mealKitId});
+	}	
   
 }

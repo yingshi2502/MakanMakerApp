@@ -12,8 +12,19 @@ import { Platform } from 'ionic-angular';
 */
 @Injectable()
 export class ShoppingCartProvider {
-
-  constructor(public platform: Platform, public http: HttpClient) {
+    ipAddress = '172.25.105.45';
+ 	//ipAddress = '192.168.137.1';
+	// ipAddress = '100.110.30.81';
+	portNo = '8080';
+	
+	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/shoppingCart';
+	
+	baseUrl = "/api/shoppingCart";
+	
+	username = "";
+	password = "";
+	loginCredential = "";
+	constructor(public platform: Platform, public httpClient: HttpClient) {
     console.log('Hello ShoppingCartProvider Provider');
   }
   
@@ -21,7 +32,7 @@ export class ShoppingCartProvider {
   retrieveWishListByCustomerId(customerId: string): Observable<any> 
 	{
 		let path: string = '';
-		
+		 
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
 		{
 			path = this.baseUrl;
