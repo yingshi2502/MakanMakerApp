@@ -59,6 +59,7 @@ export class LoginProvider {
 		{
 			path = this.fullBaseUrl;
 		}
+		console.log('****'+path);
 	
 		return this.httpClient.get<any>(path + this.loginCredential).pipe
 		(

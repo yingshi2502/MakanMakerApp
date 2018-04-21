@@ -21,7 +21,7 @@ const httpOptions = {
 @Injectable()
 export class CustomerProvider {
 	
-	ipAddress = '192.168.137.1';
+	ipAddress = '172.31.26.42';
 	// ipAddress = '100.110.30.81';
 	portNo = '8080';
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/customer';
@@ -87,7 +87,7 @@ export class CustomerProvider {
 	
 	// add login credentials later
 	updateCustomer(customerToUpdate: Customer): Observable<any>
-	{
+	{ 
 		console.log('updateCustomer(customerToUpdate) customerProvider');
 		let path: string = '';
 		
@@ -103,6 +103,7 @@ export class CustomerProvider {
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
 		
 		/* this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
+		return this.httpClient.post<any>(path + this.updatedParam).pipe
 		(
 			catchError(this.handleError)
 		);*/

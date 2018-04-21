@@ -57,16 +57,21 @@
 				</ion-row>
 		
 		  <ion-item>
-			<ion-label>Ingredients</ion-label>
+			<ion-label style="font-size: 20px">Ingredients</ion-label>
 		  </ion-item>	
 		  <ion-item>
-			<ion-label  text-wrap>{{mealKitToView.ingredients}}</ion-label>
+		  	<ion-list>
+		  		<div ion-item *ngFor="let i of mealKitToView.ingredients">
+		  			{{i}}
+		  		</div>
+
+		    </ion-list>
 		  </ion-item>		  
 			</ion-list>
 			
 		 <ion-item>
 			<ion-label>Enter Quantity</ion-label>
-			<ion-input type="text"></ion-input>
+			<ion-input type="text" [(ngModel)]="qty" name="qty"></ion-input>
 		  </ion-item>
 
 		  <ion-item>

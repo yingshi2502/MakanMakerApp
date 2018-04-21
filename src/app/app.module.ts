@@ -28,6 +28,7 @@ import { MealKitProvider } from '../providers/meal-kit/meal-kit';
 import { LoginProvider } from '../providers/login/login';
 import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
 import { CheckoutProvider } from '../providers/checkout/checkout';
+import { WishListProvider } from '../providers/wish-list/wish-list';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { CheckoutProvider } from '../providers/checkout/checkout';
     MealKitProvider,
     LoginProvider,
     ShoppingCartProvider,
-    CheckoutProvider
+    CheckoutProvider,
+    WishListProvider
   ]
 })
 export class AppModule {}

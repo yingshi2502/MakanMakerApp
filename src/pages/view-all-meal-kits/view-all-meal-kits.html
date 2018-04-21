@@ -21,11 +21,11 @@
 
 <!--   <img src="assets/imgs/mealKit1.jpg"/> -->
 	<div *ngIf = "(mealKit.imagePath)?.charAt(0) == '.'">		
-		<img src = "assets/imgs/{{(mealKit.imagePath)?.substring(9)}}"/>
+		<img src = "assets/imgs/{{(mealKit.imagePath)?.substring(9)}}" style="height: 300px"/>
 	</div>
 	
 	<div *ngIf = "(mealKit.imagePath)?.charAt(0) != '.'">		
-		<img src = "(mealKit.imagePath)"/>
+		<img src = "{{(mealKit.imagePath)}}" style="height: 300px" />
 	</div>	
 
     <ion-card-content>
@@ -33,7 +33,6 @@
         {{mealKit.name}}
       </ion-card-title>
       <p>
-	  
         {{mealKit.description}}
       </p>
     </ion-card-content>
@@ -52,7 +51,7 @@
         </button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button clear small color="blue" (click)="doAlert()" icon-start>
+        <button ion-button clear small color="blue" (click)="doAlert(mealKit)" icon-start>
           <ion-icon name='cart'></ion-icon>
           Add to Cart
         </button>

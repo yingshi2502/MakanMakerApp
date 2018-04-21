@@ -50,6 +50,27 @@ export class ShoppingCartProvider {
 	
 	
 	
+	addItem(customerId: string, mealKitId: string, qty: string): Observable<any>
+	{
+		
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
+		let newPath: string = '/add?customerId='+customerId+'&qty=' + qty + '&mealKitId=' + mealKitId;
+		return this.httpClient.post<any>(path+newPath).pipe
+		(
+			catchError(this.handleError)
+		);
+	}	
+	
 	
 	
 	
