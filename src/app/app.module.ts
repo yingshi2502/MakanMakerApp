@@ -28,6 +28,7 @@ import { AddressProvider } from '../providers/address/address';
 import { MealKitProvider } from '../providers/meal-kit/meal-kit';
 import { LoginProvider } from '../providers/login/login';
 import { ShoppingCartProvider } from '../providers/shopping-cart/shopping-cart';
+import { CheckoutProvider } from '../providers/checkout/checkout';
 import { WishListProvider } from '../providers/wish-list/wish-list';
 
 @NgModule({
@@ -86,6 +87,7 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
     MealKitProvider,
     LoginProvider,
     ShoppingCartProvider,
+    CheckoutProvider,
     WishListProvider
   ]
 })

@@ -88,14 +88,28 @@ export class ViewAllMealKitsPage {
     alert.present();
   }
   
-    doWishListAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'Added to Wishlist!',
-      subTitle: 'Item has been added to Wishlist successfully!',
-      buttons: ['OK']
-    });
-    alert.present();
-  }  
+    doWishListAlert(mealKit) {
+		this.mealKitIdInString = '' + mealKit.mealKitId.toString();  
+		this.shoppingCartProvider.addWishList(this.customerIdString, this.mealKitIdInString).subscribe(
+			response => {						
+				this.infoMessage = "Added to wishing list successfully";
+				this.errorMessage = null;
+			},
+			error => {				
+				this.infoMessage = null;
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);		
+		
+		
+		let alert = this.alertCtrl.create({
+		  title: 'Added to Wishlist!',
+		  subTitle: 'Item has been added to Wishlist successfully!',
+		  buttons: ['OK']
+		});
+		alert.present();
+   }  
+   
   	viewMealKitDetails(event, mealKit) 
 	{
 		this.navCtrl.push(ViewMealKitDetailsPage, {'mealKitToViewId': mealKit.mealKitId});
