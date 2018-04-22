@@ -40,6 +40,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+<<<<<<< HEAD
       { title: 'Home', component: HelloIonicPage,icon:'home' },
 	    { title: 'My Profile', component: MyProfilePage,icon: 'person' },
 	    { title: 'My Address Book', component: MyAddressBookPage,icon: 'book'},
@@ -51,6 +52,18 @@ export class MyApp {
     ];
 
 
+=======
+
+      { title: 'Home', component: HelloIonicPage },
+	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Address Book', component: MyAddressBookPage },
+	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
+	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'Wish List', component: WishListPage },
+	  { title: 'My Shopping Cart', component: ShoppingCartPage }
+	  
+    ];
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
   }
 
   initializeApp() {

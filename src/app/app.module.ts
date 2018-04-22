@@ -54,7 +54,11 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
+<<<<<<< HEAD
   SignupPage
+=======
+	SignupPage
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
   ],
   imports: [
     BrowserModule,
@@ -73,9 +77,6 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	MyProfilePage,
 	SelectAddressPage,
 	SelectSchedulePage,
-	PaymentPage,
-	ShoppingCartPage,
-	MyProfilePage,
 	ViewAllMealKitsPage,
 	ViewMealKitDetailsPage,
 	CategoriesPage,
@@ -84,7 +85,12 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
+<<<<<<< HEAD
   SignupPage,
+=======
+	SignupPage
+
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
   ],
   providers: [
     StatusBar,

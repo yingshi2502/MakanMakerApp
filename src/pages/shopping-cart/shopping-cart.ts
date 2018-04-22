@@ -72,13 +72,18 @@ export class ShoppingCartPage {
 		);
 	}	
   
-  pay(totalPrice){
+		
+		pay(totalPrice){
 	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working
 	  //calculatePrice();
 	  /*for (let mealKit of this.mealKits){
 			this.totalPrice+=mealKit.price*mealKit.quantity;
 		}*/
+<<<<<<< HEAD
 	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.mealKits});
+=======
+	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.cartItems});
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 	    }
 
 }

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 //import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 import { PaymentPage } from '../payment/payment';
-import { Address } from '../../entities/address'
+import { Address } from '../../entities/address';
+import { CartItem } from '../../entities/cartItem';
 
 import { AddressProvider } from '../../providers/address/address';
 
@@ -23,14 +24,16 @@ export class SelectAddressPage {
 	selectedAddress;
 	price;
 	totalPrice;
-	mealKits=[];
+	cartItems: CartItem[];
 	customerId: number;
+	errorMessage: string;
+	infoMessage: string;
 	
   constructor(public navCtrl: NavController, public navParams: NavParams, public addressProvider: AddressProvider) {
 	  this.customerId = parseInt(sessionStorage.getItem("customerId"));
 	  this.price = navParams.get('param1');
 	  this.totalPrice = this.price;
-	  this.mealKits = navParams.get('param2');
+	  this.cartItems = navParams.get('param2');
 	  this.selectedAddress = new Address();
 	  console.log("customerId: "+this.customerId);
 	  this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
@@ -84,9 +87,9 @@ export class SelectAddressPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectAddressPage');
-	console.log("mealkits size"+Object.keys(this.mealKits).length);
+	console.log("cartItems size"+Object.keys(this.cartItems).length);
   }
 	selectPayment(event){
-	  this.navCtrl.push(PaymentPage, {param1: this.mealKits, param2: this.selectedAddress, param3: this.totalPrice});
+	  this.navCtrl.push(PaymentPage, {param1: this.cartItems, param2: this.selectedAddress, param3: this.totalPrice});
   }
 }

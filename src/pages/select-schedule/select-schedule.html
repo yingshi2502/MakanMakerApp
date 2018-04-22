@@ -17,7 +17,7 @@
 <ion-list text-wrap>
 	<ion-list-header><ion-icon name="calendar" item-start></ion-icon>Select Schedule</ion-list-header>
 	<ion-item *ngFor="let cartWrapper of cartWrappers; let i = index" icon-start>	
-		<ion-label>{{cartWrapper.mealKit.name}} <p> Qty:{{cartWrapper.mealKit.quantity}}</ion-label>
+		<ion-label>{{cartWrapper.cartItem.mk.name}} <p> Qty:{{cartWrapper.cartItem.quantity}}</ion-label>
 		<ion-label>Delivery Date</ion-label>
 		
 
@@ -27,7 +27,7 @@
 	<br />
 	<ion-list-header><ion-icon name="chatboxes" item-start></ion-icon>Special Request</ion-list-header>
 	<ion-item *ngFor="let cartWrapper of cartWrappers; let i = index" icon-start>	
-		<ion-label>{{cartWrapper.mealKit.name}}</ion-label>
+		<ion-label>{{cartWrapper.cartItem.mk.name}}</ion-label>
 		<ion-input name="request" type="text" [(ngModel)]="cartWrapper.specialRequest"></ion-input>
 	</ion-item>
 	<!--<ion-item>	
