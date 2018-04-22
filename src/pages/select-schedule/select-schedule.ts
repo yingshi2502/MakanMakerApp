@@ -29,6 +29,7 @@ export class SelectSchedulePage {
 	selectedAddress;
 	errorMessage: string;
 	infoMessage: string;
+	allSuccess: false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   public alertCtrl: AlertController, public checkoutProvider: CheckoutProvider,) {
@@ -58,7 +59,7 @@ export class SelectSchedulePage {
 
   }
 	
-	/*doAlert() {
+	doAlert() {
 		let alert = this.alertCtrl.create({
 		  title: 'Your order has been prepared! Enjoy the comfort of MakanMaker at home!',
 		  buttons: ['Ok']
@@ -68,7 +69,7 @@ export class SelectSchedulePage {
 		console.log("specialRequest"+this.cartWrappers[0].specialRequest);
 		
 		alert.present();
-	  }*/
+	  }
 	  
 	  createOrder(){
 		  for (let cartWrapper of this.cartWrappers){
@@ -78,14 +79,16 @@ export class SelectSchedulePage {
 				response => {					
 						this.infoMessage = "New order " + response.message;
 						console.log(this.infoMessage);
-						this.isEnabled=true;
+						this.allSuccess=true;
 					},
 					error => {
 						this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 						console.log(this.errorMessage);
+						this.allSuccess=false
 					}
 			  );
 		  }
+		  if (this.allSuccess=true){this.doAlert();}
 	  }
 	  
 	  goToProfile(event){

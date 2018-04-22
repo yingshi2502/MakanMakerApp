@@ -22,13 +22,14 @@ export class PaymentPage {
  public ccButtonsClicked: boolean = false;
  public codButtonsClicked: boolean = false;
  mealKits=[];
- totalPrice=0;
+ totalPrice: number;
  isEnabled=false;
  selectedAddress: Object = {};
  //selectedPayment;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
 	  this.mealKits = navParams.get('param1');
 	  this.selectedAddress = navParams.get('param2');
+	  this.totalPrice = navParams.get('param3');
 	this.paymentMethods = [
 	{ 'name': 'PayPal',
 	  'icon': 'pricetag'
@@ -40,10 +41,7 @@ export class PaymentPage {
 	  'icon': 'cash'
 	}
 	]
-	for (let mealKit of this.mealKits){
-			this.totalPrice+=mealKit.price*mealKit.quantity;
-		}
-	}
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
