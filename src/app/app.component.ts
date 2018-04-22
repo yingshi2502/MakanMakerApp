@@ -40,6 +40,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+<<<<<<< HEAD
       { title: 'Home', component: HelloIonicPage,icon:'home',initial:true },
 	    { title: 'My Profile', component: MyProfilePage,icon: 'person', initial:false },
 	    { title: 'My Address Book', component: MyAddressBookPage,icon: 'book',initial:false },
@@ -53,6 +54,41 @@ export class MyApp {
       { title: 'Login', component: HelloIonicPage,icon:'home',initial:true },
       { title: 'View All MealKits', component: ViewAllMealKitsPage,icon:'list-box',initial:true  },
       { title: 'Categories', component: CategoriesPage,icon: 'pizza',initial:true },
+=======
+
+
+
+      { title: 'Home', component: HelloIonicPage },
+	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Address Book', component: MyAddressBookPage },
+	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
+	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'Wish List', component: WishListPage },
+
+
+      //{ title: 'Hello Ionic', component: HelloIonicPage },
+
+      
+	  
+      { title: 'Hello Ionic', component: HelloIonicPage },
+
+      //{ title: 'My First List', component: ListPage },
+	  { title: 'Browse All MealKits', component: ViewAllMealKitsPage },
+	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Address Book', component: MyAddressBookPage },
+	  { title: 'My Shopping Cart', component: ShoppingCartPage },
+	  { title: 'Wish List', component: WishListPage },
+	  
+
+
+
+
+
+	  { title: 'My Shopping Cart', component: ShoppingCartPage }
+	  
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
     ];
   }
 

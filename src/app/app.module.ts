@@ -19,12 +19,30 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
 
 import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
 import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { SignupPage } from '../pages/signup/signup';
 
+<<<<<<< HEAD
+=======
+
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+import { SignupPage } from '../pages/signup/signup';
+
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CustomerProvider } from '../providers/customer/customer';
@@ -51,10 +69,30 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
 	SignupPage,
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
+=======
+
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+
+  SignupPage,
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+	SignupPage
+
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
   ],
   imports: [
     BrowserModule,
@@ -78,10 +116,26 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
 	SignupPage,
+<<<<<<< HEAD
+=======
+
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+	SignupPage
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
   ],
   providers: [
     StatusBar,
