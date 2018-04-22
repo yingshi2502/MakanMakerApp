@@ -10,35 +10,43 @@
 
 <ion-content padding>
 
+	<ion-row class="logo-row" style="margin-top: 50px;">
+    
+    <ion-col style="text-align: center;">
+      <img src="assets/imgs/logo.png" style="height: 200px" />
+    </ion-col>
+    
+  </ion-row>
+  <ion-row>
+    <ion-col style="text-align: center;">
+     <h4 style="font: normal 20px/1 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;color: rgba(252,252,252,1); text-shadow: 3px 0 6px rgba(255,84,0,1)">Cooking No Mafan</h4>
+    </ion-col>
+  </ion-row>
+  	
 	<div *ngIf="!isLogin">
-	
-		<h3>Login</h3>
 		
-		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+		
+		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" style="margin-top: 40px">
 		
 			<div>
 			
 				<div *ngIf="inusername.invalid && (inusername.dirty || inusername.touched || submitted)" class="errorText">
-					<div *ngIf="inusername.errors.required">
+					<div *ngIf="inusername.errors.required" style=" font-weight: lighter;
+                padding: 6px 6px; 
+                display: inline-block; 
+                border-radius: 10px; 
+                background-color: rgba(249,39,19,0.39); ">
 						Username is required.
-					</div>
-					<div *ngIf="inusername.errors.minlength">
-						Username must be at least 4 characters long.
-					</div>
-					<div *ngIf="inusername.errors.maxlength">
-						Username cannot exceed 32 characters.
 					</div>
 				</div>
 				
 				<div *ngIf="inpassword.invalid && (inpassword.dirty || inpassword.touched || submitted)" class="errorText">
-					<div *ngIf="inpassword.errors.required">
+					<div *ngIf="inpassword.errors.required" style=" font-weight: lighter;
+                padding: 6px 6px; 
+                display: inline-block; 
+                border-radius: 10px; 
+                background-color: rgba(249,39,19,0.39); ">
 						Password is required.
-					</div>
-					<div *ngIf="inpassword.errors.minlength">
-						Password must be at least 4 characters long.
-					</div>
-					<div *ngIf="inpassword.errors.maxlength">
-						Password cannot exceed 32 characters.
 					</div>
 				</div>
 				
@@ -51,20 +59,21 @@
 			<ion-list>
 
 				<ion-item>
-					<ion-label fixed>Username</ion-label>
+					<ion-label fixed style="border: 0 solid;border-right-width: 2px;">Username</ion-label>
 					<ion-input type="text" id="username" name="username" [(ngModel)]="username" minlength="4" maxlength="32" required="true" #inusername="ngModel"></ion-input>
 				</ion-item>
 
 				<ion-item>
-					<ion-label fixed>Password</ion-label>
+					<ion-label fixed style="border: 0 solid;border-right-width: 2px;">Password</ion-label>
 					<ion-input type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
 				</ion-item>
 				
 				<ion-item>
-					<button type="submit" ion-button block>
+					<button type="submit" ion-button block style="height: 50px;font-size: 16px;border-radius: 20px">
 						Login
 					</button>
-					<button ion-button block (click)="clear()">
+					<br />
+					<button ion-button outline block (click)="clear()" style="border-radius: 20px">
 						Clear
 					</button>
 					
@@ -73,7 +82,8 @@
 			</ion-list>
 			
 		</form>
-		<button (click)="toSignUp($event)">
+		Don't have Account yet?
+		<button ion-button small color="light" style="" (click)="toSignUp($event)">
 			Sign Up
 		</button>
 	</div>
