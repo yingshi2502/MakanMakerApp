@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-<<<<<<< HEAD
-
-=======
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 import { Address } from '../../entities/address';
 
 /**

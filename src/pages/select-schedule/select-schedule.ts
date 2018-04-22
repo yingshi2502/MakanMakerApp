@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { PaymentPage } from '../payment/payment';
 import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
@@ -34,7 +34,9 @@ export class SelectSchedulePage {
 	allSuccess: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-  public alertCtrl: AlertController, public checkoutProvider: CheckoutProvider,) {
+  public alertCtrl: AlertController, public checkoutProvider: CheckoutProvider,
+  public loadingCtrl: LoadingController
+  ) {
   		console.log("****inside constructur select schedule");
 	  let today = new Date().toString();
 	  let customerIdInString: string = sessionStorage.getItem("customerId");
@@ -69,7 +71,9 @@ export class SelectSchedulePage {
 	
 	doAlert() {
 		let alert = this.alertCtrl.create({
-		  title: 'Your order has been prepared! Enjoy the comfort of MakanMaker at home!',
+		  title: 'Your order has been prepared! ',
+		  subTitle:'The confirmation is sent to your email!',
+		  message:'Enjoy the comfort of MakanMaker at home!',
 		  buttons: ['Ok']
 		});
 		this.isEnabled=true;
@@ -77,13 +81,17 @@ export class SelectSchedulePage {
 		console.log("specialRequest"+this.cartWrappers[0].specialRequest);
 		
 		alert.present();
-<<<<<<< HEAD
-	  }*/ 
-=======
+
+		this.navCtrl.popToRoot({animation:'wp-transition'})
+
 	  }
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 	  
 	  createOrder(){
+	  	let loading = this.loadingCtrl.create({
+			content: 'Submitting the Order...'
+		});
+		loading.present();
+
 		  for (let cartWrapper of this.cartWrappers){
 			  //cartWrapper.deliveryDate = moment().format('DDMMYYYY');
 			  console.log("date"+cartWrapper.deliveryDate);
@@ -101,9 +109,13 @@ export class SelectSchedulePage {
 					}
 			  );
 		  }
-		  if (this.allSuccess=true){this.doAlert();}
+		  if (this.allSuccess=true){
+		  	loading.dismiss();
+		  	this.doAlert();
+		  }
 	  }
+
 	  goToProfile(event){
 	  this.navCtrl.push(MyProfilePage, {fromPage: 'SelectSchedulePage'});
-  }
+  	}
 }

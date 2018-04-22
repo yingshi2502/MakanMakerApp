@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartProvider } from '../../providers/shopping-cart/shopping-cart';
 import { MealKit } from '../../entities/mealKit';
 import { CustomerProvider } from '../../providers/customer/customer';
-<<<<<<< HEAD
 import { Customer } from '../../entities/customer';
 import { CartItem } from '../../entities/cartItem';
-=======
-import { Customer } from '../../entities/customer'
-import { CartItem } from '../../entities/cartItem'
+
 import { AlertController } from 'ionic-angular';
->>>>>>> e27013d84bd349089c5fef0f41a8cf91f304d1a6
 
 /**
  * Generated class for the ShoppingCartPage page.
@@ -36,12 +32,14 @@ export class ShoppingCartPage {
 	customerIdString: string;
 	cartItem: CartItem;
 	cartItems: CartItem[];
-	
+	mealKitIdInString:string;
+	nothing:boolean=false;
 	
   constructor(public navCtrl: NavController,
 			  public navParams: NavParams,
 			  public customerProvider: CustomerProvider,
 			  public shoppingCartProvider: ShoppingCartProvider,
+			  public loadingCtrl: LoadingController,
 			  public alertCtrl: AlertController) {
 	
 				let customerIdInString: string = sessionStorage.getItem("customerId");
@@ -61,7 +59,7 @@ export class ShoppingCartPage {
 	  this.quantity--;
 	}*/
 	
-	public delete (cartItem){
+	public delete (cartItem,i:number){
 		this.mealKitIdInString = '' + cartItem.mk.mealKitId;  
 		this.shoppingCartProvider.deleteItem(this.customerId, this.mealKitIdInString).subscribe(
 			response => {						
@@ -80,20 +78,55 @@ export class ShoppingCartPage {
       buttons: ['OK']
     });
     alert.present();
-		
+		console.log(i);	
+		this.cartItems.splice(i,1);
+		if (Object.keys(this.cartItems).length == 0){
+					this.nothing = true;
+					console.log("nothing");
+				}
 		
 	}
 	
+
+	ionViewWillEnter() {
+		console.log('ionView WILL Enter ShoppingCartPage');
+
+		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
+			response => {
+				this.cartItems = response.items;
+				this.totalPrice = response.subTotal;
+				if (Object.keys(this.cartItems).length == 0){
+					this.nothing = true;
+					console.log("nothing");
+				}
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);
+	}	
+
 	ionViewDidEnter() {
+		let loading = this.loadingCtrl.create({
+			content: 'Loading...'
+		});
+		loading.present();
+
 		console.log('ionViewDidEnter ShoppingCartPage');
 
 		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
 			response => {
 				this.cartItems = response.items;
 				this.totalPrice = response.subTotal;
+				if (Object.keys(this.cartItems).length == 0){
+					this.nothing = true;
+					console.log("nothing");
+				}
+				loading.dismiss();
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+				loading.dismiss();
 			}
 		);
 	}	
@@ -107,6 +140,6 @@ export class ShoppingCartPage {
 		}*/
 
 	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.cartItems});
-	    }
+	  }
 
 }

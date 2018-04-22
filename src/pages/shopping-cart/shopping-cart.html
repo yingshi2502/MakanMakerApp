@@ -16,9 +16,18 @@
 </ion-header>
 
 
+
 <ion-content padding>
+	<div *ngIf="(nothing)">
+		<img src="https://chillydraji.files.wordpress.com/2015/08/empty_cart.jpeg"/>
+		<div style="text-align: center">
+			<br/>
+			<h4 style="font: normal 20px/1 'cagliostro', Helvetica, sans-serif" >Your shopping cart is empty!</h4>
+		</div>
+	</div>
+
 	<ion-list text-wrap>
-	<ion-item *ngFor="let cartItem of cartItems" icon-start>
+	<ion-item *ngFor="let cartItem of cartItems;let i = index" icon-start>
 		<ion-thumbnail item-start>
 		<div *ngIf = "(cartItem.mk.imagePath)?.charAt(0) == '.'">		
 			<img float:right width="50%"  src = "assets/imgs/{{(cartItem.mk.imagePath)?.substring(9)}}"/>
@@ -28,17 +37,12 @@
 			<img float:right width="50%"  src = "{{(cartItem.mk.imagePath)}}" />
 		</div>			
 		
-		
-<<<<<<< HEAD
-			
-=======
->>>>>>> e27013d84bd349089c5fef0f41a8cf91f304d1a6
 		</ion-thumbnail>
 		<ion-label>{{cartItem.mk.name}}</ion-label>
 		<ion-label>${{cartItem.mk.price}}</ion-label>
 		<ion-label>Qty:{{cartItem.quantity}}</ion-label>
 		<!--change quantity function not implemented yet-->
-		<button (click)="delete(cartItem)"  item-right>
+		<button (click)="delete(cartItem,i)"  item-right>
 			<ion-icon name="trash"></ion-icon>
 		</button>
 	</ion-item>
@@ -64,5 +68,5 @@
 		</ion-item>-->
 		
 	</ion-list>
-	<button ion-button round (click)="pay(totalPrice)">Pay now</button>
+	<button ion-button round (click)="pay(totalPrice)" *ngIf="(!nothing)">Pay now</button>
 </ion-content>

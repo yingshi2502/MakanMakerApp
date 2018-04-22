@@ -103,7 +103,7 @@ export class AddressProvider {
 			"address": newAddress
 		};
 		
-		return this.httpClient.post<any>(path, createAddressReq, httpOptions).pipe
+		return this.httpClient.post<any>(path+'/create', createAddressReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);

@@ -20,7 +20,7 @@
 	<div *ngIf="addresses">
 		<div *ngFor="let address of addresses">
 			
-				<ion-item style=" overflow: initial;">
+				<ion-item style=" overflow: initial;" *ngIf="(address)?.isDefaultShipping">
 				<ion-badge style="height: 30px;font-size: 20px;position: relative;">
 					Default Shipping Address
 				</ion-badge>

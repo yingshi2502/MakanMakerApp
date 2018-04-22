@@ -15,14 +15,12 @@
 
 
 <ion-content padding>
-
-	
 	
 	<ion-card *ngIf="customer != null">
-
-		<ion-row >
-			<ion-col style="font-size: 16px">
-				<ion-label><b>Full Name:</b></ion-label>
+		<br />
+		<ion-row>
+			<ion-col style="font-size: 16px;">
+				<ion-label style="margin-left: 30px"><b>Full Name:</b></ion-label>
 			</ion-col>
 			<ion-col>
 				<ion-label style="font-size: 16px">{{(customer)?.fullName}}</ion-label>
@@ -31,7 +29,7 @@
 
 		<ion-row>
 			<ion-col style="font-size: 16px">
-				<ion-label><b>Date of Birth:</b></ion-label>
+				<ion-label style="margin-left: 30px"><b>Date of Birth:</b></ion-label>
 			</ion-col>
 			<ion-col>
 				<ion-label style="font-size: 16px">{{(customer)?.dateOfBirth | date : 'dd/MM/yyyy'}}</ion-label>
@@ -41,7 +39,7 @@
 		<ion-row >
 			<ion-col style="font-size: 16px">
 
-				<ion-label><b>Email:</b></ion-label>
+				<ion-label style="margin-left: 30px"><b>Email:</b></ion-label>
 			</ion-col>
 			<ion-col>
 				<ion-label style="font-size: 16px">{{(customer)?.email}}</ion-label>
@@ -50,22 +48,23 @@
 
 		<ion-row>
 			<ion-col style="font-size: 16px">
-				<ion-label><b>Gender:</b></ion-label>
+				<ion-label style="margin-left: 30px"><b>Gender:</b></ion-label>
 			</ion-col>
 			<ion-col>
-				<ion-icon style="height: 50px" name="{{gender}}" item-start></ion-icon>
+				<ion-icon style="font-size: 30px;" name="{{gender}}" item-start></ion-icon>
 			</ion-col>
 		</ion-row>
 		<ion-row>
 			<ion-col style="font-size: 16px">
-				<ion-label><b>Mobile:</b></ion-label>
+				<ion-label style="margin-left: 30px"><b>Mobile:</b></ion-label>
 			</ion-col>
 			<ion-col>
 				<ion-label style="font-size: 16px">{{(customer)?.mobile}}</ion-label>
 			</ion-col>
 		</ion-row>
 		
-
+		<ion-item>
+		</ion-item>
 		<ion-list>
 			<button ion-item (click)="editProfile($event)" style="border: 1 solid">
 			<ion-icon name="happy" item-start></ion-icon>

@@ -50,7 +50,7 @@ export class PaymentPage {
 	console.log("cartItems size"+Object.keys(this.cartItems).length);
 	
   }
-  selectSchedule(event){
+  selectSchedule(){
 	  this.navCtrl.push(SelectSchedulePage, {param1:this.cartItems, param2: this.selectedAddress});
   }
   
@@ -86,6 +86,8 @@ export class PaymentPage {
 		this.isEnabled=true;
 		
 		alert.present();
+		
+		this.selectSchedule();
 	  }
 
 }

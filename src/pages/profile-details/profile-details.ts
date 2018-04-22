@@ -84,6 +84,11 @@ export class ProfileDetailsPage {
 
 	}
 	
+	selectGender(g:number){
+		this.customerToUpdate.gender = g;
+		console.log("**Update gender: (after)"+g);
+	}
+
 	ionViewDidLeave()
 	{
 		console.log('ionViewDidLeave ProfileDetailsPage');

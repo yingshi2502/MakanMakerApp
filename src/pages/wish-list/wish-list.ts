@@ -36,7 +36,6 @@ export class WishListPage {
 			public customerProvider: CustomerProvider,
 			public shoppingCartProvider: ShoppingCartProvider,
 			public mealKitProvider: MealKitProvider) {
-			
 			let customerIdInString: string = sessionStorage.getItem("customerId");
 			this.customerId = customerIdInString; 
 

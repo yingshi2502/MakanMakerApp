@@ -30,27 +30,35 @@ export class SelectAddressPage {
 	infoMessage: string;
 	
   constructor(public navCtrl: NavController, public navParams: NavParams, public addressProvider: AddressProvider) {
-	  this.customerId = parseInt(sessionStorage.getItem("customerId"));
-	  this.price = navParams.get('param1');
-	  this.totalPrice = this.price;
-	  this.cartItems = navParams.get('param2');
-	  this.selectedAddress = new Address();
-	  console.log("customerId: "+this.customerId);
-	  this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
-			response => {
-				this.addresses = response.addresses;
-				console.log("*AFAFAF*SF*Asdf");
-				console.log('ionViewWillLoad response.addresses retrieved MyProfilePage, addresses: ' + this.addresses);
-				console.log('ionViewWillEnter response MyProfilePage');
-				this.infoMessage = "(Load) Addresses loaded successfully: " + response.message + ", result is: "+ response.result;								
-				this.selectedAddress=this.addresses[0];
-				this.totalPrice = this.totalPrice + this.selectedAddress.shippingFee;
-			},
-			error => {				
-				this.errorMessage = "(Load) HTTP " + error.status + ": " + error.error.message;
-			}
-		);
-  }
+   this.customerId = parseInt(sessionStorage.getItem("customerId"));
+   this.price = navParams.get('param1');
+   this.totalPrice = this.price;
+   this.cartItems = navParams.get('param2');
+   this.selectedAddress = new Address();
+   console.log("customerId: "+this.customerId);
+   this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
+   response => {
+    this.addresses = response.addresses;
+    console.log("*AFAFAF*SF*Asdf");
+    console.log('ionViewWillLoad response.addresses retrieved MyProfilePage, addresses: ' + this.addresses);
+    console.log('ionViewWillEnter response AddressPage');
+    this.infoMessage = "(Load) Addresses loaded successfully: " + response.message + ", result is: "+ response.result;        
+    
+    this.selectedAddress = this.addresses[0];
+    console.log("address"+this.selectedAddress.addressId);
+    for (let address of this.addresses){
+     console.log("loop");
+     if (address.isDefaultShipping==true){
+      //console.log("address"+address.addressId);
+      this.selectedAddress = address;
+      }
+    }
+   },
+   error => {    
+    this.errorMessage = "(Load) HTTP " + error.status + ": " + error.error.message;
+   }
+  );
+}
 	
 
   select(index) {

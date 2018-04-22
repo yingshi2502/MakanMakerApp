@@ -28,8 +28,8 @@ export class MyApp {
 
   // make HelloIonicPage the root (or first) page
   rootPage = CategoriesPage;
-  pages: Array<{title: string, component: any, icon:string}>;
-
+  pages: Array<{title: string, component: any, icon:string,initial:boolean}>;
+  pagesNoLogin: Array<{title: string, component: any, icon:string,initial:boolean}>;
   constructor(
     public platform: Platform,
     public menu: MenuController,
@@ -40,52 +40,19 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-<<<<<<< HEAD
-      { title: 'Home', component: HelloIonicPage,icon:'home' },
-	    { title: 'My Profile', component: MyProfilePage,icon: 'person' },
-	    { title: 'My Address Book', component: MyAddressBookPage,icon: 'book'},
-	    { title: 'View All MealKits', component: ViewAllMealKitsPage,icon:'list-box' },
-	    { title: 'Categories', component: CategoriesPage,icon: 'pizza'},
-	    { title: 'Wish List', component: WishListPage,icon:'heart' },
-	    { title: 'My Shopping Cart', component: ShoppingCartPage,icon:'cart' },
+      { title: 'Home', component: HelloIonicPage,icon:'home',initial:true },
+	    { title: 'My Profile', component: MyProfilePage,icon: 'person', initial:false },
+	    { title: 'My Address Book', component: MyAddressBookPage,icon: 'book',initial:false },
+	    { title: 'View All MealKits', component: ViewAllMealKitsPage,icon:'list-box',initial:true  },
+	    { title: 'Categories', component: CategoriesPage,icon: 'pizza',initial:true },
+	    { title: 'Wish List', component: WishListPage,icon:'heart',initial:false  },
+	    { title: 'My Shopping Cart', component: ShoppingCartPage,icon:'cart',initial:false},
+    ];
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
-
-      { title: 'Home', component: HelloIonicPage },
-	  { title: 'My Profile', component: MyProfilePage },
-	  { title: 'My Address Book', component: MyAddressBookPage },
-	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
-	  { title: 'Categories', component: CategoriesPage },
-	  { title: 'Wish List', component: WishListPage },
-<<<<<<< HEAD
-
-      //{ title: 'Hello Ionic', component: HelloIonicPage },
-
-      
-	  
-      { title: 'Hello Ionic', component: HelloIonicPage },
-
-      //{ title: 'My First List', component: ListPage },
-	  { title: 'Browse All MealKits', component: ViewAllMealKitsPage },
-	  { title: 'Categories', component: CategoriesPage },
-	  { title: 'My Profile', component: MyProfilePage },
-	  { title: 'My Address Book', component: MyAddressBookPage },
-	  { title: 'My Shopping Cart', component: ShoppingCartPage },
-	  { title: 'Wish List', component: WishListPage },
-	  
-
-
-
-
-=======
-	  { title: 'My Shopping Cart', component: ShoppingCartPage }
-	  
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
->>>>>>> e27013d84bd349089c5fef0f41a8cf91f304d1a6
+     this.pagesNoLogin = [
+      { title: 'Login', component: HelloIonicPage,icon:'home',initial:true },
+      { title: 'View All MealKits', component: ViewAllMealKitsPage,icon:'list-box',initial:true  },
+      { title: 'Categories', component: CategoriesPage,icon: 'pizza',initial:true },
     ];
   }
 
