@@ -64,11 +64,11 @@ export class HelloIonicPage {
 	}
 	
 	
-	login(loginForm: NgForm)
+	login(loginIonicForm: NgForm)
 	{
 		this.submitted = true;
 		
-		if (loginForm.valid) 
+		if (loginIonicForm.valid) 
 		{
 			this.loginProvider.setLoginCredential(this.username, this.password);
 			

@@ -5,6 +5,8 @@ import { AlertController } from 'ionic-angular';
 import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 
+import { Address } from '../../entities/address';
+
 /**
  * Generated class for the PaymentPage page.
  *
@@ -26,7 +28,9 @@ export class PaymentPage {
  isEnabled=false;
  selectedAddress: Object = {};
  //selectedPayment;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, 
+			  public navParams: NavParams, 
+			  public alertCtrl: AlertController) {
 	  this.mealKits = navParams.get('param1');
 	  this.selectedAddress = navParams.get('param2');
 	this.paymentMethods = [

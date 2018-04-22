@@ -20,7 +20,7 @@
 	<div *ngIf="address != null">
 
 	<form #createAddressForm="ngForm" (ngSubmit)="create(createAddressForm)" >
-	
+
 		<div *ngIf="errorMessage" class="errorText">
 			{{errorMessage}}
 		</div>
@@ -28,10 +28,11 @@
 		<div *ngIf="infoMessage" class="infoText">
 			{{infoMessage}}
 		</div>
-	
-		<div>
 		
+		<div>
+
 			<div *ngIf="streetAddress.invalid && (streetAddress.dirty || streetAddress.touched || submitted)" class="errorText">
+<!--				<div *ngIf="streetAddress.errors.required; then presentToastRequiredMessage('Street Address is required.')">-->
 				<div *ngIf="streetAddress.errors.required">
 					Street Address is required.
 				</div>
@@ -65,7 +66,9 @@
 
 		<ion-item-group>
 
-					
+			<ion-item-divider color="light">
+				Address Details
+			</ion-item-divider>		
 			<ion-item>
 				<ion-label floating>Street Address</ion-label>
 				<ion-input type="text" id="streetAddress" name="streetAddress" [(ngModel)]="address.streetAddress" required="true" #streetAddress="ngModel"></ion-input>
@@ -81,6 +84,9 @@
 				<ion-input type="text" id="postalCode" name="postalCode" [(ngModel)]="address.postalCode" required="true" #postalCode="ngModel"></ion-input>
 			</ion-item>
 			
+			<ion-item-divider color="light">
+				Contact Details
+			</ion-item-divider>
 			<ion-item>
 				<ion-label floating>Addressee</ion-label>
 				<ion-input type="text" id="fullName" name="fullName" [(ngModel)]="address.fullName" required="true" #fullName="ngModel"></ion-input>

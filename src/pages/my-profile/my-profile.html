@@ -20,9 +20,9 @@
 		{{errorMessage}}
 	</div>
 	
-	<div *ngIf="infoMessage" class="infoText">
+	<!--<div *ngIf="infoMessage" class="infoText">
 		{{infoMessage}}
-	</div>
+	</div>-->
 	
 	<ion-card *ngIf="customer != null">
 		<ion-item>
@@ -55,7 +55,7 @@
 			<ion-icon name="happy" item-start></ion-icon>
 				Edit My Profile
 			</button>
-			<button ion-item>
+			<button ion-item (click)="viewMyAddressBook($event)">
 			<ion-icon name="pin" item-start></ion-icon>
 				View My Address Book
 			</button>

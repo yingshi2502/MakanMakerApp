@@ -13,6 +13,7 @@ import { Customer } from '../../entities/customer'
 
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 import { ProfileDetailsPage } from '../profile-details/profile-details';
+import { MyAddressBookPage } from '../my-address-book/my-address-book';
 
 
 /**
@@ -81,10 +82,26 @@ export class MyProfilePage {
 				this.email = this.customer.email;
 				this.mobile = this.customer.mobile;
 				console.log('ionViewWillEnter response MyProfilePage');
-				this.infoMessage = "Upon Enter, Customer profile loaded successfully: " + response.message + ", result is: "+ response.result;								
+				this.infoMessage = "Upon Enter, Customer profile loaded successfully: " + response.message + ", result is: "+ response.result;
+				let toast = this.toastCtrl.create(
+					{
+						message: this.fullName + '\'s Profile Loaded Successfully',
+						cssClass: 'toast',
+						duration: 3000
+					});
+				
+				toast.present();
 			},
 			error => {				
-				this.errorMessage = "Upon Enter, HTTP " + error.status + ": " + error.error.message + " I am here";
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am here";
+				let alert = this.alertCtrl.create(
+					{
+						title: 'My Profile',
+						subTitle: 'Error loading profile. Feedback message: ' + this.errorMessage,
+						buttons: ['OK']
+					});
+				
+				alert.present();
 			}
 		);
 	}
@@ -95,5 +112,8 @@ export class MyProfilePage {
 	editProfile(event) {
 		
 		this.navCtrl.push(ProfileDetailsPage, {'customerToUpdateId': this.customerId});
+	}
+	viewMyAddressBook(event) {
+		this.navCtrl.push(MyAddressBookPage, {fromPage: 'MyProfilePage'});
 	}
 }

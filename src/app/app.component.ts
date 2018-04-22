@@ -40,15 +40,6 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-<<<<<<< HEAD
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
-	  { title: 'My Profile', component: MyProfilePage },
-	  { title: 'My Address Book', component: MyAddressBookPage },
-	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
-	  { title: 'Categories', component: CategoriesPage },
-	  { title: 'Wish List', component: WishListPage }
-=======
       //{ title: 'Hello Ionic', component: HelloIonicPage },
       //{ title: 'My First List', component: ListPage },
 	  
@@ -56,10 +47,7 @@ export class MyApp {
 	  { title: 'Categories', component: CategoriesPage },
 	  { title: 'My Profile', component: MyProfilePage },
 	  { title: 'My Shopping Cart', component: ShoppingCartPage },
-	  { title: 'Wish List', component: WishListPage },
-	  
->>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
-
+	  { title: 'Wish List', component: WishListPage }
     ];
   }
 

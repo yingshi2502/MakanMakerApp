@@ -1,5 +1,15 @@
 import { Component } from '@angular/core';
+import { AlertController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+import { DatePipe } from '@angular/common'
+
 import { NavController, NavParams } from 'ionic-angular';
+
+import { CustomerProvider } from '../../providers/customer/customer';
+
+import { Address } from '../../entities/address'
 
 /**
  * Generated class for the EditAddressPage page.

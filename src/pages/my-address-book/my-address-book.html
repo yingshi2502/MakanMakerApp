@@ -16,29 +16,28 @@
 </ion-header>
 
 <ion-content padding>
-	<div *ngIf="errorMessage" class="errorText">
+<!--	<div *ngIf="errorMessage" class="errorText">
 		{{errorMessage}}
 	</div>
 		
 	<div *ngIf="infoMessage" class="infoText">
 		{{infoMessage}}
 	</div>
-
+-->
 	<div *ngIf="addresses">
 		<div *ngFor="let address of addresses">
-			<ion-list *ngIf="(address)?.isDefaultShipping">
+			<ion-item-group *ngIf="(address)?.isDefaultShipping">
 		
-				<ion-list-header>
-					Default Shipping Address
-				</ion-list-header>
+				<ion-item-divider color="light">
+					Shipping Address
+				</ion-item-divider>
 				
 				<ion-item>
 					<ion-label>
 						<b>Street Address:</b> 
 					</ion-label>
 					<ion-note item-end>
-						<p>{{address.streetAddress}}</p>
-						<p>{{address.floorUnit}}</p>
+						<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
 						<p>{{address.postalCode}}</p>
 					</ion-note>
 				</ion-item>			
@@ -60,25 +59,24 @@
 				</ion-note>
 			</ion-item>
 
-		</ion-list>
+		</ion-item-group>
 
-		<ion-list *ngIf="(address)?.isDefaultBilling">
+		<ion-item-group *ngIf="(address)?.isDefaultBilling">
 		
-			<ion-list-header>
-					Default Billing Address
-				</ion-list-header>
+			<ion-item-divider color="light">
+					Billing Address
+			</ion-item-divider>
 				
 				<ion-item>
 					<ion-label>
 						<b>Street Address:</b> 
 					</ion-label>
 					<ion-note item-end>
-						<p>{{address.streetAddress}}</p>
-						<p>{{address.floorUnit}}</p>
+						<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
 						<p>{{address.postalCode}}</p>
 					</ion-note>
 				</ion-item>			
-				<ion-item>
+			<ion-item>
 				<ion-label>
 					<b>Addressee:</b>
 				</ion-label>
@@ -95,38 +93,82 @@
 					<p>{{address.phoneNumber}}</p>
 				</ion-note>
 			</ion-item>
-		</ion-list>
+		</ion-item-group>
 
 		
-		<ion-list *ngIf="!(address)?.isDefaultShipping && !(address)?.isDefaultShipping && !(address)?.isDeleted">
+		<ion-item-group *ngIf="!(address)?.isDefaultShipping && !(address)?.isDefaultShipping && !(address)?.isDeleted">
 		
-			<ion-list-header>
+			<ion-item-divider color="light">
 				Other Addresses
-			</ion-list-header>
+			</ion-item-divider>
 			<ion-item>
 				<ion-label>
 						<b>Street Address:</b> 
 				</ion-label>
 				<ion-note item-end>
-					<p>{{address.streetAddress}}</p>
-					<p>{{address.floorUnit}}</p>
+					<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
 					<p>{{address.postalCode}}</p>
 				</ion-note>				
 			</ion-item>
 			
 			<ion-item>
 				<ion-label>
-					<b>Contact Details:</b>
-					<p>Name of Recipient: {{address.fullName}}</p>
-					<p>Contact No.: {{address.phoneNumber}}</p>
+					<b>Addressee:</b>
 				</ion-label>
+				<ion-note item-end>
+					<p>{{address.fullName}}</p>
+				</ion-note>
 			</ion-item>
-		</ion-list>
+
+			<ion-item>
+				<ion-label>
+					<b>Contact No.:</b>
+				</ion-label>
+				<ion-note item-end>
+					<p>{{address.phoneNumber}}</p>
+				</ion-note>
+			</ion-item>
+		</ion-item-group>
 		</div>
 	</div>
 
 	<button ion-button block (click)="createNewAddress($event, this.customerId)">
 		Create New Address
 	</button>
+
+<!--
+	<div>	
+	<form #chooseShippingAddForm="ngForm" (ion-select)="setShippingId(address.addressId, chooseShippingAddForm)" >
+		<div *ngIf="addresses">
+			<ion-select *ngFor="let address of addresses"> 
+				<ion-option name="(address.addressId)" value="(address.addressId)" [(ngModel)]="shippingId" value="address.addressId">
+				<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
+				<p>{{address.postalCode}}</p>
+				</ion-option>
+			</ion-select>
+		</div>
+	</form>
+
+	<form #chooseBillingAddForm="ngForm" (ion-select)="setShippingId(address.addressId, chooseBillingAddForm)" >
+		<div *ngIf="addresses">
+			<ion-select *ngFor="let address of addresses"> 
+				<ion-option name="(address.addressId)" value="(address.addressId)" [(ngModel)]="shippingId" value="address.addressId">
+				<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
+				<p>{{address.postalCode}}</p>
+				</ion-option>
+			</ion-select>
+		</div>
+	</form>
+	</div>
+-->
+	<button ion-button block>
+		Choose Shipping Address (Under Construction)
+	</button>
+
+	<button ion-button block>
+		Choose Billing Address (Under Construction)
+	</button>
+
+
 
 </ion-content>

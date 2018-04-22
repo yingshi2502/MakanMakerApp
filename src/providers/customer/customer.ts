@@ -106,31 +106,26 @@ export class CustomerProvider {
 		}
 		console.log('***path'+ path+' '+this.updatedParam)
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
-<<<<<<< HEAD
-		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
-
-=======
 
 		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
 
 		
 		/* this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
-		return this.httpClient.post<any>(path + this.updatedParam).pipe
+		return this.httpClient.post<any>(path + this.updatedParam).pipe */
 
->>>>>>> 91c98a54a337f013b169d42ab95726c37a01439a
 		(
 			catchError(this.handleError)
 		);
 	}
 	//@QueryParam("username") String username, @QueryParam("password") String password, 
 //@QueryParam("fullName") String fullName, @QueryParam("mobile") String mobile,
-// @QueryParam("email") String email, @QueryParam("dob") String dob, @QueryParam("gener") String gender
+// @QueryParam("email") String email, @QueryParam("dob") String dob, @QueryParam("gender") String gender
   	setSignUpInformation(customer: Customer, dob:String)
 	{
 
 		this.signUpInfo = "?username=" + customer.userName + "&password=" + customer.password
 		+"&fullName="+customer.fullName+"&mobile="+customer.mobile+"&email="+customer.email+"&dob="+dob+
-		"&gener="+customer.gender;
+		"&gender="+customer.gender;
 	}
 
 	signup(newCustomer: Customer):Observable<any>

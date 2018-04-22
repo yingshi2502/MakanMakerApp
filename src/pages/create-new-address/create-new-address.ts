@@ -32,7 +32,9 @@ export class CreateNewAddressPage {
 	
 	constructor(public navCtrl: NavController,
 				public navParams: NavParams,
-				public addressProvider: AddressProvider) {
+				public addressProvider: AddressProvider,
+				public alertCtrl: AlertController,
+				public toastCtrl: ToastController) {
 	}
 
 	ionViewDidLoad() {
@@ -72,5 +74,18 @@ export class CreateNewAddressPage {
 			);
 		}
 	}
-	
+
+	presentToastRequiredMessage(msg: string) {
+		let toast = this.toastCtrl.create({
+			message: msg,
+			duration: 3000,
+			position: 'bottom'
+		});
+
+		toast.onDidDismiss(() => {
+			console.log('Dismissed toast');
+		});
+
+		toast.present();
+	}
 }

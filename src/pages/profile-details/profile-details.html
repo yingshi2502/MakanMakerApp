@@ -19,13 +19,14 @@
 	<div>
 		<form #editCustomerForm="ngForm" (ngSubmit)="saveProfile(editCustomerForm)" >
 
-			<div *ngIf="errorMessage" class="errorText">
+<!--			<div *ngIf="errorMessage" class="errorText">
 				{{errorMessage}}
 			</div>
 		
 			<div *ngIf="infoMessage" class="infoText">
 				{{infoMessage}}
 			</div>
+-->
 			<ion-list *ngIf="customerToUpdate != null">
 				<ion-item>
 					<ion-label>Full Name</ion-label>
