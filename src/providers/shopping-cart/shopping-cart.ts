@@ -31,7 +31,28 @@ export class ShoppingCartProvider {
 	constructor(public platform: Platform, public httpClient: HttpClient) {
     console.log('Hello ShoppingCartProvider Provider');
   }
-  
+ 
+  retrieveShoppingCart(customerId: string): Observable<any> 
+	{
+		let path: string = '';
+		 
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveShoppingCart?customerId=" + customerId).pipe
+		(
+			catchError(this.handleError) 
+		);
+	}  
+
+
+ 
   
   retrieveWishListByCustomerId(customerId: string): Observable<any> 
 	{

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { Address } from '../../entities/address'
 /**
  * Generated class for the EditAddressPage page.
  *
