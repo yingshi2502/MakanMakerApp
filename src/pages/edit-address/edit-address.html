@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Edit Address</ion-title>
   </ion-navbar>
 
@@ -14,5 +17,50 @@
 
 
 <ion-content padding>
+	<div *ngIf="addressToUpdate != null">
+		<div>
+			<form #editAddressForm="ngForm" (ngSubmit)="saveAddress(editAddressForm)" >
 
+			<div *ngIf="errorMessage" class="errorText">
+					{{errorMessage}}
+				</div>
+		
+			<div *ngIf="infoMessage" class="infoText">
+				{{infoMessage}}
+			</div>
+
+				<ion-list *ngIf="address != null">
+					<ion-item>
+						<ion-label>Street Address</ion-label>
+						<ion-input type="text" id="streetAddress" name="streetAddress" [(ngModel)]="address.streetAddress" required="true" #streetAddress="ngModel"></ion-input>
+					</ion-item>
+					
+					<ion-item>
+						<ion-label>Floor Unit</ion-label>
+						<ion-input type="text" id="floorUnit" name="floorUnit" [(ngModel)]="address.floorUnit" required="true" #floorUnit="ngModel"></ion-input>
+					</ion-item>
+			
+					<ion-item>
+						<ion-label>Postal Code</ion-label>
+						<ion-input type="text" id="postalCode" name="postalCode" [(ngModel)]="address.postalCode" required="true" #postalCode="ngModel"></ion-input>
+					</ion-item>
+			
+					<ion-item>
+						<ion-label>Full Name</ion-label>
+						<ion-input type="text" id="fullName" name="fullName" [(ngModel)]="address.fullName" required="true" #fullName="ngModel"></ion-input>
+					</ion-item>
+					
+					<ion-item>
+						<ion-label>Phone Number</ion-label>
+						<ion-input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="address.phoneNumber" required="true" #phoneNumber="ngModel"></ion-input>
+					</ion-item>
+				</ion-list>
+				<ion-item>
+					<button type="submit" ion-button block>
+						Submit Changes
+					</button>
+				</ion-item>
+			</form>
+		</div>
+	</div>
 </ion-content>

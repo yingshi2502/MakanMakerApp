@@ -12,6 +12,8 @@ import { Address } from '../../entities/address'
 // import { Order } from '../../entities/order'
 
 import { CreateNewAddressPage } from '../create-new-address/create-new-address';
+import { EditAddressPage } from '../edit-address/edit-address';
+
 import { ChooseShippingAddressPage } from '../choose-shipping-address/choose-shipping-address';
 import { ChooseBillingAddressPage } from '../choose-billing-address/choose-billing-address';
 
@@ -105,11 +107,14 @@ export class MyAddressBookPage {
 		console.log('createNewAddress MyAddressBookPage');
 		this.navCtrl.push(CreateNewAddressPage, {fromPage: 'MyAddressBookPage'});
 	}
-/*
-	setShippingId(shippingId: number, chooseShippingAddForm: NgForm) 
+	
+	editAddress(event, addressId: number) {
+		console.log('editAddress MyAddressBookPage');
+		this.navCtrl.push(EditAddressPage, {fromPage: 'MyAddressBookPage', 'addressToEditId': addressId});
+	}
+
+	setShippingId(shippingId: number) 
 	{
-		if(chooseShippingAddForm.valid)
-		{
 			this.addressIdToUpdate = shippingId;
 			this.addressProvider.getAddressByAddressId(shippingId).subscribe
 			(
@@ -131,7 +136,7 @@ export class MyAddressBookPage {
 													this.addressToUpdate.phoneNumber, 
 													true, 
 													this.addressToUpdate.isDefaultBilling);
-			this.addressProvider.updateAddress(this.customerId, shippingId).subscribe(
+			this.addressProvider.updateAddress(this.customerId.toString(), this.shippingId.toString()).subscribe(
 				response => 
 				{
 					console.log('setShippingId updateAddress MyAddressBook, message: ' + response.message + ", result: " + response.result);
@@ -158,13 +163,8 @@ export class MyAddressBookPage {
 					alert.present();
 				}
 			);
-		}
-		else
-		{
-		}
-
 	}
-
+/*
 	setBillingId(billingId: number, chooseBillingAddForm: NgForm) 
 	{
 		if(chooseBillingAddForm.valid)

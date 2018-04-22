@@ -14,6 +14,7 @@ import { Customer } from '../../entities/customer'
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 import { ProfileDetailsPage } from '../profile-details/profile-details';
 import { MyAddressBookPage } from '../my-address-book/my-address-book';
+import { MyOrdersPage } from '../my-orders/my-orders';
 
 
 /**
@@ -115,5 +116,9 @@ export class MyProfilePage {
 	}
 	viewMyAddressBook(event) {
 		this.navCtrl.push(MyAddressBookPage, {fromPage: 'MyProfilePage'});
+	}
+	
+	viewMyOrders(event) { 
+		this.navCtrl.push(MyOrdersPage, {fromPage: 'MyProfilePage'});
 	}
 }

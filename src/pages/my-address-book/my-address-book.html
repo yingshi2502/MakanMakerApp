@@ -131,23 +131,35 @@
 		</ion-item-group>
 		</div>
 	</div>
+	
+	<div>
+		<ion-item (ion-select)="setShippingId(this.shippingId)">
+			<ion-select [(ngModel)]="this.shippingId"> 
+				<ion-option>Select an option</ion-option>
+				<ion-option *ngFor="let address of addresses" value="address.addressId">
+					<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
+					<p>{{address.postalCode}}</p>
+				</ion-option>
+			</ion-select>
+		</ion-item>
+	</div>
+	
+	<div>
+		<ion-item (ion-select)="setBillingId(this.shippingId)">
+			<ion-select [(ngModel)]="this.billingId"> 
+				<ion-option *ngFor="let address of addresses">
+					<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
+					<p>{{address.postalCode}}</p>
+				</ion-option>
+			</ion-select>
+		</ion-item>
+	</div>
 
 	<button ion-button block (click)="createNewAddress($event, this.customerId)">
 		Create New Address
 	</button>
-
-<!--
-	<div>	
-	<form #chooseShippingAddForm="ngForm" (ion-select)="setShippingId(address.addressId, chooseShippingAddForm)" >
-		<div *ngIf="addresses">
-			<ion-select *ngFor="let address of addresses"> 
-				<ion-option name="(address.addressId)" value="(address.addressId)" [(ngModel)]="shippingId" value="address.addressId">
-				<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
-				<p>{{address.postalCode}}</p>
-				</ion-option>
-			</ion-select>
-		</div>
-	</form>
+	<!--
+	<div>
 
 	<form #chooseBillingAddForm="ngForm" (ion-select)="setShippingId(address.addressId, chooseBillingAddForm)" >
 		<div *ngIf="addresses">
@@ -168,7 +180,4 @@
 	<button ion-button block>
 		Choose Billing Address (Under Construction)
 	</button>
-
-
-
 </ion-content>

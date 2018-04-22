@@ -8,7 +8,7 @@ export class Order
 	orderId: number;
 	//customer: Customer;
 	totalAmount: number;
-	// mealKit: MealKit;
+	mealKit: MealKit;
 	quantity: number;
 	deliveryDate: Date;
 	purchasingDate: Date;

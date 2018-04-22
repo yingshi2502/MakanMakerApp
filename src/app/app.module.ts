@@ -25,6 +25,8 @@ import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { SignupPage } from '../pages/signup/signup';
 import { ChooseShippingAddressPage } from '../pages/choose-shipping-address/choose-shipping-address';
 import { ChooseBillingAddressPage } from '../pages/choose-billing-address/choose-billing-address';
+import { MyOrdersPage } from '../pages/my-orders/my-orders';
+import { ViewOrderDetailsPage } from '../pages/view-order-details/view-order-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -57,7 +59,9 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	EditAddressPage,
     SignupPage,
 	ChooseShippingAddressPage,
-	ChooseBillingAddressPage 
+	ChooseBillingAddressPage,
+	MyOrdersPage,
+	ViewOrderDetailsPage 
   ],
   imports: [
     BrowserModule,
@@ -89,7 +93,9 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	EditAddressPage,
 	SignupPage,
     ChooseShippingAddressPage,
-	ChooseBillingAddressPage 
+	ChooseBillingAddressPage,
+	MyOrdersPage,
+	ViewOrderDetailsPage 
   ],
   providers: [
     StatusBar,
