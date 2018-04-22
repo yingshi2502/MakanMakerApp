@@ -66,6 +66,7 @@ export class ShoppingCartPage {
 		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
 			response => {
 				this.cartItems = response.items;
+				this.totalPrice = response.subTotal;
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
@@ -76,13 +77,14 @@ export class ShoppingCartPage {
 
 	}	
   
-  pay(totalPrice){
+		
+		pay(totalPrice){
 	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working
 	  //calculatePrice();
-	  for (let mealKit of this.mealKits){
+	  /*for (let mealKit of this.mealKits){
 			this.totalPrice+=mealKit.price*mealKit.quantity;
-		}
-	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.mealKits});
+		}*/
+	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.cartItems});
 	    }
 
 }

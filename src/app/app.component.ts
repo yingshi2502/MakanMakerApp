@@ -40,45 +40,15 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-<<<<<<< HEAD
 
       { title: 'Home', component: HelloIonicPage },
-=======
-<<<<<<< HEAD
-
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
->>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
 	  { title: 'My Profile', component: MyProfilePage },
 	  { title: 'My Address Book', component: MyAddressBookPage },
 	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
 	  { title: 'Categories', component: CategoriesPage },
 	  { title: 'Wish List', component: WishListPage },
-
-      //{ title: 'Hello Ionic', component: HelloIonicPage },
-=======
-      
+	  { title: 'My Shopping Cart', component: ShoppingCartPage }
 	  
-<<<<<<< HEAD
-=======
-      { title: 'Hello Ionic', component: HelloIonicPage },
->>>>>>> b4437657d2edccfbf2750fe38d13aff90a41d7c9
-      //{ title: 'My First List', component: ListPage },
-	  { title: 'Browse All MealKits', component: ViewAllMealKitsPage },
-	  { title: 'Categories', component: CategoriesPage },
-	  { title: 'My Profile', component: MyProfilePage },
-	  { title: 'My Address Book', component: MyAddressBookPage },
->>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
-	  { title: 'My Shopping Cart', component: ShoppingCartPage },
-	  
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> b4437657d2edccfbf2750fe38d13aff90a41d7c9
-
->>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
     ];
   }
 
