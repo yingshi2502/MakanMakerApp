@@ -29,14 +29,12 @@
 		</div>			
 		
 		
-		
-			
 		</ion-thumbnail>
 		<ion-label>{{cartItem.mk.name}}</ion-label>
 		<ion-label>${{cartItem.mk.price}}</ion-label>
 		<ion-label>Qty:{{cartItem.quantity}}</ion-label>
 		<!--change quantity function not implemented yet-->
-		<button (click)="delete(i)"  item-right>
+		<button (click)="delete(cartItem)"  item-right>
 			<ion-icon name="trash"></ion-icon>
 		</button>
 	</ion-item>

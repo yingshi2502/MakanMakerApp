@@ -83,7 +83,7 @@ export class WishListPage {
 
 	 doRemove(mealKit) {
 		this.mealKitIdInString = '' + mealKit.mealKitId.toString();  
-		this.shoppingCartProvider.deleteWishList(this.customerId, this.mealKitIdInString, "1").subscribe(
+		this.shoppingCartProvider.deleteWishList(this.customerId, this.mealKitIdInString).subscribe(
 			response => {						
 				this.infoMessage = "Added to shopping cart successfully";
 				this.errorMessage = null;

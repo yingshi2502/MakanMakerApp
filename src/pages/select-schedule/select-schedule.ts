@@ -68,7 +68,7 @@ export class SelectSchedulePage {
 		console.log("specialRequest"+this.cartWrappers[0].specialRequest);
 		
 		alert.present();
-	  }*/
+	  }*/ 
 	  
 	  createOrder(){
 		  for (let cartWrapper of this.cartWrappers){
