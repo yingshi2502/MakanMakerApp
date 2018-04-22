@@ -4,8 +4,14 @@ import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartProvider } from '../../providers/shopping-cart/shopping-cart';
 import { MealKit } from '../../entities/mealKit';
 import { CustomerProvider } from '../../providers/customer/customer';
+<<<<<<< HEAD
 import { Customer } from '../../entities/customer';
 import { CartItem } from '../../entities/cartItem';
+=======
+import { Customer } from '../../entities/customer'
+import { CartItem } from '../../entities/cartItem'
+import { AlertController } from 'ionic-angular';
+>>>>>>> e27013d84bd349089c5fef0f41a8cf91f304d1a6
 
 /**
  * Generated class for the ShoppingCartPage page.
@@ -31,10 +37,12 @@ export class ShoppingCartPage {
 	cartItem: CartItem;
 	cartItems: CartItem[];
 	
+	
   constructor(public navCtrl: NavController,
 			  public navParams: NavParams,
 			  public customerProvider: CustomerProvider,
-			  public shoppingCartProvider: ShoppingCartProvider) {
+			  public shoppingCartProvider: ShoppingCartProvider,
+			  public alertCtrl: AlertController) {
 	
 				let customerIdInString: string = sessionStorage.getItem("customerId");
 				this.customerId = customerIdInString; 
@@ -53,7 +61,25 @@ export class ShoppingCartPage {
 	  this.quantity--;
 	}*/
 	
-	public delete (index){
+	public delete (cartItem){
+		this.mealKitIdInString = '' + cartItem.mk.mealKitId;  
+		this.shoppingCartProvider.deleteItem(this.customerId, this.mealKitIdInString).subscribe(
+			response => {						
+				this.infoMessage = "Removed from Cart successfully";
+				this.errorMessage = null;
+			},
+			error => {				
+				this.infoMessage = null;
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);	
+
+    let alert = this.alertCtrl.create({
+      title: 'Removed from Cart!',
+      subTitle: 'Item has been removed from Cart successfully!',
+      buttons: ['OK']
+    });
+    alert.present();
 		
 		
 	}

@@ -19,11 +19,23 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
+
+
+
+
 import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
 import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { SignupPage } from '../pages/signup/signup';
 
+=======
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+import { SignupPage } from '../pages/signup/signup';
+
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -51,10 +63,30 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+
+
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
+
+  SignupPage,
+
+=======
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+<<<<<<< HEAD
   SignupPage
+=======
+	SignupPage
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
+>>>>>>> e27013d84bd349089c5fef0f41a8cf91f304d1a6
   ],
   imports: [
     BrowserModule,
@@ -78,6 +110,16 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+	SignupPage,
+
+=======
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
