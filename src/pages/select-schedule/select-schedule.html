@@ -19,7 +19,7 @@
 	<ion-item *ngFor="let cartWrapper of cartWrappers; let i = index" icon-start>	
 		<ion-label>{{cartWrapper.mealKit.name}} <p> Qty:{{cartWrapper.mealKit.quantity}}</ion-label>
 		<ion-label>Delivery Date</ion-label>
-		<!--<ion-datetime id="dob" name="dob" displayFormat="YYYY-MM-DD" pickerFormat="DD/MM/YYYY"  placeholder="{{this.customerDobString}}" [(ngModel)]="customerDobString" required="true" #dob="ngModel" max="2018-04-19"></ion-datetime>-->
+		
 
 		<ion-datetime name="date" displayFormat="DD MM YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="cartWrapper.deliveryDate" required="true" min="2018-04-23"></ion-datetime>
 	</ion-item>

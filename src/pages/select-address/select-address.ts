@@ -41,6 +41,7 @@ export class SelectAddressPage {
 				console.log('ionViewWillEnter response MyProfilePage');
 				this.infoMessage = "(Load) Addresses loaded successfully: " + response.message + ", result is: "+ response.result;								
 				this.selectedAddress=this.addresses[0];
+				this.totalPrice = this.totalPrice + this.selectedAddress.shippingFee;
 			},
 			error => {				
 				this.errorMessage = "(Load) HTTP " + error.status + ": " + error.error.message;

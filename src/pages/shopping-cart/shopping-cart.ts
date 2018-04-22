@@ -4,8 +4,8 @@ import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartProvider } from '../../providers/shopping-cart/shopping-cart';
 import { MealKit } from '../../entities/mealKit';
 import { CustomerProvider } from '../../providers/customer/customer';
-import { Customer } from '../../entities/customer'
-import { CartItem } from '../../entities/cartItem'
+import { Customer } from '../../entities/customer';
+import { CartItem } from '../../entities/cartItem';
 
 /**
  * Generated class for the ShoppingCartPage page.
@@ -39,9 +39,6 @@ export class ShoppingCartPage {
 				let customerIdInString: string = sessionStorage.getItem("customerId");
 				this.customerId = customerIdInString; 
 				
-				
-				
-	  
   }
 
   ionViewDidLoad() {
@@ -63,25 +60,24 @@ export class ShoppingCartPage {
 	
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter ShoppingCartPage');
+
 		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
 			response => {
 				this.cartItems = response.items;
+				this.totalPrice = response.subTotal;
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
 			}
 		);
-		
-
-
 	}	
   
   pay(totalPrice){
 	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working
 	  //calculatePrice();
-	  for (let mealKit of this.mealKits){
+	  /*for (let mealKit of this.mealKits){
 			this.totalPrice+=mealKit.price*mealKit.quantity;
-		}
+		}*/
 	  this.navCtrl.push(SelectAddressPage, {param1: this.totalPrice, param2: this.mealKits});
 	    }
 

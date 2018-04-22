@@ -24,19 +24,21 @@ export class SelectSchedulePage {
 	customerId: number;
 	mealKits = [];
 	cartWrappers=[];
-	//deliveryDate;
+	//deliveryDate="";
 	isEnabled=false;
 	selectedAddress;
 	errorMessage: string;
 	infoMessage: string;
-	allSuccess: false;
+	allSuccess: boolean=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   public alertCtrl: AlertController, public checkoutProvider: CheckoutProvider,) {
+  		console.log("****inside constructur select schedule");
 	  let today = new Date().toString();
 	  let customerIdInString: string = sessionStorage.getItem("customerId");
 	  this.customerId = Number(customerIdInString);
 	  this.mealKits = navParams.get('param1');
+	  console.log(this.mealKits[0]);
 	  this.selectedAddress = navParams.get('param2');
 	  for (let mealKit of this.mealKits){
 		  let cartWrapper = {mealKit, deliveryDate: today, specialRequest:""};
@@ -49,14 +51,7 @@ export class SelectSchedulePage {
     timeEnds: '2020-02-20'
   }*/
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SelectSchedulePage');
-	console.log("customer"+this.customerId);
-	console.log("date"+this.cartWrappers[0].deliveryDate);
-	console.log("selected postalCode"+this.selectedAddress.postalCode);
-	console.log("mealkits size"+Object.keys(this.mealKits).length);
-	console.log("cart wrapper size"+Object.keys(this.cartWrappers).length);
-
+  ionViewDidEnter() {
   }
 	
 	doAlert() {
@@ -75,7 +70,7 @@ export class SelectSchedulePage {
 		  for (let cartWrapper of this.cartWrappers){
 			  //cartWrapper.deliveryDate = moment().format('DDMMYYYY');
 			  console.log("date"+cartWrapper.deliveryDate);
-			  this.checkoutProvider.createOrder(this.customerId, cartWrapper.deliveryDate, cartWrapper.mealKit.mealKitId, cartWrapper.specialRequest, cartWrapper.mealKit.quantity, this.selectedAddress.addressId).subscribe(
+			  this.checkoutProvider.createOrder(String(this.customerId), cartWrapper.deliveryDate, cartWrapper.mealKit.mealKitId, cartWrapper.specialRequest, cartWrapper.mealKit.quantity, this.selectedAddress.addressId).subscribe(
 				response => {					
 						this.infoMessage = "New order " + response.message;
 						console.log(this.infoMessage);
@@ -90,7 +85,6 @@ export class SelectSchedulePage {
 		  }
 		  if (this.allSuccess=true){this.doAlert();}
 	  }
-	  
 	  goToProfile(event){
 	  this.navCtrl.push(MyProfilePage, {fromPage: 'SelectSchedulePage'});
   }
