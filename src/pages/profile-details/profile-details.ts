@@ -75,7 +75,7 @@ export class ProfileDetailsPage {
 				this.customerToUpdate = response.customer;
 				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'yyyy-MM-dd');
 				console.log('ionViewDidEnter customerProvider mtd customerDobstring is: ' + this.customerDobString + 'ProfileDetailsPage');
-				this.infoMessage = "Customer profile loaded successfully";								
+				this.infoMessage = "Customer profile loaded successfully";
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message + " I am here";

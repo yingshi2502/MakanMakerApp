@@ -17,6 +17,7 @@
 
 <ion-content padding>
 
+
 	<div *ngIf="addresses">
 		<div *ngFor="let address of addresses">
 			
@@ -26,9 +27,7 @@
 				</ion-badge>
 			</ion-item>
 			
-			<ion-list *ngIf="(address)?.isDefaultShipping" style="border: 1px solid">
-		
-				
+			<ion-list *ngIf="(address)?.isDefaultShipping" style="border: 1px solid">				
 				<ion-item>
 					<ion-label>
 						Street Address:
@@ -42,8 +41,7 @@
 						Postal Code:
 					</ion-label>
 					<ion-note item-end>
-						
-						<p>Singapore[{{address.postalCode}}]</p>
+					<p>Singapore[{{address.postalCode}}]</p>
 					</ion-note>
 				</ion-item>				
 				<ion-item>
@@ -76,25 +74,58 @@
 					<b>Street Address:</b> 
 				</ion-label>
 				<ion-note item-end>
-					<p>{{address.streetAddress}}</p>
-					<p>{{address.floorUnit}}</p>
+					<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
 					<p>{{address.postalCode}}</p>
 				</ion-note>				
 			</ion-item>
 			
 			<ion-item>
 				<ion-label>
-					<b>Contact Details:</b>
-					<p>Name of Recipient: {{address.fullName}}</p>
-					<p>Contact No.: {{address.phoneNumber}}</p>
+					<b>Addressee:</b>
 				</ion-label>
+				<ion-note item-end>
+					<p>{{address.fullName}}</p>
+				</ion-note>
+			</ion-item>
+
+			<ion-item>
+				<ion-label>
+					<b>Contact No.:</b>
+				</ion-label>
+				<ion-note item-end>
+					<p>{{address.phoneNumber}}</p>
+				</ion-note>
 			</ion-item>
 		</ion-list>
 		</div>
 	</div>
+	
+	<div>
+		<ion-item (ion-select)="setShippingId(this.shippingId)">
+			<ion-select [(ngModel)]="this.shippingId"> 
+				<ion-option>Select an option</ion-option>
+				<ion-option *ngFor="let address of addresses" value="address.addressId">
+					<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
+					<p>{{address.postalCode}}</p>
+				</ion-option>
+			</ion-select>
+		</ion-item>
+	</div>
+	
+	<div>
+		<ion-item (ion-select)="setBillingId(this.shippingId)">
+			<ion-select [(ngModel)]="this.billingId"> 
+				<ion-option *ngFor="let address of addresses">
+					<p>{{address.streetAddress}}, {{address.floorUnit}}</p>
+					<p>{{address.postalCode}}</p>
+				</ion-option>
+			</ion-select>
+		</ion-item>
+	</div>
 
-	<button ion-button block (click)="createNewAddress($event, this.customerId)">
+	<ion-item>
+		<button ion-button block (click)="createNewAddress($event, this.customerId)">
 		Create New Address
-	</button>
-
+		</button>
+	</ion-item>
 </ion-content>

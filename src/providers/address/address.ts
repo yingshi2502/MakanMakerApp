@@ -15,7 +15,12 @@ import { Address } from '../../entities/address'
 */
 
 
+// changed to text/plain 
 const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
+};
+
+const httpOptionsJson = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
@@ -25,19 +30,39 @@ export class AddressProvider {
 	ipAddress = '192.168.137.1';
 	// ipAddress = '100.110.30.81';
 	portNo = '8080';
-	// double check if customer is with capital letter or not
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/address';
 	
 	baseUrl = "/api/address";
 	
 	username = "";
 	password = "";
+
+	fullNameToUpdate = "";
+	phoneNumberToUpdate = "";
+	isDefaultShippingToUpdate = false;
+	isDefaultBillingToUpdate = false;
+	streetAddressToUpdate = "";
+	floorUnitToUpdate = "";
+	postalCodeToUpdate = "";
+
 	loginCredential = "";
-	
+	updateParam = "";
 	
 	constructor(public platform: Platform,
 				private httpClient: HttpClient) {
 		console.log('Hello AddressProvider Provider');
+	}
+
+	setDetailsToUpdate(streetAddress: string, floorUnit: string, postalCode: string, fullName: string, phoneNumber: string, isDefaultShipping: boolean, isDefaultBilling: boolean) 
+	{
+		this.fullNameToUpdate = fullName;
+		this.phoneNumberToUpdate = phoneNumber;
+		this.isDefaultShippingToUpdate = isDefaultShipping;
+		this.isDefaultBillingToUpdate = isDefaultBilling;
+		this.streetAddressToUpdate = streetAddress;
+		this.floorUnitToUpdate = floorUnit;
+		this.postalCodeToUpdate = postalCode;
+		this.updateParam = "&streetAddress=" + streetAddress + "&floorUnit=" + floorUnit + "&postalCode=" + postalCode + "&fullName=" + fullName + "&phoneNumber=" + phoneNumber + "&isDefaultShipping=" + isDefaultShipping + "&isDefaultBilling=" + isDefaultBilling;
 	}
 	
 	setLoginCredential(username: string, password: string)
@@ -92,23 +117,48 @@ export class AddressProvider {
 		
 		if(this.platform.is('core') || this.platform.is('mobileweb')) 
 		{
-			path = this.baseUrl;
+			path = this.baseUrl + "/create";
 		}
 		else
 		{
-			path = this.fullBaseUrl;
+			path = this.fullBaseUrl + "/create";
 		}
 		let createAddressReq = {
 			"customerId": customerId,
 			"address": newAddress
 		};
 		
-		return this.httpClient.post<any>(path+'/create', createAddressReq, httpOptions).pipe
+		this.setDetailsToUpdate(newAddress.streetAddress, newAddress.floorUnit, newAddress.postalCode, newAddress.fullName, newAddress.phoneNumber, newAddress.isDefaultShipping, newAddress.isDefaultBilling)
+		
+		path = path + "/create" + "?customerId=" + customerId + this.updateParam;
+		console.log('createAddress Address Provider: Sending in path: ' + path);
+
+		return this.httpClient.post<any>(path, "", httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
 	}
-  
+
+	updateAddress(customerId: string, addressId: string) { 
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		path = path + "/update" + "?customerId=" + customerId + "&addressId=" + addressId + this.updateParam;
+		console.log('updateAddress Address Provider: Sending in path: ' + path);
+
+		return this.httpClient.post<any>(path, "", httpOptions).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+
 	private handleError(error: HttpErrorResponse)
 	{
 		if (error.error instanceof ErrorEvent) 

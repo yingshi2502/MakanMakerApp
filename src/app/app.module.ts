@@ -20,12 +20,14 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
 
-
-
 import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
 import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { SignupPage } from '../pages/signup/signup';
+import { MyOrdersPage } from '../pages/my-orders/my-orders';
+import { ViewOrderDetailsPage } from '../pages/view-order-details/view-order-details';
+
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -54,10 +56,14 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
-	SignupPage,
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
+    SignupPage,
+	MyOrdersPage,
+	ViewOrderDetailsPage 
+
+
   ],
   imports: [
     BrowserModule,
@@ -81,10 +87,12 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
 	SignupPage,
+	MyOrdersPage,
   ],
   providers: [
     StatusBar,

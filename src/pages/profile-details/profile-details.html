@@ -18,8 +18,6 @@
 <div *ngIf="customerToUpdate != null">
 	<div>
 		<form #editCustomerForm="ngForm" (ngSubmit)="saveProfile(editCustomerForm)" >
-
-
 			<ion-list *ngIf="customerToUpdate != null">
 				<ion-item>
 					<ion-label>Full Name</ion-label>

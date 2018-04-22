@@ -6,6 +6,8 @@ import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 import { CartItem } from '../../entities/cartItem';
 
+import { Address } from '../../entities/address';
+
 /**
  * Generated class for the PaymentPage page.
  *

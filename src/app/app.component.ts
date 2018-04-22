@@ -49,18 +49,10 @@ export class MyApp {
 	    { title: 'My Shopping Cart', component: ShoppingCartPage,icon:'cart',initial:false},
     ];
 
-     this.pagesNoLogin = [
-      { title: 'Login', component: HelloIonicPage,icon:'home',initial:true },
-      { title: 'View All MealKits', component: ViewAllMealKitsPage,icon:'list-box',initial:true  },
-      { title: 'Categories', component: CategoriesPage,icon: 'pizza',initial:true },
-
-    ];
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

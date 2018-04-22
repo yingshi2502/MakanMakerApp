@@ -108,20 +108,19 @@ export class CustomerProvider {
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
 
 		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
-
 		(
 			catchError(this.handleError)
 		);
 	}
 	//@QueryParam("username") String username, @QueryParam("password") String password, 
 //@QueryParam("fullName") String fullName, @QueryParam("mobile") String mobile,
-// @QueryParam("email") String email, @QueryParam("dob") String dob, @QueryParam("gener") String gender
+// @QueryParam("email") String email, @QueryParam("dob") String dob, @QueryParam("gender") String gender
   	setSignUpInformation(customer: Customer, dob:String)
 	{
 
 		this.signUpInfo = "?username=" + customer.userName + "&password=" + customer.password
 		+"&fullName="+customer.fullName+"&mobile="+customer.mobile+"&email="+customer.email+"&dob="+dob+
-		"&gener="+customer.gender;
+		"&gender="+customer.gender;
 	}
 
 	signup(newCustomer: Customer):Observable<any>
@@ -171,8 +170,23 @@ export class CustomerProvider {
 
 	}
 
-
-
+	retrieveOrdersByCustomerId(customerId: number) {
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveOrdersByCustomerId?customerId=" + customerId).pipe
+		(
+			catchError(this.handleError) 
+		);
+	}
 
 	private handleError(error: HttpErrorResponse)
 	{
