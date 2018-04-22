@@ -127,9 +127,13 @@ export class AddressProvider {
 			"customerId": customerId,
 			"address": newAddress
 		};
-		console.log('createAddress Address Provider: Sending in createAddressReq with path: ' + path );
+		
+		this.setDetailsToUpdate(newAddress.streetAddress, newAddress.floorUnit, newAddress.postalCode, newAddress.fullName, newAddress.phoneNumber, newAddress.isDefaultShipping, newAddress.isDefaultBilling)
+		
+		path = path + "/create" + "?customerId=" + customerId + this.updateParam;
+		console.log('createAddress Address Provider: Sending in path: ' + path);
 
-		return this.httpClient.post<any>(path, createAddressReq, httpOptionsJson).pipe
+		return this.httpClient.post<any>(path, "", httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
