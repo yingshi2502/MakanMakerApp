@@ -41,8 +41,10 @@ export class SelectSchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectSchedulePage');
+	console.log("selected postalCode"+this.selectedAddress.postalCode);
+	console.log("mealkits size"+Object.keys(this.mealKits).length);
 	console.log("cart wrapper size"+Object.keys(this.cartWrappers).length);
-	console.log("address id"+this.selectedAddress.addressId);
+
   }
 	
 	doAlert() {

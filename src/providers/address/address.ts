@@ -28,7 +28,7 @@ export class AddressProvider {
 	// double check if customer is with capital letter or not
 	fullBaseUrl = 'http://' + this.ipAddress + ':' + this.portNo + '/MakanMaker-rest/webresources/address';
 	
-	baseUrl = "/api/Address";
+	baseUrl = "/api/address";
 	
 	username = "";
 	password = "";
@@ -47,8 +47,27 @@ export class AddressProvider {
 		this.loginCredential = "?username=" + username + "&password=" + password;
 	}
 	
-	/*
-	retrieve(addressId: number): Observable<any>
+	retrieveAddressesByCustomerId(customerId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		
+		return this.httpClient.get<any>(path + "/retrieveAddressByCustomerId?customerId=" + customerId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+  
+	// add login credentials later
+	getAddressByAddressId(addressId: number): Observable<any>
 	{
 		let path: string = '';
 		
@@ -62,6 +81,29 @@ export class AddressProvider {
 		}
 		
 		return this.httpClient.get<any>(path + "/retrieveById/" + addressId).pipe
+		(
+			catchError(this.handleError)
+		);
+	}
+	
+	createAddress(newAddress: Address, customerId: number): Observable<any>
+	{
+		let path: string = '';
+		
+		if(this.platform.is('core') || this.platform.is('mobileweb')) 
+		{
+			path = this.baseUrl;
+		}
+		else
+		{
+			path = this.fullBaseUrl;
+		}
+		let createAddressReq = {
+			"customerId": customerId,
+			"address": newAddress
+		};
+		
+		return this.httpClient.post<any>(path, createAddressReq, httpOptions).pipe
 		(
 			catchError(this.handleError)
 		);
@@ -80,43 +122,5 @@ export class AddressProvider {
 		
 		return new ErrorObservable(error);
 	}
-	
-	
-	*/
-  
-  // add login credentials later
-	/* getAddressByAddressId(addressId: number): Observable<any>
-	{
-		let path: string = '';
-		
-		if(this.platform.is('core') || this.platform.is('mobileweb')) 
-		{
-			path = this.baseUrl;
-		}
-		else
-		{
-			path = this.fullBaseUrl;
-		}
-		
-		return this.httpClient.get<any>(path + "/retrieveById/" + addressId).pipe
-		(
-			catchError(this.handleError)
-		);
-	}
-  
-	private handleError(error: HttpErrorResponse)
-	{
-		if (error.error instanceof ErrorEvent) 
-		{		
-			console.error('An unknown error has occurred:', error.error.message);
-		} 
-		else 
-		{		
-			console.error(" A HTTP error has occurred: " + `HTTP ${error.status}: ${error.error.message}`);
-		}
-		
-		return new ErrorObservable(error);
-	}
-	*/
 
 }

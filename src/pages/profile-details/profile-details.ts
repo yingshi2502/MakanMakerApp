@@ -53,7 +53,7 @@ export class ProfileDetailsPage {
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customerToUpdate = response.customer;
-				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'dd/MM/yyyy');
+				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'yyyy-MM-dd');
 				console.log('ionViewDidLoad customerProvider mtd customerDobstring is: ' + this.customerDobString + 'ProfileDetailsPage');
 				this.infoMessage = "Customer loaded successfully";								
 			},
@@ -73,7 +73,7 @@ export class ProfileDetailsPage {
  		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
 			response => {
 				this.customerToUpdate = response.customer;
-				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'dd/MM/yyyy');
+				this.customerDobString = this.datePipe.transform((this.customerToUpdate.dateOfBirth), 'yyyy-MM-dd');
 				console.log('ionViewDidEnter customerProvider mtd customerDobstring is: ' + this.customerDobString + 'ProfileDetailsPage');
 				this.infoMessage = "Customer profile loaded successfully";								
 			},
@@ -99,7 +99,6 @@ export class ProfileDetailsPage {
 
 		if (editCustomerForm.valid) 
 		{		
-			// replace the hardcoded date with "this.customerToUpdate.dateOfBirth"
 			this.customerProvider.setDetailsToUpdate(this.customerToUpdate.fullName, this.customerToUpdate.email,this.customerToUpdate.gender, this.customerDobString, this.customerToUpdate.mobile);
 			this.customerProvider.updateCustomer(this.customerToUpdate).subscribe(
 				response => {					

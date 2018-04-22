@@ -9,6 +9,7 @@ import { ShoppingCartPage } from '../pages/shopping-cart/shopping-cart';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { SelectAddressPage } from '../pages/select-address/select-address';
 import { SelectSchedulePage } from '../pages/select-schedule/select-schedule';
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 
 import { ViewAllMealKitsPage } from '../pages/view-all-meal-kits/view-all-meal-kits';
 import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal-kit-details';
@@ -26,7 +27,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = CategoriesPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -39,13 +40,25 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+<<<<<<< HEAD
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'My First List', component: ListPage },
 	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Address Book', component: MyAddressBookPage },
 	  { title: 'View All MealKits', component: ViewAllMealKitsPage },
 	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'Wish List', component: WishListPage }
+=======
+      //{ title: 'Hello Ionic', component: HelloIonicPage },
+      //{ title: 'My First List', component: ListPage },
+	  
+	  { title: 'Browse All MealKits', component: ViewAllMealKitsPage },
+	  { title: 'Categories', component: CategoriesPage },
+	  { title: 'My Profile', component: MyProfilePage },
+	  { title: 'My Shopping Cart', component: ShoppingCartPage },
 	  { title: 'Wish List', component: WishListPage },
 	  
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
 
     ];
   }

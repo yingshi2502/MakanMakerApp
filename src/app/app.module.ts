@@ -19,7 +19,13 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+=======
 import { SignupPage } from '../pages/signup/signup';
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -47,7 +53,13 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage
+=======
   SignupPage
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
 
   ],
   imports: [
@@ -75,7 +87,13 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage
+=======
   SignupPage
+>>>>>>> f11eeba59875a8c78db225fa82bef8d112388d1b
   ],
   providers: [
     StatusBar,
