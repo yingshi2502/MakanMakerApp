@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { CategoriesPage } from '../categories/categories';
 
 import { Customer } from '../../entities/customer';
 import { LoginProvider } from '../../providers/login/login';
@@ -79,8 +80,9 @@ export class HelloIonicPage {
 			});
 				
 			toast.present();			
-			
-			
+		this.navCtrl.setRoot(CategoriesPage);
+		this.navCtrl.popToRoot();
+
 	}	
 	
 	login(loginForm: NgForm)

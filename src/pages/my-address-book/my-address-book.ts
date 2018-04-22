@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { HelloIonicPage } from '../hello-ionic/hello-ionic';
+import { CategoriesPage } from '../categories/categories';
 
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -34,13 +36,18 @@ export class MyAddressBookPage {
 	
 	constructor(public navCtrl: NavController,
 				public navParams: NavParams,
+				public alertCtrl:AlertController,
 				public addressProvider: AddressProvider) {
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad MyAddressBookPage');
 		this.customerId = parseInt(sessionStorage.getItem("customerId"));
-		this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
+		let idString = sessionStorage.getItem("customerId");
+		if (sessionStorage.getItem("isLogin")!="true"){
+			this.doAlert();
+		}else{
+			this.addressProvider.retrieveAddressesByCustomerId(Number(sessionStorage.getItem("customerId"))).subscribe(
 			response => {
 				this.addresses = response.addresses;
 				console.log('ionViewWillLoad response.addresses retrieved MyProfilePage, addresses: ' + this.addresses);
@@ -52,21 +59,48 @@ export class MyAddressBookPage {
 			}
 		);
 	}
+	}
   
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter MyAddressBookPage');
 		this.customerId = parseInt(sessionStorage.getItem("customerId"));
-		this.addressProvider.retrieveAddressesByCustomerId(this.customerId).subscribe(
+		if (sessionStorage.getItem("isLogin")!="true"){
+			this.doAlert();
+		}else{
+			this.addressProvider.retrieveAddressesByCustomerId(Number(sessionStorage.getItem("customerId"))).subscribe(
 			response => {
 				this.addresses = response.addresses;
 				console.log('ionViewWillLoad response.addresses retrieved MyProfilePage, addresses: ' + this.addresses);
 				console.log('ionViewWillEnter response MyProfilePage');
-				this.infoMessage = "(Enter) Addresses loaded successfully: " + response.message + ", result is: "+ response.result;								
+				this.infoMessage = "(Load) Addresses loaded successfully: " + response.message + ", result is: "+ response.result;								
 			},
 			error => {				
-				this.errorMessage = "(Enter) HTTP " + error.status + ": " + error.error.message;
+				this.errorMessage = "(Load) HTTP " + error.status + ": " + error.error.message;
 			}
 		);
+		}
+	}
+
+
+	doAlert() {
+		let alert = this.alertCtrl.create({
+		  title: "You haven't login!",
+		  buttons: [
+		  {
+		  	text:"Visitor",
+		  	handler:() => {
+				this.navCtrl.setRoot(CategoriesPage);
+		  	}
+		  },
+		  {
+		  		text:"Login",
+		  		handler:() => {
+		  			this.navCtrl.setRoot(HelloIonicPage);
+		  		}
+		  }
+		  ]
+		});
+		alert.present();
 	}
 
 	createNewAddress(event) {

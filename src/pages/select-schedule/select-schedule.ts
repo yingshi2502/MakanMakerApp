@@ -82,16 +82,12 @@ export class SelectSchedulePage {
 		
 		alert.present();
 
-<<<<<<< HEAD
 		this.navCtrl.popToRoot({animation:'wp-transition'})
 
-	  }
-=======
 	  }
 
 	  
 
->>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
 	  
 	  createOrder(){
 	  	let loading = this.loadingCtrl.create({

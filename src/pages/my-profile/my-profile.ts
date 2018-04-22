@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+
 import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 
@@ -10,7 +10,9 @@ import { CustomerProvider } from '../../providers/customer/customer';
 import { Customer } from '../../entities/customer'
 // import { Address } from '../../entities/address'
 // import { Order } from '../../entities/order'
-
+import { AlertController } from 'ionic-angular';
+import { HelloIonicPage } from '../hello-ionic/hello-ionic';
+import { CategoriesPage } from '../categories/categories';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 import { ProfileDetailsPage } from '../profile-details/profile-details';
 
@@ -38,20 +40,30 @@ export class MyProfilePage {
 	email: string;
 	gender: string;
 	mobile: string;
-	
+	customerIdInString:string;
 	constructor(public navCtrl: NavController, 
 				public navParams: NavParams,
 				public actionSheetCtrl: ActionSheetController,
 				public alertCtrl: AlertController,
 				public toastCtrl: ToastController,
 				public customerProvider: CustomerProvider) {
-		let customerIdInString: string = sessionStorage.getItem("customerId");
-		this.customerId = Number(customerIdInString);
+		this.customerIdInString = sessionStorage.getItem("customerId");
+		console.log(this.customerIdInString);
+		if (this.customerIdInString){
+			console.log("null");
+		}else{
+		this.customerId = Number(this.customerIdInString);
+	}
+		
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad MyProfilePage');
-		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
+		console.log(sessionStorage.getItem("isLogin"));
+		if (sessionStorage.getItem("isLogin")!="true"){
+			this.doAlert();
+		}else{
+		this.customerProvider.getCustomerByCustomerId(Number(sessionStorage.getItem("customerId"))).subscribe(
 			response => {
 				this.customer = response.customer;
 				console.log('ionViewWillEnter response MyProfilePage', this.customer.fullName);
@@ -72,9 +84,13 @@ export class MyProfilePage {
 			}
 		);
 	}
+	}
   
 	ionViewWillEnter()
 	{
+		if (this.customerIdInString){
+			
+		}else{
 		console.log('ionViewDidLoad MyProfilePage');
 
 		this.customerProvider.getCustomerByCustomerId(this.customerId).subscribe(
@@ -93,6 +109,31 @@ export class MyProfilePage {
 			}
 		);
 	}
+	}
+
+	doAlert() {
+		let alert = this.alertCtrl.create({
+		  title: "You haven't login!",
+		  buttons: [
+		  {
+		  	text:"Visitor",
+		  	handler:() => {
+				this.navCtrl.setRoot(CategoriesPage);
+		  	}
+		  },
+		  {
+		  		text:"Login",
+		  		handler:() => {
+		  			this.navCtrl.setRoot(HelloIonicPage);
+		  		}
+		  }
+		  ]
+		});
+		alert.present();
+	}
+
+
+
 	
 	shoppingCart(event){
 	  this.navCtrl.push(ShoppingCartPage, {fromPage: 'MyProfilePage'});

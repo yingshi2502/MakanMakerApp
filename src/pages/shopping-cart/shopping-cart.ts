@@ -7,6 +7,9 @@ import { CustomerProvider } from '../../providers/customer/customer';
 import { Customer } from '../../entities/customer';
 import { CartItem } from '../../entities/cartItem';
 
+import { HelloIonicPage } from '../hello-ionic/hello-ionic';
+import { CategoriesPage } from '../categories/categories';
+
 import { AlertController } from 'ionic-angular';
 
 /**
@@ -91,30 +94,14 @@ export class ShoppingCartPage {
 	ionViewWillEnter() {
 		console.log('ionView WILL Enter ShoppingCartPage');
 
-		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
-			response => {
-				this.cartItems = response.items;
-				this.totalPrice = response.subTotal;
-				if (Object.keys(this.cartItems).length == 0){
-					this.nothing = true;
-					console.log("nothing");
-				}
-			},
-			error => {				
-				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
-			}
-		);
-	}	
-
-	ionViewDidEnter() {
-		let loading = this.loadingCtrl.create({
+		if (sessionStorage.getItem("isLogin")!="true"){
+			this.doAlert();
+		}else{
+			let loading = this.loadingCtrl.create({
 			content: 'Loading...'
 		});
 		loading.present();
-
-		console.log('ionViewDidEnter ShoppingCartPage');
-
-		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
+		this.shoppingCartProvider.retrieveShoppingCart(sessionStorage.getItem("customerId")).subscribe(
 			response => {
 				this.cartItems = response.items;
 				this.totalPrice = response.subTotal;
@@ -129,8 +116,59 @@ export class ShoppingCartPage {
 				loading.dismiss();
 			}
 		);
+	}
 	}	
-  
+
+	ionViewDidEnter() {
+		
+
+		console.log('ionViewDidEnter ShoppingCartPage');
+		let idString = sessionStorage.getItem("customerId");
+		if (sessionStorage.getItem("isLogin")!="true"){
+			this.doAlert();
+		}else{
+			let loading = this.loadingCtrl.create({
+			content: 'Loading...'
+		});
+		loading.present();
+		this.shoppingCartProvider.retrieveShoppingCart(sessionStorage.getItem("customerId")).subscribe(
+			response => {
+				this.cartItems = response.items;
+				this.totalPrice = response.subTotal;
+				if (Object.keys(this.cartItems).length == 0){
+					this.nothing = true;
+					console.log("nothing");
+				}
+				loading.dismiss();
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+				loading.dismiss();
+			}
+		);
+	}
+	}	
+  	doAlert() {
+		let alert = this.alertCtrl.create({
+		  title: "You haven't login!",
+		  buttons: [
+		  {
+		  	text:"Visitor",
+		  	handler:() => {
+				this.navCtrl.setRoot(CategoriesPage);
+		  	}
+		  },
+		  {
+		  		text:"Login",
+		  		handler:() => {
+		  			this.navCtrl.setRoot(HelloIonicPage);
+		  		}
+		  }
+		  ]
+		});
+		alert.present();
+	}
+
 		
 		pay(totalPrice){
 	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working

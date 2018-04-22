@@ -8,6 +8,9 @@ import { MealKitProvider } from '../../providers/meal-kit/meal-kit';
 import { MealKit } from '../../entities/mealkit';
 import { Customer } from '../../entities/customer'
 
+import { HelloIonicPage } from '../hello-ionic/hello-ionic';
+import { CategoriesPage } from '../categories/categories';
+
 /**
  * Generated class for the WishListPage page.
  *
@@ -48,7 +51,11 @@ export class WishListPage {
   
 	ionViewDidEnter() {
 		console.log('ionViewDidEnter ViewAll-WishList-Page');
-		this.shoppingCartProvider.retrieveWishListByCustomerId(this.customerId).subscribe(
+		let idString = sessionStorage.getItem("customerId");
+		if (sessionStorage.getItem("isLogin")!="true"){
+			this.doAlertNoLogin();
+		}else{
+		this.shoppingCartProvider.retrieveWishListByCustomerId(Number(sessionStorage.getItem("customerId"))).subscribe(
 			response => {
 				this.mealKits = response.mealKits;
 				if (Object.keys(this.mealKits).length == 0){
@@ -61,7 +68,29 @@ export class WishListPage {
 			}
 		);
 	}
+	}
   
+
+ 	 doAlertNoLogin() {
+		let alert = this.alertCtrl.create({
+		  title: "You haven't login!",
+		  buttons: [
+		  {
+		  	text:"Visitor",
+		  	handler:() => {
+				this.navCtrl.setRoot(CategoriesPage);
+		  	}
+		  },
+		  {
+		  		text:"Login",
+		  		handler:() => {
+		  			this.navCtrl.setRoot(HelloIonicPage);
+		  		}
+		  }
+		  ]
+		});
+		alert.present();
+	}
   
 	 doAlert(mealKit) {
 		this.mealKitIdInString = '' + mealKit.mealKitId.toString();  
