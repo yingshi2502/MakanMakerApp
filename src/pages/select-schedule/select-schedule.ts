@@ -25,21 +25,13 @@ export class SelectSchedulePage {
 	customerId: number;
 	cartItems: CartItem[];
 	cartWrappers=[];
-<<<<<<< HEAD
-	//deliveryDate="";
-	isEnabled=false;
-	selectedAddress;
-	errorMessage: string;
-	infoMessage: string;
-	allSuccess: boolean=false;
-=======
+
 	//deliveryDate;
 	isEnabled: boolean;
 	selectedAddress;
 	errorMessage: string;
 	infoMessage: string;
 	allSuccess: boolean;
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
   public alertCtrl: AlertController, public checkoutProvider: CheckoutProvider,) {
@@ -47,12 +39,8 @@ export class SelectSchedulePage {
 	  let today = new Date().toString();
 	  let customerIdInString: string = sessionStorage.getItem("customerId");
 	  this.customerId = Number(customerIdInString);
-<<<<<<< HEAD
-	  this.mealKits = navParams.get('param1');
-	  console.log(this.mealKits[0]);
-=======
+
 	  this.cartItems = navParams.get('param1');
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 	  this.selectedAddress = navParams.get('param2');
 	  for (let cartItem of this.cartItems){
 		  let cartWrapper = {cartItem, deliveryDate: today, specialRequest:""};
@@ -67,9 +55,8 @@ export class SelectSchedulePage {
     timeEnds: '2020-02-20'
   }*/
 
-<<<<<<< HEAD
   ionViewDidEnter() {
-=======
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectSchedulePage');
 	console.log("customer"+this.customerId);
@@ -78,7 +65,6 @@ export class SelectSchedulePage {
 	console.log("mealkits size"+Object.keys(this.cartItems).length);
 	console.log("cart wrapper size"+Object.keys(this.cartWrappers).length);
 
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
   }
 	
 	doAlert() {
@@ -97,11 +83,8 @@ export class SelectSchedulePage {
 		  for (let cartWrapper of this.cartWrappers){
 			  //cartWrapper.deliveryDate = moment().format('DDMMYYYY');
 			  console.log("date"+cartWrapper.deliveryDate);
-<<<<<<< HEAD
-			  this.checkoutProvider.createOrder(String(this.customerId), cartWrapper.deliveryDate, cartWrapper.mealKit.mealKitId, cartWrapper.specialRequest, cartWrapper.mealKit.quantity, this.selectedAddress.addressId).subscribe(
-=======
-			  this.checkoutProvider.createOrder(this.customerId, cartWrapper.deliveryDate, cartWrapper.cartItem.mk.mealKitId, cartWrapper.specialRequest, cartWrapper.cartItem.quantity, this.selectedAddress.addressId).subscribe(
->>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
+
+			  this.checkoutProvider.createOrder(String(this.customerId), cartWrapper.deliveryDate, cartWrapper.cartItem.mk.mealKitId, cartWrapper.specialRequest, cartWrapper.cartItem.quantity, this.selectedAddress.addressId).subscribe(
 				response => {					
 						this.infoMessage = "New order " + response.message;
 						console.log(this.infoMessage);

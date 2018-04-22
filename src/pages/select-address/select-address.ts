@@ -50,31 +50,6 @@ export class SelectAddressPage {
 				this.errorMessage = "(Load) HTTP " + error.status + ": " + error.error.message;
 			}
 		);
-		
-		
-	  /*this.addresses=[
-	  {
-		  addressId:1,
-		  streetAddress:"15 Siglap",
-		  postalCode:"448879",
-		  shippingFee:10
-	  },
-	  {
-		  addressId:2,
-		  streetAddress:"17 PGP",
-		  postalCode:"123456",
-		  shippingFee:5
-	  },
-	  {
-		  addressId:3,
-		  streetAddress:"1 UTown",
-		  postalCode:"122231",
-		  shippingFee:2
-	  }
-	  ];*/
-	  //console.log("****this addrees"+this.addresses);
-	  //console.log("size"+Object.keys(this.addresses).length);
-	  //this.selectedAddress=this.addresses[0];
   }
 	
 
