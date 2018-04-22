@@ -11,7 +11,7 @@ import { Platform } from 'ionic-angular';
   and Angular DI.
 */
 const httpOptions = {
-	headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
+	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
@@ -68,7 +68,7 @@ export class ShoppingCartProvider {
 		}
 		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
 		let newPath: string = '/add?customerId='+customerId+'&qty=' + qty + '&mealKitId=' + mealKitId;
-		return this.httpClient.post<any>(path+newPath,httpOptions).pipe
+		return this.httpClient.get<any>(path+newPath).pipe
 		(
 			catchError(this.handleError)
 		);
@@ -89,7 +89,7 @@ export class ShoppingCartProvider {
 		}
 		//return this.httpClient.post<any>(path + "/add?customerId=1&qty=1&mealKitId=2").pipe
 		let newPath: string = '/addWishList?customerId='+customerId + '&mealKitId=' + mealKitId;
-		return this.httpClient.post<any>(path+newPath,httpOptions).pipe
+		return this.httpClient.get<any>(path+newPath).pipe
 		(
 			catchError(this.handleError)
 		);

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>signup</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -80,32 +80,32 @@
 					<ion-label>Email</ion-label>
 					<ion-input type="text" id="email" name="email" [(ngModel)]="newCustomer.email" required="true" #email="ngModel"></ion-input>
 				</ion-item>
-			
-				<ion-list radio-group>
-					<ion-list-header>
-						Gender
-					</ion-list-header>
 
-					<ion-item>
-						<ion-label>Female</ion-label>
-						<ion-radio value="0" (ionSelect)="selectGender(0)"></ion-radio>
-					</ion-item>
-					<ion-item>
-						<ion-label>Male</ion-label>
-						<ion-radio value="1" (ionSelect)="selectGender(1)"></ion-radio>
-					</ion-item>
-				</ion-list>
-		
+				<ion-item>
+					<ion-label>Gender</ion-label>
+					
+				</ion-item>
+				<ion-list radio-group style="margin-left: 30px">
+						<ion-item>
+							<ion-label>Female</ion-label>
+							<ion-radio value="0" (ionSelect)="selectGender(0)"></ion-radio>
+						</ion-item>
+						<ion-item>
+							<ion-label>Male</ion-label>
+							<ion-radio value="1" (ionSelect)="selectGender(1)"></ion-radio>
+						</ion-item>
+					</ion-list>
 				<ion-item>
 					<ion-label>Mobile No.</ion-label>
 					<ion-input type="text" id="mobile" name="mobile" [(ngModel)]="newCustomer.mobile" required="true" #mobile="ngModel"></ion-input>
 				</ion-item>
-				
+			
 			</ion-list>
 			<ion-item>
-				<button type="submit" ion-button block>
+				<button type="submit" ion-button block style="background-color:rgba(255,127,0,0.7);height: 30px;font-size: 16px;border-radius: 20px">
 					Sign Up
 				</button>
+				
 			</ion-item>
 		</form>
 
