@@ -8,4 +8,5 @@ export class ShoppingCart
 	quantity: number[];
 	totalAmount: number;
 	
+	
 }

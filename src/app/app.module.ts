@@ -19,10 +19,27 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
 import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
 import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { SignupPage } from '../pages/signup/signup';
+=======
+<<<<<<< HEAD
+
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+
+import { SignupPage } from '../pages/signup/signup';
+
+=======
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+import { SignupPage } from '../pages/signup/signup';
+>>>>>>> b4437657d2edccfbf2750fe38d13aff90a41d7c9
+>>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -50,10 +67,27 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+  SignupPage
+=======
+<<<<<<< HEAD
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+
+  SignupPage
+
+=======
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
 	SignupPage
+>>>>>>> b4437657d2edccfbf2750fe38d13aff90a41d7c9
+>>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
 
   ],
   imports: [
@@ -81,10 +115,27 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+  SignupPage
+=======
+<<<<<<< HEAD
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+
+  SignupPage
+
+=======
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
 	SignupPage
+>>>>>>> b4437657d2edccfbf2750fe38d13aff90a41d7c9
+>>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
   ],
   providers: [
     StatusBar,

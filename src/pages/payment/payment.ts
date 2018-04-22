@@ -45,7 +45,7 @@ export class PaymentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
-	console.log("selected postalCode"+this.selectedAddress.postalCode);
+	//console.log("selected postalCode"+this.selectedAddress.postalCode);
 	console.log("mealkits size"+Object.keys(this.mealKits).length);
 	
   }

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SelectAddressPage } from '../select-address/select-address';
-
+import { ShoppingCartProvider } from '../../providers/shopping-cart/shopping-cart';
 import { MealKit } from '../../entities/mealKit';
+import { CustomerProvider } from '../../providers/customer/customer';
+import { Customer } from '../../entities/customer'
+import { CartItem } from '../../entities/cartItem'
 
 /**
  * Generated class for the ShoppingCartPage page.
@@ -16,36 +19,28 @@ import { MealKit } from '../../entities/mealKit';
   templateUrl: 'shopping-cart.html',
 })
 export class ShoppingCartPage {
-	
+
 	quantities=[];
 	mealKits=[];
 	totalPrice=0;
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-	  this.quantities=[1,4,2];
-	  this.mealKits=[
-	  {
-		mealKitId: 1,
-		name: "Nasi Lemak",
-		price: 10.00,
-		imagePath: "../../assets/imgs/mealKit1.jpg",
-		quantity: this.quantities[0]
-	  },
-	  {
-		mealKitId: 2,
-		name: "Bobo Chacha",
-		price: 5.00,
-		imagePath: "../../assets/imgs/mealKit2.jpg",
-		quantity: this.quantities[1]
-	  },
-	  {
-		mealKitId: 3,
-		name: "Chicken Chop",
-		price: 12.00,
-		imagePath: "../../assets/imgs/mealKit3.jpg",
-		quantity: this.quantities[2]
-	  }
-	  ]
+    infoMessage: string;
+	errorMessage: string;
+	customerId: string;
+	customer: Customer;
+	customerIdString: string;
+	cartItem: CartItem;
+	cartItems: CartItem[];
+	
+  constructor(public navCtrl: NavController,
+			  public navParams: NavParams,
+			  public customerProvider: CustomerProvider,
+			  public shoppingCartProvider: ShoppingCartProvider) {
+	
+				let customerIdInString: string = sessionStorage.getItem("customerId");
+				this.customerId = customerIdInString; 
+				
+				
+				
 	  
   }
 
@@ -63,10 +58,23 @@ export class ShoppingCartPage {
 	
 	public delete (index){
 		
-		this.mealKits.splice(index, 1);
+		
 	}
 	
-	
+	ionViewDidEnter() {
+		console.log('ionViewDidEnter ShoppingCartPage');
+		this.shoppingCartProvider.retrieveShoppingCart(this.customerId).subscribe(
+			response => {
+				this.cartItems = response.items;
+			},
+			error => {				
+				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+			}
+		);
+		
+
+
+	}	
   
   pay(totalPrice){
 	  console.log("mealkit size"+Object.keys(this.mealKits).length);//working
