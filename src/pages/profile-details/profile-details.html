@@ -18,19 +18,10 @@
 <div *ngIf="customerToUpdate != null">
 	<div>
 		<form #editCustomerForm="ngForm" (ngSubmit)="saveProfile(editCustomerForm)" >
-
-<!--			<div *ngIf="errorMessage" class="errorText">
-				{{errorMessage}}
-			</div>
-		
-			<div *ngIf="infoMessage" class="infoText">
-				{{infoMessage}}
-			</div>
--->
 			<ion-list *ngIf="customerToUpdate != null">
 				<ion-item>
 					<ion-label>Full Name</ion-label>
-					<ion-input type="text" id="fullName" name="fullName" [(ngModel)]="customerToUpdate.fullName" required="true" #fullName="ngModel"></ion-input>
+					<ion-input type="text" id="fullName" name="fullName" [(ngModel)]="customerToUpdate.fullName" required="true" #fullName="ngModel" style="text-align: right" ></ion-input>
 				</ion-item>
 				
 				<ion-item>
@@ -50,11 +41,11 @@
 
 					<ion-item>
 						<ion-label>Female</ion-label>
-						<ion-radio value="0"></ion-radio>
+						<ion-radio value="0" (ionSelect)="selectGender(0)"></ion-radio>
 					</ion-item>
 					<ion-item>
 						<ion-label>Male</ion-label>
-						<ion-radio value="1"></ion-radio>
+						<ion-radio value="1" (ionSelect)="selectGender(0)"></ion-radio>
 					</ion-item>
 				</ion-list>
 		
@@ -64,7 +55,7 @@
 				</ion-item>
 			</ion-list>
 			<ion-item>
-				<button type="submit" ion-button block>
+				<button type="submit" ion-button block style="background-color:rgba(255,127,0,0.7);height: 30px;font-size: 16px;border-radius: 20px">
 					Submit Changes
 				</button>
 			</ion-item>

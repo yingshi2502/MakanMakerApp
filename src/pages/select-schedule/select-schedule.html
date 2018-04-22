@@ -17,15 +17,17 @@
 <ion-list text-wrap>
 	<ion-list-header><ion-icon name="calendar" item-start></ion-icon>Select Schedule</ion-list-header>
 	<ion-item *ngFor="let cartWrapper of cartWrappers; let i = index" icon-start>	
-		<ion-label>{{cartWrapper.mealKit.name}} <p> Qty:{{cartWrapper.mealKit.quantity}}</ion-label>
+		<ion-label>{{cartWrapper.cartItem.mk.name}} <p> Qty:{{cartWrapper.cartItem.quantity}}</ion-label>
 		<ion-label>Delivery Date</ion-label>
-		<ion-datetime name="date" displayFormat="DD MM YYYY" [(ngModel)]="cartWrapper.deliveryDate"></ion-datetime>
+		
+
+		<ion-datetime name="date" displayFormat="DD MM YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="cartWrapper.deliveryDate" required="true" min="2018-04-23"></ion-datetime>
 	</ion-item>
 	<br />
 	<br />
 	<ion-list-header><ion-icon name="chatboxes" item-start></ion-icon>Special Request</ion-list-header>
 	<ion-item *ngFor="let cartWrapper of cartWrappers; let i = index" icon-start>	
-		<ion-label>{{cartWrapper.mealKit.name}}</ion-label>
+		<ion-label>{{cartWrapper.cartItem.mk.name}}</ion-label>
 		<ion-input name="request" type="text" [(ngModel)]="cartWrapper.specialRequest"></ion-input>
 	</ion-item>
 	<!--<ion-item>	
@@ -35,7 +37,7 @@
         <ion-datetime displayFormat="hh A DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>
 	</ion-item>-->
 </ion-list>
-<button ion-button (click)="doAlert()">Confirm</button>
+<button ion-button (click)="createOrder()">Confirm</button>
 <button ion-button round (click)="goToProfile($event)" [disabled]="!isEnabled">Go to my Profile</button>
 	
 </ion-content>

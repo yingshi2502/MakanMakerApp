@@ -22,25 +22,14 @@
 			<ion-label>{{address.postalCode}}</ion-label>
 			<ion-radio (ionSelect)="select(i)"></ion-radio>
 		</ion-item>
-	    <!--<ion-item>
-			<ion-label>Siglap</ion-label>
-			<ion-radio checked></ion-radio>
-		  </ion-item>
-		  <ion-item>
-			<ion-label>PGP</ion-label>
-			<ion-radio ></ion-radio>
-		  </ion-item>
-		  <ion-item>
-			<ion-label>UTown</ion-label>
-			<ion-radio ></ion-radio>
-		  </ion-item>-->
 	</ion-list>
 	
 </form>
 
-<p>Order will be delivered to: {{selectedAddress.postalCode}}</p>
+<p>DEFAULT: Order will be delivered to: {{selectedAddress.postalCode}} </p>
 <ion-item>
-	<ion-label>Price: ${{totalPrice}}</ion-label>
+	<ion-label>Shipping Fee: ${{selectedAddress.shippingFee}}</ion-label>
+	<ion-label>Total Price: ${{totalPrice}}</ion-label>
 </ion-item>
 <button ion-button round (click)="selectPayment($event)">Select Payment Method</button>
 </ion-content>

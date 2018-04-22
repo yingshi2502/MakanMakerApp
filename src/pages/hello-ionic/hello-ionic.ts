@@ -63,6 +63,25 @@ export class HelloIonicPage {
 		this.infoMessage = "";
 	}
 	
+	logout()
+	{
+
+		this.isLogin = false;
+		sessionStorage.setItem("customerId", null);
+		sessionStorage.setItem("fullName", null);
+		sessionStorage.setItem("isLogin", "false");
+			
+		let toast = this.toastCtrl.create(
+			{
+				message: 'Thank you for using MakanMaker. We hope to see you again soon!',
+				cssClass: 'toast',
+				duration: 3000
+			});
+				
+			toast.present();			
+			
+			
+	}	
 	
 	login(loginIonicForm: NgForm)
 	{

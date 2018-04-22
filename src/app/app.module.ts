@@ -19,6 +19,7 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
 import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
 import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
 import { EditAddressPage } from '../pages/edit-address/edit-address';
@@ -27,7 +28,32 @@ import { ChooseShippingAddressPage } from '../pages/choose-shipping-address/choo
 import { ChooseBillingAddressPage } from '../pages/choose-billing-address/choose-billing-address';
 import { MyOrdersPage } from '../pages/my-orders/my-orders';
 import { ViewOrderDetailsPage } from '../pages/view-order-details/view-order-details';
+=======
+<<<<<<< HEAD
+=======
 
+
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
+
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+import { SignupPage } from '../pages/signup/signup';
+
+<<<<<<< HEAD
+=======
+
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+import { SignupPage } from '../pages/signup/signup';
+>>>>>>> c004b97ea2272e482e1df9f469fecc653bbe1ac4
+
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CustomerProvider } from '../providers/customer/customer';
@@ -54,6 +80,7 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
@@ -62,6 +89,32 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	ChooseBillingAddressPage,
 	MyOrdersPage,
 	ViewOrderDetailsPage 
+=======
+<<<<<<< HEAD
+	SignupPage,
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+=======
+
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+
+  SignupPage,
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+	SignupPage
+
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
+>>>>>>> c004b97ea2272e482e1df9f469fecc653bbe1ac4
   ],
   imports: [
     BrowserModule,
@@ -80,22 +133,41 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	MyProfilePage,
 	SelectAddressPage,
 	SelectSchedulePage,
-	PaymentPage,
-	ShoppingCartPage,
-	MyProfilePage,
 	ViewAllMealKitsPage,
 	ViewMealKitDetailsPage,
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
+>>>>>>> c004b97ea2272e482e1df9f469fecc653bbe1ac4
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
 	SignupPage,
+<<<<<<< HEAD
     ChooseShippingAddressPage,
 	ChooseBillingAddressPage,
 	MyOrdersPage,
 	ViewOrderDetailsPage 
+=======
+<<<<<<< HEAD
+=======
+
+
+
+	MyAddressBookPage,
+	CreateNewAddressPage,
+	EditAddressPage,
+	SignupPage
+
+>>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
+>>>>>>> c004b97ea2272e482e1df9f469fecc653bbe1ac4
   ],
   providers: [
     StatusBar,

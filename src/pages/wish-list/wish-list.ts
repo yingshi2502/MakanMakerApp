@@ -28,6 +28,7 @@ export class WishListPage {
 	customer: Customer;
 	mealKitIdInString: string='';
 	customerIdString: string;
+	nothing:boolean=false;
 	
 	constructor(public navCtrl: NavController, 
 			public navParams: NavParams, 
@@ -35,7 +36,6 @@ export class WishListPage {
 			public customerProvider: CustomerProvider,
 			public shoppingCartProvider: ShoppingCartProvider,
 			public mealKitProvider: MealKitProvider) {
-			
 			let customerIdInString: string = sessionStorage.getItem("customerId");
 			this.customerId = customerIdInString; 
 
@@ -47,10 +47,14 @@ export class WishListPage {
   
   
 	ionViewDidEnter() {
-		console.log('ionViewDidEnter ViewAllMealKitsPage');
+		console.log('ionViewDidEnter ViewAll-WishList-Page');
 		this.shoppingCartProvider.retrieveWishListByCustomerId(this.customerId).subscribe(
 			response => {
-				this.mealKits = response.mealKits
+				this.mealKits = response.mealKits;
+				if (Object.keys(this.mealKits).length == 0){
+					this.nothing = true;
+					console.log("nothing");
+				}
 			},
 			error => {				
 				this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
@@ -81,9 +85,9 @@ export class WishListPage {
 
 	  }	
 
-	 doRemove(mealKit) {
+	 doRemove(mealKit,i:number) {
 		this.mealKitIdInString = '' + mealKit.mealKitId.toString();  
-		this.shoppingCartProvider.deleteWishList(this.customerId, this.mealKitIdInString, "1").subscribe(
+		this.shoppingCartProvider.deleteWishList(this.customerId, this.mealKitIdInString).subscribe(
 			response => {						
 				this.infoMessage = "Added to shopping cart successfully";
 				this.errorMessage = null;
@@ -99,8 +103,9 @@ export class WishListPage {
 		  subTitle: 'Item has been removed from Wishlist successfully!',
 		  buttons: ['OK']
 		}); 
-		alert.present();		
-
+		alert.present();	
+		console.log(i);	
+		this.mealKits.splice(i,1);
 	  }		  
 	  
 	  

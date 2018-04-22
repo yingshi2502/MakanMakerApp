@@ -5,6 +5,7 @@ import { ActionSheetController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
 import { NavController, NavParams } from 'ionic-angular';
+import { Address } from '../../entities/address';
 
 import { AddressProvider } from '../../providers/address/address';
 

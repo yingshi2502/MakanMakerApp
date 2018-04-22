@@ -1,5 +1,5 @@
-//import { Customer } from './customer'
-//import { Order } from './order'
+import { Customer } from './customer'
+import { Order } from './order'
 
 export class Address
 {
@@ -12,8 +12,8 @@ export class Address
 	phoneNumber: string;
 	fullName: string;
 	isDeleted: boolean;
-	//customer: Customer;
+	customer: Customer;
 	shippingFee: number;
-	//orders: Order[];
+	orders: Order[];
 
 }

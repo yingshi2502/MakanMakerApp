@@ -146,7 +146,6 @@ export class AddressProvider {
 		{
 			path = this.fullBaseUrl;
 		}
-		
 		path = path + "/update" + "?customerId=" + customerId + "&addressId=" + addressId + this.updateParam;
 		console.log('updateAddress Address Provider: Sending in path: ' + path);
 

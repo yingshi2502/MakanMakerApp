@@ -29,7 +29,7 @@
 	</div>	
 
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title class="labelbg-green">
         {{mealKit.name}}
       </ion-card-title>
       <p>
@@ -41,13 +41,13 @@
       <ion-col>
         <button ion-button clear small color="blue" (click)="doWishListAlert(mealKit)" icon-start>
           <ion-icon name='star'></ion-icon>
-          Add to Wishlist
+          Like
         </button>
       </ion-col>
       <ion-col text-center>
         <button ion-button clear small color="blue" (click)="viewMealKitDetails($event, mealKit)" icon-start>
           <ion-icon name='glasses'></ion-icon>
-          View Details
+          Details
         </button>
       </ion-col>
       <ion-col text-right>

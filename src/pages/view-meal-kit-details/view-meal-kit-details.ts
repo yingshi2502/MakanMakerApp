@@ -101,5 +101,7 @@ export class ViewMealKitDetailsPage {
       buttons: ['OK']
     });
     alert.present();
+    this.navCtrl.pop();
+   	console.log('Click on button Test Console Log');
   }
 }

@@ -18,14 +18,21 @@
 
 
 <ion-content padding>
-   <ion-card *ngFor="let mealKit of mealKits">
+
+  <div *ngIf = "(nothing)">
+      <img src="http://bossbrandsretail.com/front_store/images/store/wishlist-empty.jpg" />
+  </div>
+
+  <ion-card *ngFor="let mealKit of mealKits;let i = index">
+
+
 
 	<div *ngIf = "(mealKit.imagePath)?.charAt(0) == '.'">		
-		<img src = "assets/imgs/{{(mealKit.imagePath)?.substring(9)}}"/>
+		<img src = "assets/imgs/{{(mealKit.imagePath)?.substring(9)}}" style="height: 300px"/>
 	</div>
 	
 	<div *ngIf = "(mealKit.imagePath)?.charAt(0) != '.'">		
-		<img src = "(mealKit.imagePath)"/>
+		<img src = "{{(mealKit.imagePath)}}" style="height: 300px" />
 	</div>	
 
     <ion-card-content>
@@ -41,19 +48,19 @@
       <ion-col>
         <button ion-button clear small color="blue"  (click)="viewMealKitDetails($event, mealKit)"  icon-start>
           <ion-icon name='glasses'></ion-icon>
-          View Details
+          Details
         </button>
       </ion-col>
-      <ion-col text-right>
+      <ion-col text-center>
         <button ion-button clear small color="blue" icon-start (click)="doAlert(mealKit)">
           <ion-icon name='cart'></ion-icon>
           Add to Cart
         </button>
       </ion-col>
 	  <ion-col text-right>
-        <button ion-button clear small color="blue" icon-start (click)="doRemove(mealKit)">
+        <button ion-button clear small color="blue" icon-start (click)="doRemove(mealKit,i)">
           <ion-icon name='close-circle'></ion-icon>
-          Remove from Wishlist
+          Remove
         </button>
       </ion-col>
     </ion-row>

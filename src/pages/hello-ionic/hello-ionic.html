@@ -3,42 +3,54 @@
     <button ion-button menuToggle *ngIf="isLogin">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>MakanMaker</ion-title>
+    <ion-title text-center>MakanMaker</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-
-	<div *ngIf="!isLogin">
+<ion-content padding style="background-image: url(assets/imgs/bg.png);">
 	
-		<h3>Login</h3>
+	<ion-row class="logo-row" style="margin-top: 20px;">
+    
+    <ion-col style="text-align: center;">
+      <img src="assets/imgs/logo_yellow.png" style="height: 200px;border-radius: 150px" />
+    </ion-col>
+    
+  </ion-row>
+  <ion-row>
+    <ion-col style="text-align: center;">
+      <img src="assets/imgs/moto.png" style="width: 200px" />
+  </ion-col>
+  </ion-row>
+  	
+	<div *ngIf="!isLogin">
 		
+<<<<<<< HEAD
 		<form #loginIonicForm="ngForm" (ngSubmit)="login(loginIonicForm)" >
+=======
+		
+		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" style="margin-top: 20px">
+>>>>>>> c004b97ea2272e482e1df9f469fecc653bbe1ac4
 		
 			<div>
 			
 				<div *ngIf="inusername.invalid && (inusername.dirty || inusername.touched || submitted)" class="errorText">
-					<div *ngIf="inusername.errors.required">
+					<div *ngIf="inusername.errors.required" style=" font-weight: lighter;
+                padding: 6px 6px; 
+                display: inline-block; 
+                border-radius: 10px; 
+                background-color: rgba(249,39,19,0.39); ">
 						Username is required.
-					</div>
-					<div *ngIf="inusername.errors.minlength">
-						Username must be at least 4 characters long.
-					</div>
-					<div *ngIf="inusername.errors.maxlength">
-						Username cannot exceed 32 characters.
 					</div>
 				</div>
 				
 				<div *ngIf="inpassword.invalid && (inpassword.dirty || inpassword.touched || submitted)" class="errorText">
-					<div *ngIf="inpassword.errors.required">
+					<div *ngIf="inpassword.errors.required" style=" font-weight: lighter;
+                padding: 6px 6px; 
+                display: inline-block; 
+                border-radius: 10px; 
+                background-color: rgba(249,39,19,0.39); ">
 						Password is required.
-					</div>
-					<div *ngIf="inpassword.errors.minlength">
-						Password must be at least 4 characters long.
-					</div>
-					<div *ngIf="inpassword.errors.maxlength">
-						Password cannot exceed 32 characters.
 					</div>
 				</div>
 				
@@ -48,41 +60,43 @@
 				
 			</div>
 
-			<ion-list>
+			<ion-list style="border: 1px solid rgba(255,127,0,0.7); border-radius: 10px">
 
-				<ion-item>
-					<ion-label fixed>Username</ion-label>
+				<ion-item style="background: none">
+					<ion-label fixed style="font-weight:bold;border: 0 solid;border-right-width: 2px;">Username</ion-label>
 					<ion-input type="text" id="username" name="username" [(ngModel)]="username" minlength="4" maxlength="32" required="true" #inusername="ngModel"></ion-input>
 				</ion-item>
 
-				<ion-item>
-					<ion-label fixed>Password</ion-label>
+				<ion-item style="background: none">
+					<ion-label fixed style="font-weight:bold;border: 0 solid;border-right-width: 2px;">Password</ion-label>
 					<ion-input type="password" id="password" name="password" [(ngModel)]="password" minlength="4" maxlength="32" required="true" #inpassword="ngModel"></ion-input>
 				</ion-item>
 				
-				<ion-item>
-					<button type="submit" ion-button block>
+			</ion-list>
+			<ion-item style="background: none; border:none !important">
+					<button type="submit" ion-button block style="background-color:rgba(255,127,0,0.7);height: 50px;font-size: 16px;border-radius: 20px">
 						Login
 					</button>
-					<button ion-button block (click)="clear()">
+					<br />
+					<button ion-button outline block (click)="clear()" style="border-radius: 20px;border-color: rgba(255,127,0,1); color:rgba(255,127,0,1)">
 						Clear
 					</button>
-					
-				</ion-item>
-
-			</ion-list>
-			
+			</ion-item>
 		</form>
-		<button (click)="toSignUp($event)">
+		<br />
+		Don't have Account yet?
+		<button ion-button small color="light" style="" (click)="toSignUp($event)">
 			Sign Up
 		</button>
 	</div>
-	
-	<div *ngIf="isLogin">
-	
-		<h3>Welcome Back!</h3>
-	
-		You are login as {{fullName}}
+	<br /><br />
+	<div *ngIf="isLogin" style="text-align: center;color:rgba(255,127,0,1)">
+		<ion-badge style="height: 40px;width:300px;font-size: 30px;position: relative; background: rgba(255,127,0,0.5); text-align: center">~Welcome Back~🍻</ion-badge>
+		<h3 ></h3>
+		<h4>You are login as {{fullName}}</h4>
 		
+		<button  ion-button block style="background-color:rgba(255,127,0,0.7);height: 30px;font-size: 16px;border-radius: 20px" (click)="logout()">
+			Logout
+		</button>
 	</div>
 </ion-content>

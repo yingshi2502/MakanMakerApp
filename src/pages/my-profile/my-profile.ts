@@ -61,6 +61,11 @@ export class MyProfilePage {
 				this.dateOfBirth = this.customer.dateOfBirth;
 				this.email = this.customer.email;
 				this.mobile = this.customer.mobile;
+				if (this.customer.gender==1){
+					this.gender = "female"
+				}else{
+					this.gender = "male"
+				}
 				console.log('ionViewWillEnter response MyProfilePage');
 				this.infoMessage = "Upon Load, Customer profile loaded successfully: " + response.message + ", result is: "+ response.result;								
 			},
