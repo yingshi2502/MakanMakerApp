@@ -44,7 +44,7 @@ export class CheckoutProvider {
 			path = this.fullBaseUrl;
 		}
 	
-		return this.httpClient.post<any>(path + "/create?customerId="+customerId+"&deliveryDate="+deliveryDate+"&mealKitId="+mealKitId+"&specialRequest="+specialRequest+"&qty="+qty+"&addressId="+addressId).pipe
+		return this.httpClient.get<any>(path + "/create?customerId="+customerId+"&deliveryDate="+deliveryDate+"&mealKitId="+mealKitId+"&specialRequest="+specialRequest+"&qty="+qty+"&addressId="+addressId).pipe
 		(
 			catchError(this.handleError)
 		);	

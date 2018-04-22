@@ -5,6 +5,10 @@ import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
 import { MyProfilePage } from '../my-profile/my-profile';
 import { AlertController } from 'ionic-angular';
+//import { Moment } as moment from 'moment';
+
+import { CheckoutProvider } from '../../providers/checkout/checkout';
+import { Order } from '../../entities/order'
 /**
  * Generated class for the SelectSchedulePage page.
  *
@@ -17,6 +21,7 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'select-schedule.html',
 })
 export class SelectSchedulePage {
+	customerId: number;
 	mealKits = [];
 	cartWrappers=[];
 	//deliveryDate;
@@ -25,11 +30,15 @@ export class SelectSchedulePage {
 	errorMessage: string;
 	infoMessage: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+  public alertCtrl: AlertController, public checkoutProvider: CheckoutProvider,) {
+	  let today = new Date().toString();
+	  let customerIdInString: string = sessionStorage.getItem("customerId");
+	  this.customerId = Number(customerIdInString);
 	  this.mealKits = navParams.get('param1');
 	  this.selectedAddress = navParams.get('param2');
 	  for (let mealKit of this.mealKits){
-		  let cartWrapper = {mealKit, deliveryDate: new Date().toISOString(), specialRequest:""};
+		  let cartWrapper = {mealKit, deliveryDate: today, specialRequest:""};
 		  this.cartWrappers.push(cartWrapper);
 	  }
   }
@@ -41,13 +50,15 @@ export class SelectSchedulePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectSchedulePage');
+	console.log("customer"+this.customerId);
+	console.log("date"+this.cartWrappers[0].deliveryDate);
 	console.log("selected postalCode"+this.selectedAddress.postalCode);
 	console.log("mealkits size"+Object.keys(this.mealKits).length);
 	console.log("cart wrapper size"+Object.keys(this.cartWrappers).length);
 
   }
 	
-	doAlert() {
+	/*doAlert() {
 		let alert = this.alertCtrl.create({
 		  title: 'Your order has been prepared! Enjoy the comfort of MakanMaker at home!',
 		  buttons: ['Ok']
@@ -57,6 +68,24 @@ export class SelectSchedulePage {
 		console.log("specialRequest"+this.cartWrappers[0].specialRequest);
 		
 		alert.present();
+	  }*/
+	  
+	  createOrder(){
+		  for (let cartWrapper of this.cartWrappers){
+			  //cartWrapper.deliveryDate = moment().format('DDMMYYYY');
+			  console.log("date"+cartWrapper.deliveryDate);
+			  this.checkoutProvider.createOrder(this.customerId, cartWrapper.deliveryDate, cartWrapper.mealKit.mealKitId, cartWrapper.specialRequest, cartWrapper.mealKit.quantity, this.selectedAddress.addressId).subscribe(
+				response => {					
+						this.infoMessage = "New order " + response.message;
+						console.log(this.infoMessage);
+						this.isEnabled=true;
+					},
+					error => {
+						this.errorMessage = "HTTP " + error.status + ": " + error.error.message;
+						console.log(this.errorMessage);
+					}
+			  );
+		  }
 	  }
 	  
 	  goToProfile(event){
