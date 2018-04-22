@@ -19,6 +19,7 @@ import { ViewMealKitDetailsPage } from '../pages/view-meal-kit-details/view-meal
 import { CategoriesPage } from '../pages/categories/categories';
 import { WishListPage } from '../pages/wish-list/wish-list';
 import { ProfileDetailsPage } from '../pages/profile-details/profile-details';
+<<<<<<< HEAD
 
 
 
@@ -28,6 +29,13 @@ import { CreateNewAddressPage } from '../pages/create-new-address/create-new-add
 import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { SignupPage } from '../pages/signup/signup';
 
+=======
+import { MyAddressBookPage } from '../pages/my-address-book/my-address-book';
+import { CreateNewAddressPage } from '../pages/create-new-address/create-new-address';
+import { EditAddressPage } from '../pages/edit-address/edit-address';
+import { SignupPage } from '../pages/signup/signup';
+
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,6 +63,7 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
 
 
 	MyAddressBookPage,
@@ -63,12 +72,17 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 
   SignupPage,
 
+=======
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,
 	SignupPage
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
   ],
   imports: [
     BrowserModule,
@@ -87,14 +101,12 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	MyProfilePage,
 	SelectAddressPage,
 	SelectSchedulePage,
-	PaymentPage,
-	ShoppingCartPage,
-	MyProfilePage,
 	ViewAllMealKitsPage,
 	ViewMealKitDetailsPage,
 	CategoriesPage,
 	WishListPage,
 	ProfileDetailsPage,
+<<<<<<< HEAD
 
 
 	MyAddressBookPage,
@@ -102,6 +114,8 @@ import { WishListProvider } from '../providers/wish-list/wish-list';
 	EditAddressPage,
 	SignupPage,
 
+=======
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 	MyAddressBookPage,
 	CreateNewAddressPage,
 	EditAddressPage,

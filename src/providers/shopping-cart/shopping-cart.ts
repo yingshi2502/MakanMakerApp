@@ -11,7 +11,7 @@ import { Platform } from 'ionic-angular';
   and Angular DI.
 */
 const httpOptions = {
-	headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
+	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
@@ -72,7 +72,6 @@ export class ShoppingCartProvider {
 			catchError(this.handleError) 
 		);
 	}  
-	
 	
 	
 	addItem(customerId: string, mealKitId: string, qty: string): Observable<any>

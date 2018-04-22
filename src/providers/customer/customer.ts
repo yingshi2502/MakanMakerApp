@@ -106,6 +106,14 @@ export class CustomerProvider {
 		}
 		console.log('***path'+ path+' '+this.updatedParam)
 		console.log('updateCustomer: this.username = ' + this.username + ', this.password = ' + this.password);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
+
+=======
+<<<<<<< HEAD
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 
 		return this.httpClient.post<any>(path + this.loginCredential + this.updatedParam,httpOptions).pipe
 
@@ -125,7 +133,12 @@ export class CustomerProvider {
 		/* this.httpClient.post<any>(path + this.loginCredential + this.updatedParam).pipe
 		return this.httpClient.post<any>(path + this.updatedParam).pipe*/
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4437657d2edccfbf2750fe38d13aff90a41d7c9
+>>>>>>> e309ce750ee54dd08648857e29bfb6a6e2cfe79b
+>>>>>>> f3bf2b2ec45e21a0156e7e62eea3bae516c95a4c
 		(
 			catchError(this.handleError)
 		);

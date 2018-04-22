@@ -16,35 +16,40 @@
 </ion-header>
 
 <ion-content padding>
-	<div *ngIf="errorMessage" class="errorText">
-		{{errorMessage}}
-	</div>
-		
-	<div *ngIf="infoMessage" class="infoText">
-		{{infoMessage}}
-	</div>
 
 	<div *ngIf="addresses">
 		<div *ngFor="let address of addresses">
-			<ion-list *ngIf="(address)?.isDefaultShipping">
-		
-				<ion-list-header>
+			
+				<ion-item style=" overflow: initial;">
+				<ion-badge style="height: 30px;font-size: 20px;position: relative;">
 					Default Shipping Address
-				</ion-list-header>
+				</ion-badge>
+			</ion-item>
+			
+			<ion-list *ngIf="(address)?.isDefaultShipping" style="border: 1px solid">
+		
 				
 				<ion-item>
 					<ion-label>
-						<b>Street Address:</b> 
+						Street Address:
 					</ion-label>
 					<ion-note item-end>
 						<p>{{address.streetAddress}}</p>
 						<p>{{address.floorUnit}}</p>
-						<p>{{address.postalCode}}</p>
 					</ion-note>
-				</ion-item>			
+				</ion-item>
+				<ion-item>
+					<ion-label>
+						Postal Code:
+					</ion-label>
+					<ion-note item-end>
+						
+						<p>Singapore[{{address.postalCode}}]</p>
+					</ion-note>
+				</ion-item>				
 				<ion-item>
 				<ion-label>
-					<b>Addressee:</b>
+					Addressee:
 				</ion-label>
 				<ion-note item-end>
 					<p>{{address.fullName}}</p>
@@ -53,7 +58,7 @@
 
 			<ion-item>
 				<ion-label>
-					<b>Contact No.:</b>
+					Contact No.:
 				</ion-label>
 				<ion-note item-end>
 					<p>{{address.phoneNumber}}</p>
@@ -62,50 +67,14 @@
 
 		</ion-list>
 
-		<ion-list *ngIf="(address)?.isDefaultBilling">
 		
-			<ion-list-header>
-					Default Billing Address
-				</ion-list-header>
-				
-				<ion-item>
-					<ion-label>
-						<b>Street Address:</b> 
-					</ion-label>
-					<ion-note item-end>
-						<p>{{address.streetAddress}}</p>
-						<p>{{address.floorUnit}}</p>
-						<p>{{address.postalCode}}</p>
-					</ion-note>
-				</ion-item>			
-				<ion-item>
-				<ion-label>
-					<b>Addressee:</b>
-				</ion-label>
-				<ion-note item-end>
-					<p>{{address.fullName}}</p>
-				</ion-note>
-			</ion-item>
-
-			<ion-item>
-				<ion-label>
-					<b>Contact No.:</b>
-				</ion-label>
-				<ion-note item-end>
-					<p>{{address.phoneNumber}}</p>
-				</ion-note>
-			</ion-item>
-		</ion-list>
-
-		
-		<ion-list *ngIf="!(address)?.isDefaultShipping && !(address)?.isDefaultShipping && !(address)?.isDeleted">
-		
+		<ion-list *ngIf="!(address)?.isDefaultShipping" style="border: 1px solid">
 			<ion-list-header>
 				Other Addresses
 			</ion-list-header>
 			<ion-item>
 				<ion-label>
-						<b>Street Address:</b> 
+					<b>Street Address:</b> 
 				</ion-label>
 				<ion-note item-end>
 					<p>{{address.streetAddress}}</p>

@@ -4,6 +4,7 @@ import { SelectSchedulePage } from '../select-schedule/select-schedule';
 import { AlertController } from 'ionic-angular';
 import { SelectAddressPage } from '../select-address/select-address';
 import { ShoppingCartPage } from '../shopping-cart/shopping-cart';
+import { CartItem } from '../../entities/cartItem';
 
 /**
  * Generated class for the PaymentPage page.
@@ -21,14 +22,15 @@ export class PaymentPage {
  public ppButtonsClicked: boolean = false;
  public ccButtonsClicked: boolean = false;
  public codButtonsClicked: boolean = false;
- mealKits=[];
- totalPrice=0;
+ cartItems: CartItem[];
+ totalPrice: number;
  isEnabled=false;
  selectedAddress: Object = {};
  //selectedPayment;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-	  this.mealKits = navParams.get('param1');
+	  this.cartItems = navParams.get('param1');
 	  this.selectedAddress = navParams.get('param2');
+	  this.totalPrice = navParams.get('param3');
 	this.paymentMethods = [
 	{ 'name': 'PayPal',
 	  'icon': 'pricetag'
@@ -40,19 +42,16 @@ export class PaymentPage {
 	  'icon': 'cash'
 	}
 	]
-	for (let mealKit of this.mealKits){
-			this.totalPrice+=mealKit.price*mealKit.quantity;
-		}
-	}
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PaymentPage');
 	//console.log("selected postalCode"+this.selectedAddress.postalCode);
-	console.log("mealkits size"+Object.keys(this.mealKits).length);
+	console.log("cartItems size"+Object.keys(this.cartItems).length);
 	
   }
   selectSchedule(event){
-	  this.navCtrl.push(SelectSchedulePage, {param1:this.mealKits, param2: this.selectedAddress});
+	  this.navCtrl.push(SelectSchedulePage, {param1:this.cartItems, param2: this.selectedAddress});
   }
   
   public onButtonClick(index) {
