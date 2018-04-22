@@ -81,28 +81,13 @@ export class MyApp {
 	  { title: 'My Profile', component: MyProfilePage },
 	  { title: 'My Address Book', component: MyAddressBookPage },
 	  { title: 'My Shopping Cart', component: ShoppingCartPage },
-<<<<<<< HEAD
-	  { title: 'Wish List', component: WishListPage }
-=======
 	  { title: 'Wish List', component: WishListPage },
-	  
-
-
-
-
-
 	  { title: 'My Shopping Cart', component: ShoppingCartPage }
-	  
-
->>>>>>> 2572e05e793c751773d41ddc86ce7c2c85ed3793
->>>>>>> c004b97ea2272e482e1df9f469fecc653bbe1ac4
     ];
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
